@@ -77,4 +77,4 @@ Tests
 License
 =======
 
-LGPL-3. Author: Abdo - https://edu-abdelrahman-ashraf.odoo.com
+LGPL-3. Author: Abdelrahman Ashraf - https://edu-abdelrahman-ashraf.odoo.com
