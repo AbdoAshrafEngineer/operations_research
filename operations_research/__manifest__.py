@@ -17,7 +17,7 @@ press Solve, review the proposal and apply it to your records.
 * Dashboard, tutorial video and interactive guided tours inside Odoo
 * English and Arabic (RTL)
 """,
-    'author': 'Abdo',
+    'author': 'Abdelrahman Ashraf',
     'website': 'https://edu-abdelrahman-ashraf.odoo.com',
     'license': 'LGPL-3',
     'images': ['static/description/banner.png'],
