@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="or_problem_constraint_view_form" model="ir.ui.view">
+        <field name="name">or.problem.constraint.form</field>
+        <field name="model">or.problem.constraint</field>
+        <field name="arch" type="xml">
+            <form string="Constraint">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h2><field name="name" placeholder="e.g. Machine hours"/></h2>
+                    </div>
+                    <field name="model_id" invisible="1"/>
+                    <field name="model_name" invisible="1"/>
+                    <field name="group_by_relation" invisible="1"/>
+                    <group>
+                        <group string="Sum of">
+                            <field name="coef_mode" widget="radio"/>
+                            <field name="coef_path" widget="field_selector" invisible="coef_mode != 'field'"
+                                   required="coef_mode == 'field'" options="{'model': 'model_name'}"/>
+                            <field name="domain" widget="domain" options="{'model': 'model_name'}"/>
+                        </group>
+                        <group string="Limit">
+                            <field name="operator"/>
+                            <field name="group_by_field_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="rhs_mode" widget="radio" invisible="not group_by_field_id"/>
+                            <field name="rhs_value" invisible="rhs_mode == 'group_field'"/>
+                            <field name="rhs_field_id" invisible="rhs_mode != 'group_field'"
+                                   required="rhs_mode == 'group_field'"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info mb-0" role="status">
+                        <field name="summary" readonly="1" class="fw-bold"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="or_problem_view_list" model="ir.ui.view">
+        <field name="name">or.problem.list</field>
+        <field name="model">or.problem</field>
+        <field name="arch" type="xml">
+            <list string="Optimization Problems">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="problem_type"/>
+                <field name="model_id"/>
+                <field name="parent_id" optional="show"/>
+                <field name="schedule_active" optional="hide" widget="boolean_toggle" readonly="1"/>
+                <field name="last_run_status" widget="badge" optional="show"
+                       decoration-success="last_run_status == 'optimal'"
+                       decoration-info="last_run_status == 'feasible'"
+                       decoration-danger="last_run_status in ('infeasible', 'unbounded', 'abnormal', 'model_invalid')"
+                       decoration-warning="last_run_status == 'not_solved'"/>
+                <field name="last_objective" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="or_problem_view_kanban" model="ir.ui.view">
+        <field name="name">or.problem.kanban</field>
+        <field name="model">or.problem</field>
+        <field name="arch" type="xml">
+            <kanban class="o_or_problem_kanban">
+                <field name="last_run_status"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex justify-content-between">
+                            <field name="name" class="fw-bold fs-5"/>
+                            <field name="problem_type" widget="badge"/>
+                        </div>
+                        <field name="model_id" class="text-muted"/>
+                        <div class="d-flex justify-content-between mt-2">
+                            <span><field name="run_count"/> runs</span>
+                            <field name="last_run_status" widget="badge"
+                                   decoration-success="last_run_status == 'optimal'"
+                                   decoration-danger="last_run_status in ('infeasible', 'unbounded')"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="or_problem_view_form" model="ir.ui.view">
+        <field name="name">or.problem.form</field>
+        <field name="model">or.problem</field>
+        <field name="arch" type="xml">
+            <form string="Optimization Problem">
+                <header>
+                    <button name="action_run" type="object" string="Solve" class="btn-primary"
+                            data-hotkey="s" groups="operations_research.group_or_user"/>
+                    <button name="action_queue" type="object" string="Solve in Background"
+                            groups="operations_research.group_or_user"/>
+                    <button name="action_create_scenario" type="object" string="New Scenario"
+                            groups="operations_research.group_or_designer"/>
+                    <button name="action_compare_scenarios" type="object" string="Compare Scenarios"
+                            invisible="not scenario_count and not parent_id"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_runs" type="object" class="oe_stat_button" icon="fa-cogs">
+                            <field name="run_count" widget="statinfo" string="Runs"/>
+                        </button>
+                        <button name="action_view_scenarios" type="object" class="oe_stat_button"
+                                icon="fa-code-fork" invisible="not scenario_count and not parent_id">
+                            <field name="scenario_count" widget="statinfo" string="Scenarios"/>
+                        </button>
+                        <button name="action_view_records" type="object" class="oe_stat_button"
+                                icon="fa-database" invisible="not model_id">
+                            <field name="record_count" widget="statinfo" string="Records"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <widget name="web_ribbon" title="Scenario" bg_color="text-bg-info" invisible="not parent_id or not active"/>
+                    <field name="active" invisible="1"/>
+                    <field name="is_scenario" invisible="1"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Weekly production mix"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="problem_type" readonly="parent_id"/>
+                            <field name="model_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="parent_id" invisible="not parent_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   options="{'no_create': True}"/>
+                            <field name="last_run_id" invisible="not last_run_id"/>
+                            <field name="last_run_status" invisible="not last_run_id"/>
+                            <field name="last_objective" invisible="not last_run_id"/>
+                        </group>
+                    </group>
+                    <field name="domain" widget="domain" options="{'model': 'model_name', 'in_dialog': True}"
+                           invisible="not model_name"/>
+                    <notebook>
+                        <page string="Decision &amp; Goal" name="lp_decision" invisible="problem_type != 'lp'">
+                            <group>
+                                <group string="Decision">
+                                    <field name="var_field_id" required="problem_type == 'lp'"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="var_type" widget="radio"/>
+                                </group>
+                                <group string="Goal">
+                                    <field name="objective_sense" widget="radio" options="{'horizontal': True}"/>
+                                    <field name="objective_path" widget="field_selector" options="{'model': 'model_name'}"
+                                           invisible="not model_name"/>
+                                </group>
+                                <group string="Bounds" invisible="var_type == 'binary'">
+                                    <field name="lb_field_id" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="lb_value" invisible="lb_field_id"/>
+                                    <field name="ub_field_id" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="ub_infinite" invisible="ub_field_id"/>
+                                    <field name="ub_value" invisible="ub_field_id or ub_infinite"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Constraints" name="lp_constraints" invisible="problem_type != 'lp'">
+                            <field name="constraint_ids" context="{'default_problem_id': id}">
+                                <list>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="summary"/>
+                                    <field name="active" widget="boolean_toggle"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Assignment" name="assignment" invisible="problem_type != 'assignment'">
+                            <group>
+                                <group string="Assign">
+                                    <field name="assign_field_id" required="problem_type == 'assignment'"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="assign_model_name" invisible="1"/>
+                                    <field name="assign_all"/>
+                                    <field name="assign_unassigned_penalty"
+                                           invisible="assign_all or objective_sense == 'max'"/>
+                                </group>
+                                <group string="Cost">
+                                    <field name="objective_sense" widget="radio" options="{'horizontal': True}"/>
+                                    <field name="assign_cost_mode" widget="radio"/>
+                                    <field name="assign_task_weight_field_id"
+                                           invisible="assign_cost_mode != 'product'"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="assign_resource_cost_field_id"
+                                           invisible="assign_cost_mode == 'constant'"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                </group>
+                                <group string="Capacity">
+                                    <field name="assign_task_load_field_id" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="assign_capacity_field_id" options="{'no_create': True, 'no_open': True}"/>
+                                </group>
+                                <group string="Matching">
+                                    <field name="assign_task_match_field_id" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="assign_resource_match_field_id" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="assign_mismatch_policy"
+                                           invisible="not assign_task_match_field_id"/>
+                                    <field name="assign_mismatch_penalty"
+                                           invisible="assign_mismatch_policy != 'penalty' or not assign_task_match_field_id"/>
+                                </group>
+                            </group>
+                            <label for="assign_domain" invisible="not assign_model_name"/>
+                            <field name="assign_domain" widget="domain" invisible="not assign_model_name"
+                                   options="{'model': 'assign_model_name', 'in_dialog': True}"/>
+                        </page>
+                        <page string="Solver" name="solver">
+                            <group>
+                                <group>
+                                    <field name="time_limit"/>
+                                    <field name="mip_gap"/>
+                                    <field name="num_workers"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Schedule" name="schedule">
+                            <group>
+                                <group>
+                                    <field name="schedule_active" widget="boolean_toggle"/>
+                                    <label for="schedule_interval_number" string="Every" invisible="not schedule_active"/>
+                                    <div class="o_row" invisible="not schedule_active">
+                                        <field name="schedule_interval_number"/>
+                                        <field name="schedule_interval_type"/>
+                                    </div>
+                                    <field name="schedule_next_date" invisible="not schedule_active"
+                                           required="schedule_active"/>
+                                </group>
+                                <group invisible="not schedule_active">
+                                    <field name="schedule_user_id" required="schedule_active"
+                                           options="{'no_create': True}"/>
+                                    <field name="schedule_auto_apply"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="description" placeholder="Business context, assumptions, owner..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="or_problem_view_search" model="ir.ui.view">
+        <field name="name">or.problem.search</field>
+        <field name="model">or.problem</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="model_id"/>
+                <filter name="base_problems" string="Base Problems" domain="[('parent_id', '=', False)]"/>
+                <filter name="scenarios" string="Scenarios" domain="[('parent_id', '!=', False)]"/>
+                <filter name="scheduled" string="Scheduled" domain="[('schedule_active', '=', True)]"/>
+                <separator/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter name="group_type" string="Problem Type" context="{'group_by': 'problem_type'}"/>
+                    <filter name="group_model" string="Model" context="{'group_by': 'model_id'}"/>
+                    <filter name="group_parent" string="Base Problem" context="{'group_by': 'parent_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="or_problem_action" model="ir.actions.act_window">
+        <field name="name">Optimization Problems</field>
+        <field name="res_model">or.problem</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{'search_default_base_problems': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first optimization problem</p>
+            <p>Pick any model, choose what the solver decides, the goal and the limits.
+               Solve, review the proposal, then apply it to your records.</p>
+        </field>
+    </record>
+</odoo>

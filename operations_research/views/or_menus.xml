@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="or_menu_root" name="Operations Research" sequence="60"
+              web_icon="operations_research,static/description/icon.png"
+              groups="operations_research.group_or_user"/>
+    <menuitem id="or_menu_problems" name="Problems" parent="or_menu_root" sequence="10"
+              action="or_problem_action"/>
+    <menuitem id="or_menu_runs" name="Runs" parent="or_menu_root" sequence="20"
+              action="or_run_action"/>
+    <menuitem id="or_menu_config" name="Configuration" parent="or_menu_root" sequence="90"
+              groups="operations_research.group_or_manager"/>
+    <menuitem id="or_menu_settings" name="Settings" parent="or_menu_config" sequence="10"
+              action="or_config_settings_action"/>
+</odoo>

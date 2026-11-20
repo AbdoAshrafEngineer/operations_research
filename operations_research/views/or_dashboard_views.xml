@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="or_dashboard_action" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">operations_research.dashboard</field>
+    </record>
+    <record id="or_tutorials_action" model="ir.actions.client">
+        <field name="name">Tutorials</field>
+        <field name="tag">operations_research.tutorials</field>
+    </record>
+    <menuitem id="or_menu_dashboard" name="Dashboard" parent="operations_research.or_menu_root" sequence="1"
+              action="or_dashboard_action"/>
+    <menuitem id="or_menu_tutorials" name="Tutorials" parent="operations_research.or_menu_root" sequence="80"
+              action="or_tutorials_action"/>
+
+    <!-- "Help" shortcut on the main forms -->
+    <record id="or_problem_view_form_help" model="ir.ui.view">
+        <field name="name">or.problem.form.help</field>
+        <field name="model">or.problem</field>
+        <field name="inherit_id" ref="operations_research.or_problem_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(or_tutorials_action)d" type="action" string="Help" icon="fa-graduation-cap"
+                        class="btn-link ms-auto o_or_help_button"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="or_run_view_form_help" model="ir.ui.view">
+        <field name="name">or.run.form.help</field>
+        <field name="model">or.run</field>
+        <field name="inherit_id" ref="operations_research.or_run_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/field[@name='state']" position="before">
+                <button name="%(or_tutorials_action)d" type="action" string="Help" icon="fa-graduation-cap"
+                        class="btn-link o_or_help_button"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

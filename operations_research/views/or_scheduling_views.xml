@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="or_problem_view_form_scheduling" model="ir.ui.view">
+        <field name="name">or.problem.form.scheduling</field>
+        <field name="model">or.problem</field>
+        <field name="inherit_id" ref="operations_research.or_problem_view_form"/>
+        <field name="arch" type="xml">
+            <page name="lp_decision" position="before">
+                <page string="Scheduling" name="scheduling" invisible="problem_type != 'scheduling'">
+                    <group>
+                        <group string="Tasks">
+                            <field name="sched_duration_field_id" required="problem_type == 'scheduling'"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="sched_duration_unit"/>
+                            <field name="sched_resource_field_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="sched_predecessor_field_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="sched_weight_field_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="sched_start_mode" widget="radio" options="{'horizontal': True}"/>
+                            <field name="sched_start_date" invisible="sched_start_mode != 'fixed'"
+                                   required="problem_type == 'scheduling' and sched_start_mode == 'fixed'"/>
+                            <field name="sched_release_field_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="sched_deadline_field_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="sched_deadline_mode" widget="radio" invisible="not sched_deadline_field_id"/>
+                        </group>
+                        <group string="Goal">
+                            <field name="sched_objective" widget="radio"/>
+                        </group>
+                        <group string="Write Results To">
+                            <field name="sched_start_field_id" required="problem_type == 'scheduling'"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="sched_end_field_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <record id="or_run_view_form_scheduling" model="ir.ui.view">
+        <field name="name">or.run.form.scheduling</field>
+        <field name="model">or.run</field>
+        <field name="inherit_id" ref="operations_research.or_run_view_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_open_gantt" type="object" class="oe_stat_button" icon="fa-tasks"
+                        string="Gantt" invisible="problem_type != 'scheduling' or not line_count"/>
+            </div>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='value_before']" position="before">
+                <field name="sched_start_before" column_invisible="parent.problem_type != 'scheduling'"/>
+                <field name="sched_start" column_invisible="parent.problem_type != 'scheduling'"/>
+                <field name="sched_end" column_invisible="parent.problem_type != 'scheduling'"/>
+                <field name="sched_late_minutes" column_invisible="parent.problem_type != 'scheduling'"
+                       decoration-danger="sched_late_minutes &gt; 0"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,3726 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-20 15:22+0000\n"
+"PO-Revision-Date: 2026-11-20 15:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid ""
+"%(count)s record(s) were changed or deleted since this run was solved: "
+"%(names)s. Run the problem again, or use Force Apply to overwrite."
+msgstr ""
+"%(count)s سجل/سجلات تم تعديلها أو حذفها منذ حل هذا التشغيل: %(names)s. أعد "
+"تشغيل المسألة، أو استخدم «تطبيق إجباري» للكتابة فوقها."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "%(name)s - Scenario %(number)s"
+msgstr "%(name)s - سيناريو %(number)s"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "%(task)s: predecessor %(pred)s is outside the problem and is ignored."
+msgstr "%(task)s: المهمة السابقة %(pred)s خارج المسألة وسيتم تجاهلها."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "%(vehicle)s: %(stops)s stop(s), %(km)s km"
+msgstr "%(vehicle)s: %(stops)s محطة، %(km)s كم"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "%s deleted record(s) skipped."
+msgstr "تم تخطي %s سجل/سجلات محذوفة."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "%s: delivery window already closed at departure."
+msgstr "%s: نافذة التسليم مغلقة بالفعل وقت الانطلاق."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"'Linear / Integer Program' answers 'how much?' questions. Other types: "
+"Assignment (who does what), Scheduling (when) and Vehicle Routing (which "
+"route)."
+msgstr ""
+"«برنامج خطي / صحيح» يجيب عن أسئلة «كم؟». الأنواع الأخرى: التعيين (من يفعل "
+"ماذا)، والجدولة (متى)، وتوجيه المركبات (أي مسار)."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"'New Scenario' copies the problem so you can change a limit (e.g. add an "
+"extra shift) without touching the original."
+msgstr ""
+"«سيناريو جديد» ينسخ المسألة لتغيّر حداً (مثل إضافة وردية إضافية) دون المساس "
+"بالأصل."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"'To Apply' counts answers that are ready but not yet written into your "
+"records. Click it to see them."
+msgstr ""
+"«بانتظار التطبيق» يعدّ الإجابات الجاهزة التي لم تُكتب بعد في سجلاتك. اضغط "
+"عليه لعرضها."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_routing_vehicle__max_distance_km
+msgid "0 = unlimited."
+msgstr "0 = بلا حد."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "1. Give it a name"
+msgstr "1. أعطها اسماً"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "10. Factory limits"
+msgstr "10. حدود المصنع"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "11. Time limit"
+msgstr "11. المهلة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "12. Solve"
+msgstr "12. الحل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "2. Type of question"
+msgstr "2. نوع السؤال"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "3. Which records?"
+msgstr "3. أي سجلات؟"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "4. Filter them (optional)"
+msgstr "4. صفِّها (اختياري)"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "5. What should be decided?"
+msgstr "5. ما الذي يجب تقريره؟"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "6. Kind of number"
+msgstr "6. نوع الرقم"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "7. Your goal"
+msgstr "7. هدفك"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "8. What to count"
+msgstr "8. ما الذي يُحتسب"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "9. Limits per record"
+msgstr "9. حدود لكل سجل"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid ""
+"<span invisible=\"solver_status != 'infeasible'\">No solution satisfies all constraints. See the Log and Conflicts tabs.</span>\n"
+"                    <span invisible=\"solver_status != 'unbounded'\">The goal can grow without limit: add a maximum or a constraint.</span>\n"
+"                    <span invisible=\"solver_status != 'not_solved'\">No solution was found within the time limit: raise the time limit.</span>"
+msgstr ""
+"<span invisible=\"solver_status != 'infeasible'\">لا يوجد حل يحقق جميع القيود. راجع تبويبي السجل والتعارضات.</span>\n"
+"                    <span invisible=\"solver_status != 'unbounded'\">يمكن أن يزيد الهدف بلا حد: أضف حداً أقصى أو قيداً.</span>\n"
+"                    <span invisible=\"solver_status != 'not_solved'\">لم يُعثر على حل ضمن المهلة: ارفع المهلة.</span>"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__operator__=
+msgid "= Exactly"
+msgstr "= يساوي تماماً"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"A 2-minute walk through the app: dashboard, problems, runs and who can do "
+"what."
+msgstr ""
+"جولة في دقيقتين داخل التطبيق: لوحة المعلومات والمسائل والتشغيلات ومن يفعل "
+"ماذا."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "A Yes/No decision field requires the variable type 'Yes / No (0-1)'."
+msgstr "حقل القرار من نوع نعم/لا يتطلب نوع المتغير «نعم / لا (0-1)»."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"A field on your records pointing to the resource, e.g. 'Assigned Line'. The "
+"resources are the records of that field."
+msgstr ""
+"حقل في سجلاتك يشير إلى المورد، مثل «الخط المعيّن». الموارد هي سجلات ذلك "
+"الحقل."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "A filter must be a list of conditions."
+msgstr "يجب أن يكون عامل التصفية قائمة من الشروط."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "A new problem"
+msgstr "مسألة جديدة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"A problem is a saved question, for example 'How much glass should we produce"
+" this week?'. You build it once and solve it again whenever your data "
+"changes."
+msgstr ""
+"المسألة سؤال محفوظ، مثل «كم يجب أن ننتج من الزجاج هذا الأسبوع؟». تبنيها مرة "
+"واحدة وتحلها مجدداً كلما تغيّرت بياناتك."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "A scenario cannot be based on another scenario."
+msgstr "لا يمكن بناء سيناريو على سيناريو آخر."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "A scenario must keep the problem type of its base problem."
+msgstr "يجب أن يحافظ السيناريو على نوع مسألته الأساسية."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__route_drop_penalty_km
+msgid "A skipped stop costs as much as driving this many km."
+msgstr "تكلفة المحطة المتخطاة تعادل قيادة هذا العدد من الكيلومترات."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "A solved run"
+msgstr "تشغيل محلول"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__mip_gap
+msgid "Accepted Gap (%)"
+msgstr "الفجوة المقبولة (%)"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_needaction
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__active
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__active
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Add at least one vehicle."
+msgstr "أضف مركبة واحدة على الأقل."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Add one line per limit with 'Add a line'. Example: machine hours used must "
+"be at most the machine capacity, one rule per machine. Each line is "
+"summarized in plain words."
+msgstr ""
+"أضف سطراً لكل حد عبر «إضافة سطر». مثال: ساعات الآلة المستخدمة يجب ألا تتجاوز"
+" سعة الآلة، قاعدة لكل آلة. يُلخَّص كل سطر بكلمات بسيطة."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_mismatch_policy__penalty
+msgid "Add penalty"
+msgstr "إضافة غرامة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "After solving, the Gantt button shows the plan per machine."
+msgstr "بعد الحل، يعرض زر «مخطط جانت» الخطة لكل آلة."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "After solving, the Map button draws the routes."
+msgstr "بعد الحل، يرسم زر «الخريطة» المسارات."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_allow_drop
+msgid "Allow Skipping Stops"
+msgstr "السماح بتخطي المحطات"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Answers waiting for you"
+msgstr "إجابات بانتظارك"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__applied
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Applied"
+msgstr "مطبَّق"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__applied_by_id
+msgid "Applied By"
+msgstr "طُبِّق بواسطة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__domain
+msgid "Applies To"
+msgstr "ينطبق على"
+
+#. module: operations_research
+#: model:res.groups,comment:operations_research.group_or_manager
+msgid "Applies results to records and manages settings."
+msgstr "يطبّق النتائج على السجلات ويدير الإعدادات."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Apply"
+msgstr "تطبيق"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_auto_apply
+msgid "Apply Automatically"
+msgstr "تطبيق تلقائي"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Apply automatically (Managers)"
+msgstr "التطبيق التلقائي (للمديرين)"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__schedule_auto_apply
+msgid ""
+"Apply results automatically when the solver proves optimality and no record "
+"changed since solving. The 'Run As' user must be an Optimization Manager."
+msgstr ""
+"تطبيق النتائج تلقائياً عندما يُثبت المحلِّل الأمثلية ولم يتغير أي سجل منذ "
+"الحل. يجب أن يكون مستخدم «التشغيل باسم» مدير تحسين."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__route_eta
+msgid "Arrival"
+msgstr "الوصول"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Assign"
+msgstr "تعيين"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_field_id
+msgid "Assigned Field"
+msgstr "الحقل المُعيَّن"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__assigned_res_id
+msgid "Assigned Resource ID"
+msgstr "معرّف المورد المُعيَّن"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__problem_type__assignment
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Assignment"
+msgstr "التعيين"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Assignment problems"
+msgstr "مسائل التعيين"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_attachment_count
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__auto_apply
+msgid "Auto Apply"
+msgstr "تطبيق تلقائي"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+#: code:addons/operations_research/static/src/tutorials/or_tutorials.xml:0
+msgid "Auto-play"
+msgstr "تشغيل تلقائي"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Automatic apply failed: %s"
+msgstr "فشل التطبيق التلقائي: %s"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form_routing
+msgid "Average Speed"
+msgstr "متوسط السرعة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_speed_kmh
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_route_speed_kmh
+msgid "Average Speed (km/h)"
+msgstr "متوسط السرعة (كم/ساعة)"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+msgid "Avg. Solve Time (s)"
+msgstr "متوسط زمن الحل (ثانية)"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Back"
+msgstr "رجوع"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_balance
+msgid "Balance Routes"
+msgstr "موازنة المسارات"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__parent_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run__base_problem_id
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Base Problem"
+msgstr "المسألة الأساسية"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+msgid "Base Problems"
+msgstr "المسائل الأساسية"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__best_bound
+msgid "Best Bound"
+msgstr "أفضل حد"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__is_binding
+msgid "Bottleneck"
+msgstr "عنق الزجاجة"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Bounds"
+msgstr "الحدود"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Build a 'How much?' problem"
+msgstr "ابنِ مسألة «كم؟»"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Business context, assumptions, owner..."
+msgstr "السياق التجاري، الافتراضات، المسؤول..."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "CPU threads used by integer solvers. Keep low on shared servers."
+msgstr ""
+"عدد أنوية المعالج التي تستخدمها محلِّلات الأعداد الصحيحة. اجعلها منخفضة على "
+"الخوادم المشتركة."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__cancelled
+msgid "Cancelled"
+msgstr "ملغى"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__capacity
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Capacity"
+msgstr "السعة"
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_routing_vehicle_capacity_positive
+msgid "Capacity cannot be negative."
+msgstr "لا يمكن أن تكون السعة سالبة."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__assign_task_load_field_id
+msgid "Capacity consumed by each record. Empty = 1 per record."
+msgstr "السعة التي يستهلكها كل سجل. فارغ = 1 لكل سجل."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Capacity of %s"
+msgstr "سعة %s"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__delta
+msgid "Change"
+msgstr "التغيير"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_run_constraint__dual_value
+msgid "Change of the objective per extra unit of limit (LP only)."
+msgstr "تغيّر قيمة الهدف لكل وحدة إضافية من الحد (البرمجة الخطية فقط)."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.xml:0
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__changed
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_line_view_search
+msgid "Changed"
+msgstr "تغيَّر"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__changed_count
+msgid "Changed Records"
+msgstr "السجلات المتغيرة"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Changes"
+msgstr "التغييرات"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid ""
+"Choose at least one field to write the routes to (vehicle, stop order or "
+"arrival time)."
+msgstr ""
+"اختر حقلاً واحداً على الأقل لكتابة المسارات (المركبة أو ترتيب المحطة أو وقت "
+"الوصول)."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Choose both match fields, or none."
+msgstr "اختر حقلي المطابقة معاً، أو لا تختر أياً منهما."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Choose the assigned field of problem %s."
+msgstr "اختر الحقل المُعيَّن للمسألة %s."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Choose the contact field giving each stop's location."
+msgstr "اختر حقل جهة الاتصال الذي يحدد موقع كل محطة."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Choose the date to plan from."
+msgstr "اختر تاريخ بدء التخطيط."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Choose the decision field of problem %s."
+msgstr "اختر حقل القرار للمسألة %s."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Choose the departure date."
+msgstr "اختر تاريخ الانطلاق."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Choose the depot."
+msgstr "اختر المستودع."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Choose the duration field of problem %s."
+msgstr "اختر حقل المدة للمسألة %s."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Choose the field receiving the planned start."
+msgstr "اختر الحقل الذي يستقبل البداية المخططة."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Choose the latitude and longitude fields."
+msgstr "اختر حقلي خط العرض وخط الطول."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Choose the record weight field."
+msgstr "اختر حقل وزن السجل."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Choose the records the answer is about, for example Products. Any model "
+"works, including your custom ones."
+msgstr ""
+"اختر السجلات التي تتعلق بها الإجابة، مثل المنتجات. أي نموذج يعمل، بما فيها "
+"نماذجك المخصصة."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Choose the resource cost field."
+msgstr "اختر حقل تكلفة المورد."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Circular dependency between: %s"
+msgstr "اعتمادية دائرية بين: %s"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Click 'Edit Domain' to keep only some records, e.g. only products of type "
+"'Product'. The number shows how many records take part."
+msgstr ""
+"اضغط «تحرير النطاق» لإبقاء بعض السجلات فقط، مثل المنتجات من نوع «منتج». يوضح"
+" الرقم عدد السجلات المشاركة."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Click Solve. Small problems are answered in seconds; big ones run in the background and you get a message when ready.\n"
+"Next tour: review and apply the answer."
+msgstr ""
+"اضغط «حل». المسائل الصغيرة تُجاب في ثوانٍ، والكبيرة تعمل في الخلفية وتصلك رسالة عند جاهزيتها.\n"
+"الجولة التالية: مراجعة الإجابة وتطبيقها."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Come back here any time for videos and guided tours like this one."
+msgstr "عد إلى هنا في أي وقت لمشاهدة الفيديوهات والجولات الإرشادية مثل هذه."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__company_id
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__company_id
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__company_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run__company_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__company_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Compare"
+msgstr "المقارنة"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Compare Scenarios"
+msgstr "مقارنة السيناريوهات"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Compare options side by side, and let problems solve themselves on a "
+"schedule."
+msgstr "قارن الخيارات جنباً إلى جنب، واترك المسائل تُحل تلقائياً وفق جدول."
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_res_config_settings
+msgid "Config Settings"
+msgstr "إعدادات التهيئة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__config_signature
+msgid "Config Signature"
+msgstr "بصمة التهيئة"
+
+#. module: operations_research
+#: model:ir.ui.menu,name:operations_research.or_menu_config
+msgid "Configuration"
+msgstr "التهيئة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__conflict_ids
+msgid "Conflicting Constraints"
+msgstr "القيود المتعارضة"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Conflicts"
+msgstr "التعارضات"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__constraint_id
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_constraint_view_form
+msgid "Constraint"
+msgstr "قيد"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Constraint %(name)s skipped for records without %(field)s."
+msgstr "تم تخطي القيد %(name)s للسجلات التي ليس لها %(field)s."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid ""
+"Constraint %s: a limit taken from a field requires grouping by a many2one "
+"field."
+msgstr "القيد %s: الحد المأخوذ من حقل يتطلب التجميع حسب حقل من نوع many2one."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Constraint %s: choose the group field and the limit field."
+msgstr "القيد %s: اختر حقل التجميع وحقل الحد."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Constraint %s: choose the weight field."
+msgstr "القيد %s: اختر حقل الوزن."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Constraint %s: the limit field must belong to %s."
+msgstr "القيد %s: يجب أن ينتمي حقل الحد إلى %s."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__constraint_result_ids
+msgid "Constraint Results"
+msgstr "نتائج القيود"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__constraint_ids
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Constraints"
+msgstr "القيود"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_partner_field_id
+msgid "Contact Field"
+msgstr "حقل جهة الاتصال"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__route_location_mode__partner
+msgid "Contact field (uses its geolocation)"
+msgstr "حقل جهة اتصال (يستخدم موقعها الجغرافي)"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__var_type__continuous
+msgid "Continuous"
+msgstr "مستمر"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Continuous allows decimals (kilos, hours). Integer gives whole pieces. Yes /"
+" No picks or skips each record."
+msgstr ""
+"«مستمر» يسمح بالكسور (كيلوغرامات، ساعات). «عدد صحيح» يعطي قطعاً كاملة. «نعم "
+"/ لا» يختار السجل أو يتخطاه."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_cost_mode
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Cost"
+msgstr "التكلفة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Cost of each choice"
+msgstr "تكلفة كل خيار"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__assign_unassigned_penalty
+msgid "Cost of leaving a record unassigned (when minimizing)."
+msgstr "تكلفة ترك سجل دون تعيين (عند التقليل)."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__coef_mode__one
+msgid "Count (1 per record)"
+msgstr "العدد (1 لكل سجل)"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem_constraint__group_by_field_id
+msgid "Create one constraint for each value of this field (e.g. per machine)."
+msgstr "إنشاء قيد لكل قيمة من قيم هذا الحقل (مثلاً لكل آلة)."
+
+#. module: operations_research
+#: model_terms:ir.actions.act_window,help:operations_research.or_problem_action
+msgid "Create your first optimization problem"
+msgstr "أنشئ أول مسألة تحسين لديك"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__create_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__create_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__create_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run__create_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__create_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__create_date
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__create_date
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__create_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run__create_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__create_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: operations_research
+#: model:res.groups,comment:operations_research.group_or_designer
+msgid "Creates and configures optimization problems and scenarios."
+msgstr "ينشئ مسائل التحسين والسيناريوهات ويهيئها."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__assigned_before_name
+msgid "Current Resource"
+msgstr "المورد الحالي"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__sched_start_before
+msgid "Current Start"
+msgstr "البداية الحالية"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__value_before
+msgid "Current Value"
+msgstr "القيمة الحالية"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_run_line__route_stop_name
+msgid "Customer or place of this stop."
+msgstr "العميل أو مكان هذه المحطة."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/map/or_route_map.xml:0
+msgid "D"
+msgstr "م"
+
+#. module: operations_research
+#: model:ir.actions.client,name:operations_research.or_dashboard_action
+#: model:ir.ui.menu,name:operations_research.or_menu_dashboard
+msgid "Dashboard"
+msgstr "لوحة المعلومات"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__date_applied
+msgid "Date Applied"
+msgstr "تاريخ التطبيق"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__date_done
+msgid "Date Done"
+msgstr "تاريخ الانتهاء"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__date_queued
+msgid "Date Queued"
+msgstr "تاريخ الإدراج في الطابور"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__date_started
+msgid "Date Started"
+msgstr "تاريخ البدء"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_scheduling
+msgid "Dates"
+msgstr "التواريخ"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__schedule_interval_type__days
+msgid "Days"
+msgstr "أيام"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_duration_unit__days
+msgid "Days (24h)"
+msgstr "أيام (24 ساعة)"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_deadline_field_id
+msgid "Deadline Field"
+msgstr "حقل الموعد النهائي"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Deadline earlier than earliest start + duration for: %s"
+msgstr "الموعد النهائي أبكر من أقرب بداية + المدة في: %s"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_deadline_mode
+msgid "Deadlines"
+msgstr "المواعيد النهائية"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Decide quantities (production mix, budget split, which projects to pick) "
+"within your limits."
+msgstr ""
+"قرّر الكميات (مزيج الإنتاج، توزيع الميزانية، المشاريع المختارة) ضمن حدودك."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Decide which truck visits which customer, and in which order, driving as "
+"little as possible."
+msgstr "قرّر أي شاحنة تزور أي عميل وبأي ترتيب، بأقل قيادة ممكنة."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Decision"
+msgstr "القرار"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Decision & Goal"
+msgstr "القرار والهدف"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__var_field_id
+msgid "Decision Field"
+msgstr "حقل القرار"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_num_workers
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Default Solver Threads"
+msgstr "عدد خيوط المحلِّل الافتراضي"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Default Time Limit"
+msgstr "المهلة الافتراضية"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_time_limit
+msgid "Default Time Limit (s)"
+msgstr "المهلة الافتراضية (ثانية)"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_demand_field_id
+msgid "Demand Field"
+msgstr "حقل الطلب"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_departure_mode
+msgid "Departure"
+msgstr "الانطلاق"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_departure_date
+msgid "Departure Date"
+msgstr "تاريخ الانطلاق"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_depot_id
+msgid "Depot"
+msgstr "المستودع"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Depot and departure"
+msgstr "المستودع والانطلاق"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: operations_research
+#: model:res.groups,name:operations_research.group_or_designer
+msgid "Designer"
+msgstr "مصمم"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__display_name
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__display_name
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__display_name
+#: model:ir.model.fields,field_description:operations_research.field_or_run__display_name
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__display_name
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__display_name
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Duration"
+msgstr "المدة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_duration_field_id
+msgid "Duration Field"
+msgstr "حقل المدة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_duration_unit
+msgid "Duration Unit"
+msgstr "وحدة المدة"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem_constraint__rhs_field_id
+msgid "E.g. the capacity field of the machine the records are grouped by."
+msgstr "مثلاً: حقل سعة الآلة التي جُمِّعت السجلات حسبها."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Each record (e.g. an order) gets exactly one resource (e.g. a production "
+"line), at the lowest cost and without overloading anyone."
+msgstr ""
+"كل سجل (مثل طلب) يحصل على مورد واحد بالضبط (مثل خط إنتاج)، بأقل تكلفة ودون "
+"تحميل أحد فوق طاقته."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem_constraint__coef_mode
+msgid "Each record's decision value is multiplied by this weight and summed."
+msgstr "تُضرب قيمة القرار لكل سجل في هذا الوزن ثم تُجمع."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Each time you press Solve you get a run like this one. Let's read it."
+msgstr "كلما ضغطت «حل» تحصل على تشغيل مثل هذا. لنقرأه معاً."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_release_field_id
+msgid "Earliest Start Field"
+msgstr "حقل أقرب بداية"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__assign_capacity_field_id
+msgid "Empty = each resource takes at most one record."
+msgstr "فارغ = كل مورد يأخذ سجلاً واحداً على الأكثر."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__error_message
+msgid "Error Message"
+msgstr "رسالة الخطأ"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_interval_number
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Every"
+msgstr "كل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_all
+msgid "Every Record Must Be Assigned"
+msgstr "يجب تعيين كل سجل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Every time someone presses Solve, a run is saved here with its result. Click"
+" a line to open it."
+msgstr "كلما ضغط أحد «حل» يُحفظ تشغيل هنا مع نتيجته. اضغط سطراً لفتحه."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__failed
+msgid "Failed"
+msgstr "فشل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Failed / No Solution"
+msgstr "فشل / بلا حل"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__feasible
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__feasible
+msgid "Feasible (not proven optimal)"
+msgstr "ممكن (لم تُثبت أمثليته)"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid ""
+"Field %(field)s cannot be written (computed, related or not stored); choose "
+"a stored editable field."
+msgstr ""
+"لا يمكن الكتابة في الحقل %(field)s (محسوب أو مرتبط أو غير مخزَّن)؛ اختر "
+"حقلاً مخزَّناً قابلاً للتعديل."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Field %(field)s does not belong to model %(model)s."
+msgstr "الحقل %(field)s لا ينتمي إلى النموذج %(model)s."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Field %(field)s must belong to the resource model %(model)s."
+msgstr "يجب أن ينتمي الحقل %(field)s إلى نموذج الموارد %(model)s."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Field %s no longer exists."
+msgstr "الحقل %s لم يعد موجوداً."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__rhs_mode__group_field
+msgid "Field on the grouped record"
+msgstr "حقل في السجل المُجمَّع"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__coef_mode__field
+msgid "Field value"
+msgstr "قيمة حقل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Finish"
+msgstr "إنهاء"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_objective__makespan
+msgid "Finish everything as early as possible"
+msgstr "إنهاء كل شيء في أقرب وقت"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Finish everything early, be late as little as possible, or finish important "
+"jobs first."
+msgstr "أنهِ كل شيء مبكراً، أو تأخر أقل ما يمكن، أو أنهِ المهام المهمة أولاً."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__route_departure_mode__fixed
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_start_mode__fixed
+msgid "Fixed date"
+msgstr "تاريخ ثابت"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__rhs_mode__constant
+msgid "Fixed value"
+msgstr "قيمة ثابتة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_follower_ids
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_partner_ids
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "أيقونة Font Awesome مثل fa-tasks"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"For big problems: keep working while it solves. You get a message in Discuss"
+" when the answer is ready."
+msgstr ""
+"للمسائل الكبيرة: تابع عملك أثناء الحل. تصلك رسالة في «المناقشة» عند جاهزية "
+"الإجابة."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"For every record: current value, proposed value and the difference. Bold "
+"lines will change. Click the arrow icon to open a record."
+msgstr ""
+"لكل سجل: القيمة الحالية والقيمة المقترحة والفرق. الأسطر الغامقة ستتغير. اضغط"
+" أيقونة السهم لفتح السجل."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__assign_model_name
+#: model:ir.model.fields,help:operations_research.field_or_problem_constraint__group_by_relation
+msgid "For relationship fields, the technical name of the target model"
+msgstr "لحقول العلاقات، الاسم التقني للنموذج المستهدف"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_mismatch_policy__forbid
+msgid "Forbid"
+msgstr "منع"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Force Apply"
+msgstr "تطبيق إجباري"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"From the customer's location on the map (latitude and longitude on the "
+"contact) or from two fields."
+msgstr ""
+"من موقع العميل على الخريطة (خط العرض والطول في جهة الاتصال) أو من حقلين."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form_scheduling
+msgid "Gantt"
+msgstr "مخطط جانت"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__gap
+msgid "Gap (%)"
+msgstr "الفجوة (%)"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Give each job a start and end time so that a machine never does two jobs at "
+"once, jobs wait for the ones before them, and deadlines are met."
+msgstr ""
+"أعطِ كل مهمة وقت بداية ونهاية بحيث لا تنفذ الآلة مهمتين معاً، وتنتظر المهام "
+"ما قبلها، وتُحترم المواعيد النهائية."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Give each order, task or student to the best line, person or class."
+msgstr "أعطِ كل طلب أو مهمة أو طالب لأفضل خط أو شخص أو فصل."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__objective_sense
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_scheduling
+msgid "Goal"
+msgstr "الهدف"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/tutorials/or_tutorials.xml:0
+msgid "Guided tour"
+msgstr "جولة إرشادية"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Happy with the answer? A Manager clicks Apply to write it into the records. "
+"If someone changed a record after solving, you get a warning instead of "
+"losing their work."
+msgstr ""
+"راضٍ عن الإجابة؟ يضغط المدير «تطبيق» لكتابتها في السجلات. إذا عدّل أحد سجلاً"
+" بعد الحل تظهر لك رسالة تحذير بدلاً من ضياع عمله."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_deadline_mode__hard
+msgid "Hard (must be met)"
+msgstr "صارم (يجب الالتزام به)"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid ""
+"Hard deadlines cannot all be met. Switch deadlines to soft to see the best "
+"compromise."
+msgstr ""
+"لا يمكن الالتزام بكل المواعيد النهائية الصارمة. اجعلها مرنة لرؤية أفضل حل "
+"وسط."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__has_message
+#: model:ir.model.fields,field_description:operations_research.field_or_run__has_message
+msgid "Has Message"
+msgstr "توجد رسالة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__has_sensitivity
+msgid "Has Sensitivity"
+msgstr "يوجد تحليل حساسية"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__has_solution
+msgid "Has Solution"
+msgstr "يوجد حل"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_help
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form_help
+msgid "Help"
+msgstr "مساعدة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "History"
+msgstr "السجل التاريخي"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_duration_unit__hours
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__schedule_interval_type__hours
+msgid "Hours"
+msgstr "ساعات"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "How long each job takes, in minutes, hours or days."
+msgstr "المدة التي تستغرقها كل مهمة، بالدقائق أو الساعات أو الأيام."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"How long the solver may search. 30 seconds is plenty for most problems; it "
+"stops earlier when it has the best answer."
+msgstr ""
+"المدة التي يبحث فيها المحلِّل. 30 ثانية تكفي لمعظم المسائل، ويتوقف مبكراً "
+"عندما يجد أفضل إجابة."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"How much each resource can take, and how much each record needs (the load). "
+"Empty = one record per resource."
+msgstr ""
+"كم يستوعب كل مورد، وكم يحتاج كل سجل (الحمل). فارغ = سجل واحد لكل مورد."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"How much each stop needs (pallets, boxes). Trucks never carry more than "
+"their capacity."
+msgstr "كم تحتاج كل محطة (منصات، صناديق). لا تحمل الشاحنات أكثر من سعتها."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"How much of each limit is used. 'Bottleneck' ticked = fully used: this is what stops you from doing more.\n"
+"For decimal problems, 'Shadow Price' shows what one extra unit of that limit is worth."
+msgstr ""
+"نسبة استخدام كل حد. «عنق الزجاجة» محدد = مستخدم بالكامل: هذا ما يمنعك من فعل المزيد.\n"
+"في المسائل العشرية، يوضح «سعر الظل» قيمة وحدة إضافية من ذلك الحد."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__id
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__id
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__id
+#: model:ir.model.fields,field_description:operations_research.field_or_run__id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__id
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__id
+msgid "ID"
+msgstr "المعرّف"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "الأيقونة للإشارة إلى نشاط استثنائي."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"If capacity is short, untick this: some records stay unassigned (at a "
+"penalty) instead of 'no solution'."
+msgstr ""
+"إذا كانت السعة غير كافية، ألغِ هذا التحديد: يبقى بعض السجلات دون تعيين "
+"(بغرامة) بدلاً من «لا يوجد حل»."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__message_needaction
+#: model:ir.model.fields,help:operations_research.field_or_run__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا كان محدداً، فهناك رسائل جديدة تتطلب انتباهك."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__message_has_error
+#: model:ir.model.fields,help:operations_research.field_or_run__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا كان محدداً، فقد حدث خطأ في تسليم بعض الرسائل."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_mismatch_policy__ignore
+msgid "Ignore"
+msgstr "تجاهل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "In Progress"
+msgstr "قيد التنفيذ"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__infeasible
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__infeasible
+msgid "Infeasible"
+msgstr "غير ممكن"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Infeasible because of the variable bounds (minimum/maximum)."
+msgstr "غير ممكن بسبب حدود المتغيرات (الحد الأدنى/الأقصى)."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__var_type__integer
+msgid "Integer"
+msgstr "عدد صحيح"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Interrupted Runs"
+msgstr "التشغيلات المتوقفة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_interval_type
+msgid "Interval Unit"
+msgstr "وحدة الفترة"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Invalid filter on constraint %(name)s: %(error)s"
+msgstr "عامل تصفية غير صالح في القيد %(name)s: %(error)s"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Invalid filter: %(error)s"
+msgstr "عامل تصفية غير صالح: %(error)s"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__model_invalid
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__model_invalid
+msgid "Invalid model"
+msgstr "نموذج غير صالح"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Invalid records filter: %s"
+msgstr "عامل تصفية السجلات غير صالح: %s"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Invalid resources filter: %s"
+msgstr "عامل تصفية الموارد غير صالح: %s"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_is_follower
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__is_scenario
+msgid "Is Scenario"
+msgstr "سيناريو"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Jobs listed here must finish first, e.g. cutting before tempering."
+msgstr "المهام المذكورة هنا يجب أن تنتهي أولاً، مثل القص قبل التقسية."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Jobs on the same machine never overlap."
+msgstr "المهام على نفس الآلة لا تتداخل أبداً."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__last_objective
+msgid "Last Objective"
+msgstr "آخر قيمة للهدف"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__last_run_id
+msgid "Last Run"
+msgstr "آخر تشغيل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__last_run_status
+msgid "Last Status"
+msgstr "آخر حالة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__write_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__write_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__write_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run__write_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__write_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__write_date
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__write_date
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__write_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run__write_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__write_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.js:0
+#: code:addons/operations_research/static/src/gantt/or_gantt.xml:0
+msgid "Late"
+msgstr "متأخر"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__sched_late_minutes
+msgid "Late (min)"
+msgstr "التأخير (دقيقة)"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Late: %s"
+msgstr "متأخر: %s"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__route_location_mode__fields
+msgid "Latitude / longitude fields"
+msgstr "حقلا خط العرض / خط الطول"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_lat_field_id
+msgid "Latitude Field"
+msgstr "حقل خط العرض"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Left unassigned: %s"
+msgstr "بقي دون تعيين: %s"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__route_leg_km
+msgid "Leg (km)"
+msgstr "المرحلة (كم)"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__rhs_value
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__rhs
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_constraint_view_form
+msgid "Limit"
+msgstr "الحد"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__rhs_field_id
+msgid "Limit Field"
+msgstr "حقل الحد"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__rhs_mode
+msgid "Limit Type"
+msgstr "نوع الحد"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Limits"
+msgstr "الحدود القصوى"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Limits used"
+msgstr "الحدود المستخدمة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__line_count
+msgid "Line Count"
+msgstr "عدد الأسطر"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__problem_type__lp
+msgid "Linear / Integer Program"
+msgstr "برنامج خطي / صحيح"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Link every vehicle to a record to write the vehicle field."
+msgstr "اربط كل مركبة بسجل لكتابة حقل المركبة."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__target_ref
+msgid "Linked Record"
+msgstr "السجل المرتبط"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Load"
+msgstr "الحمل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Loading…"
+msgstr "جارٍ التحميل…"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__log
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Log"
+msgstr "السجل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_lng_field_id
+msgid "Longitude Field"
+msgstr "حقل خط الطول"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Machine or person"
+msgstr "آلة أو شخص"
+
+#. module: operations_research
+#: model:res.groups,name:operations_research.group_or_manager
+msgid "Manager"
+msgstr "مدير"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__trigger__manual
+msgid "Manual"
+msgstr "يدوي"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__assign_field_id
+msgid "Many2one field on the records that receives the chosen resource."
+msgstr "حقل many2one في السجلات يستقبل المورد المختار."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form_routing
+msgid "Map"
+msgstr "الخريطة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_stuck_minutes
+msgid "Mark Runs Failed After (min)"
+msgstr "اعتبار التشغيل فاشلاً بعد (دقيقة)"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Matching"
+msgstr "المطابقة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__record_count
+msgid "Matching Records"
+msgstr "السجلات المطابقة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Matching rules"
+msgstr "قواعد المطابقة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__max_distance_km
+msgid "Max Distance (km)"
+msgstr "أقصى مسافة (كم)"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__objective_sense__max
+msgid "Maximize"
+msgstr "تعظيم"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Maximize (profit, output) or Minimize (cost, waste)."
+msgstr "تعظيم (الربح، الإنتاج) أو تقليل (التكلفة، الهدر)."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__ub_value
+msgid "Maximum"
+msgstr "الحد الأقصى"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__ub_field_id
+msgid "Maximum From Field"
+msgstr "الحد الأقصى من حقل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_max_variables
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Maximum Variables"
+msgstr "الحد الأقصى للمتغيرات"
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_routing_vehicle_distance_positive
+msgid "Maximum distance cannot be negative."
+msgstr "لا يمكن أن تكون أقصى مسافة سالبة."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_routing_vehicle__capacity
+msgid "Maximum total demand. 0 = unlimited."
+msgstr "أقصى إجمالي للطلب. 0 = بلا حد."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_has_error
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_ids
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_objective__completion
+msgid "Minimise weighted completion time"
+msgstr "تقليل زمن الإنجاز المرجَّح"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_objective__tardiness
+msgid "Minimise weighted lateness"
+msgstr "تقليل التأخير المرجَّح"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Minimising lateness requires a deadline field."
+msgstr "تقليل التأخير يتطلب حقل موعد نهائي."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__objective_sense__min
+msgid "Minimize"
+msgstr "تقليل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__lb_value
+msgid "Minimum"
+msgstr "الحد الأدنى"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__lb_field_id
+msgid "Minimum From Field"
+msgstr "الحد الأدنى من حقل"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Minimum is greater than maximum for: %s"
+msgstr "الحد الأدنى أكبر من الحد الأقصى في: %s"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_duration_unit__minutes
+msgid "Minutes"
+msgstr "دقائق"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_mismatch_penalty
+msgid "Mismatch Penalty"
+msgstr "غرامة عدم المطابقة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__res_model
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+msgid "Model"
+msgstr "النموذج"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Model %s is not installed."
+msgstr "النموذج %s غير مثبَّت."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__model_name
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__model_name
+msgid "Model Technical Name"
+msgstr "الاسم التقني للنموذج"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__schedule_interval_type__months
+msgid "Months"
+msgstr "أشهر"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "Most Used Problems"
+msgstr "المسائل الأكثر استخداماً"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Must everyone be assigned?"
+msgstr "هل يجب تعيين الجميع؟"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "موعد نشاطي النهائي"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "My Runs"
+msgstr "تشغيلاتي"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__name
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__name
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__name
+#: model:ir.model.fields,field_description:operations_research.field_or_run__name
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Negative duration for: %s"
+msgstr "مدة سالبة في: %s"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "New Scenario"
+msgstr "سيناريو جديد"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Next"
+msgstr "التالي"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_next_date
+msgid "Next Run"
+msgstr "التشغيل التالي"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "No %(model)s record matches the problem filter."
+msgstr "لا يوجد سجل %(model)s يطابق عامل تصفية المسألة."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__ub_infinite
+msgid "No Maximum"
+msgstr "بلا حد أقصى"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "No data for this period."
+msgstr "لا توجد بيانات لهذه الفترة."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid ""
+"No geolocation for: %s. Geolocate the contacts (latitude/longitude) first."
+msgstr ""
+"لا يوجد موقع جغرافي لـ: %s. حدد إحداثيات جهات الاتصال (خط العرض/خط الطول) "
+"أولاً."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "No matching resource for: %s"
+msgstr "لا يوجد مورد مطابق لـ: %s"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run_scheduling.py:0
+msgid "No resource"
+msgstr "بلا مورد"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "No resource matches the resources filter."
+msgstr "لا يوجد مورد يطابق عامل تصفية الموارد."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid ""
+"No route plan fits the capacities, distances and time windows. Add vehicles,"
+" relax windows, or allow skipping stops."
+msgstr ""
+"لا توجد خطة مسارات تناسب السعات والمسافات ونوافذ الوقت. أضف مركبات أو خفّف "
+"النوافذ أو اسمح بتخطي المحطات."
+
+#. module: operations_research
+#: model_terms:ir.actions.act_window,help:operations_research.or_run_action
+msgid "No run yet"
+msgstr "لا يوجد تشغيل بعد"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "No run yet."
+msgstr "لا يوجد تشغيل بعد."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__not_solved
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__not_solved
+msgid "No solution in time limit"
+msgstr "لا يوجد حل ضمن المهلة"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Not applied automatically: %s is not an Optimization Manager."
+msgstr "لم يُطبَّق تلقائياً: %s ليس مدير تحسين."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid ""
+"Not every record can be assigned: total load %(load)s, total capacity "
+"%(cap)s. Add resources, raise capacities or untick 'Every Record Must Be "
+"Assigned'."
+msgstr ""
+"لا يمكن تعيين كل السجلات: إجمالي الحمل %(load)s، إجمالي السعة %(cap)s. أضف "
+"موارد أو ارفع السعات أو ألغِ تحديد «يجب تعيين كل سجل»."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Nothing solved yet"
+msgstr "لا يوجد شيء محلول بعد"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__num_constraints
+msgid "Num Constraints"
+msgstr "عدد القيود"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__num_variables
+msgid "Num Variables"
+msgstr "عدد المتغيرات"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_needaction_counter
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_has_error_counter
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__message_needaction_counter
+#: model:ir.model.fields,help:operations_research.field_or_run__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب إجراءً"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__message_has_error_counter
+#: model:ir.model.fields,help:operations_research.field_or_run__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__objective_value
+msgid "Objective"
+msgstr "الهدف"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__objective_field_id
+msgid ""
+"Objective = sum over records of (this field x decision value). Leave empty "
+"to just look for any feasible solution."
+msgstr ""
+"الهدف = مجموع (هذا الحقل × قيمة القرار) لكل السجلات. اتركه فارغاً للبحث عن "
+"أي حل ممكن فقط."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__objective_field_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__objective_coef
+msgid "Objective Coefficient"
+msgstr "معامل الهدف"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_graph
+msgid "Objective by Problem"
+msgstr "الهدف حسب المسألة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__group_by_field_id
+msgid "One Constraint Per"
+msgstr "قيد واحد لكل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"One color per truck, numbers show the stop order, D is the depot. Click a "
+"truck on the right to highlight its route."
+msgstr ""
+"لون لكل شاحنة، والأرقام تبين ترتيب المحطات، وD هو المستودع. اضغط شاحنة على "
+"اليمين لإبراز مسارها."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"One line per truck: capacity, maximum km, and the record written on the "
+"deliveries (e.g. the driver)."
+msgstr ""
+"سطر لكل شاحنة: السعة، وأقصى كيلومترات، والسجل الذي يُكتب على عمليات التسليم "
+"(مثل السائق)."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"One row per machine. Purple = new times, gray = unchanged, red = late. Click"
+" a bar to open the job."
+msgstr ""
+"صف لكل آلة. البنفسجي = أوقات جديدة، الرمادي = دون تغيير، الأحمر = متأخر. "
+"اضغط شريطاً لفتح المهمة."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Only Optimization Managers can apply results."
+msgstr "يمكن لمديري التحسين فقط تطبيق النتائج."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__domain
+msgid "Only records matching this filter take part in the problem."
+msgstr "تشارك في المسألة فقط السجلات المطابقة لعامل التصفية هذا."
+
+#. module: operations_research
+#: model_terms:ir.actions.act_window,help:operations_research.or_run_action
+msgid "Open a problem and click Solve."
+msgstr "افتح مسألة واضغط «حل»."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Open a problem and press Solve first, then start this tour again to learn "
+"how to read and apply the answer."
+msgstr ""
+"افتح مسألة واضغط «حل» أولاً، ثم ابدأ هذه الجولة مجدداً لتتعلم قراءة الإجابة "
+"وتطبيقها."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/map/or_route_map.js:0
+msgid "Open a routing run and click Map."
+msgstr "افتح تشغيل توجيه واضغط «الخريطة»."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.js:0
+msgid "Open a scheduling run and click Gantt."
+msgstr "افتح تشغيل جدولة واضغط «مخطط جانت»."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_line_view_list
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Open record"
+msgstr "فتح السجل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+#: model:ir.module.category,name:operations_research.module_category_operations_research
+#: model:ir.ui.menu,name:operations_research.or_menu_root
+#: model:res.groups.privilege,name:operations_research.res_groups_privilege_or
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Operations Research"
+msgstr "بحوث العمليات"
+
+#. module: operations_research
+#: model:ir.actions.server,name:operations_research.ir_cron_or_scheduled_problems_ir_actions_server
+msgid "Operations Research: Scheduled Problems"
+msgstr "بحوث العمليات: المسائل المجدولة"
+
+#. module: operations_research
+#: model:ir.actions.server,name:operations_research.ir_cron_or_process_queue_ir_actions_server
+msgid "Operations Research: Solve Queued Runs"
+msgstr "بحوث العمليات: حل التشغيلات في الطابور"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__operator
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__operator
+msgid "Operator"
+msgstr "المعامل"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__optimal
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__optimal
+msgid "Optimal"
+msgstr "أمثل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Optimal = the best possible answer.\n"
+"Feasible = a good answer, not proven best.\n"
+"Infeasible = your rules can't all be met (the Conflicts tab tells you which one).\n"
+"Unbounded = a limit is missing."
+msgstr ""
+"أمثل = أفضل إجابة ممكنة.\n"
+"ممكن = إجابة جيدة لم تُثبت أنها الأفضل.\n"
+"غير ممكن = لا يمكن تحقيق كل قواعدك (يخبرك تبويب التعارضات أيها).\n"
+"غير محدود = هناك حد ناقص."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Optimization %(problem)s finished: %(status)s."
+msgstr "انتهى تحسين %(problem)s: %(status)s."
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_problem_constraint
+msgid "Optimization Constraint"
+msgstr "قيد تحسين"
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_run_constraint
+msgid "Optimization Constraint Result"
+msgstr "نتيجة قيد التحسين"
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_problem
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Optimization Problem"
+msgstr "مسألة تحسين"
+
+#. module: operations_research
+#: model:ir.actions.act_window,name:operations_research.or_problem_action
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_list
+msgid "Optimization Problems"
+msgstr "مسائل التحسين"
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_run_line
+msgid "Optimization Result Line"
+msgstr "سطر نتيجة التحسين"
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_run
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Optimization Run"
+msgstr "تشغيل تحسين"
+
+#. module: operations_research
+#: model:ir.actions.act_window,name:operations_research.or_run_action
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_list
+msgid "Optimization Runs"
+msgstr "تشغيلات التحسين"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Optional minimum and maximum, from a field or a fixed number. Example: never"
+" plan more than the customer demand."
+msgstr ""
+"حد أدنى وأقصى اختياريان، من حقل أو رقم ثابت. مثال: لا تخطط أبداً لأكثر من "
+"طلب العملاء."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Optional: e.g. the required skill must equal the line's skill. Mismatches "
+"can be forbidden or simply cost extra."
+msgstr ""
+"اختياري: مثلاً يجب أن تساوي المهارة المطلوبة مهارة الخط. يمكن منع عدم "
+"التطابق أو جعله يكلّف أكثر فقط."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Optional: write the answer automatically when it is the best possible one "
+"and nothing changed since solving."
+msgstr ""
+"اختياري: كتابة الإجابة تلقائياً عندما تكون الأفضل ولم يتغير شيء منذ الحل."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Order of work"
+msgstr "ترتيب العمل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Pause"
+msgstr "إيقاف مؤقت"
+
+#. module: operations_research
+#: model_terms:ir.actions.act_window,help:operations_research.or_problem_action
+msgid ""
+"Pick any model, choose what the solver decides, the goal and the limits.\n"
+"               Solve, review the proposal, then apply it to your records."
+msgstr ""
+"اختر أي نموذج، وحدد ما يقرره المحلِّل والهدف والحدود.\n"
+"               احلّ المسألة، وراجع المقترح، ثم طبّقه على سجلاتك."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Pick the field the solver fills in for every record, e.g. 'Planned Qty'. "
+"Nothing is written until you click Apply."
+msgstr ""
+"اختر الحقل الذي يملؤه المحلِّل لكل سجل، مثل «الكمية المخططة». لا يُكتب شيء "
+"حتى تضغط «تطبيق»."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_start_mode
+msgid "Plan From"
+msgstr "التخطيط من"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_start_date
+msgid "Plan From Date"
+msgstr "تاريخ بدء التخطيط"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Plan jobs on machines or people in the right order and on time."
+msgstr "خطط المهام على الآلات أو الأشخاص بالترتيب الصحيح وفي الوقت المحدد."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Plan truck routes with capacities, delivery windows and the shortest "
+"driving."
+msgstr "خطط مسارات الشاحنات مع السعات ونوافذ التسليم وأقصر قيادة."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__sched_end
+msgid "Planned End"
+msgstr "النهاية المخططة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__sched_start
+msgid "Planned Start"
+msgstr "البداية المخططة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_predecessor_field_id
+msgid "Predecessors Field"
+msgstr "حقل المهام السابقة"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__route_balance
+msgid "Prefer routes of similar length over the shortest total."
+msgstr "تفضيل مسارات متقاربة الطول على أقصر إجمالي."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_weight_field_id
+msgid "Priority Weight Field"
+msgstr "حقل وزن الأولوية"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__problem_id
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__problem_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run__problem_id
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Problem"
+msgstr "المسألة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__problem_type
+#: model:ir.model.fields,field_description:operations_research.field_or_run__problem_type
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+msgid "Problem Type"
+msgstr "نوع المسألة"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Problem type %s is not supported."
+msgstr "نوع المسألة %s غير مدعوم."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model:ir.ui.menu,name:operations_research.or_menu_problems
+msgid "Problems"
+msgstr "المسائل"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Problems larger than this are refused to protect the server."
+msgstr "تُرفض المسائل الأكبر من هذا لحماية الخادم."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__assigned_name
+msgid "Proposed Resource"
+msgstr "المورد المقترح"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__value
+msgid "Proposed Value"
+msgstr "القيمة المقترحة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Proposed changes"
+msgstr "التغييرات المقترحة"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Queue"
+msgstr "إدراج في الطابور"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__queued
+msgid "Queued"
+msgstr "في الطابور"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Read the result, find the bottleneck, and write the plan into your records "
+"safely."
+msgstr "اقرأ النتيجة، وحدد عنق الزجاجة، واكتب الخطة في سجلاتك بأمان."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Reading the Gantt"
+msgstr "قراءة مخطط جانت"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Reading the map"
+msgstr "قراءة الخريطة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "Recent Runs"
+msgstr "أحدث التشغيلات"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Recent runs"
+msgstr "أحدث التشغيلات"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__res_name
+msgid "Record"
+msgstr "السجل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__res_id
+msgid "Record ID"
+msgstr "معرّف السجل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_task_load_field_id
+msgid "Record Load"
+msgstr "حمل السجل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_task_match_field_id
+msgid "Record Match Field"
+msgstr "حقل مطابقة السجل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_task_weight_field_id
+msgid "Record Weight"
+msgstr "وزن السجل"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_cost_mode__product
+msgid "Record field x resource field"
+msgstr "حقل السجل × حقل المورد"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_routing_vehicle__target_ref
+msgid ""
+"Record written to the problem's vehicle field for the stops of this vehicle "
+"(e.g. a driver or a fleet vehicle)."
+msgstr ""
+"السجل الذي يُكتب في حقل المركبة للمسألة لمحطات هذه المركبة (مثل سائق أو "
+"مركبة من الأسطول)."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Records"
+msgstr "السجلات"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__domain
+msgid "Records Filter"
+msgstr "عامل تصفية السجلات"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__model_id
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__model_id
+msgid "Records Model"
+msgstr "نموذج السجلات"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Records changed since solving will be overwritten. Continue?"
+msgstr "ستتم الكتابة فوق السجلات التي تغيرت منذ الحل. هل تريد المتابعة؟"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__sched_resource_field_id
+msgid ""
+"Records sharing the same resource (machine, employee...) never overlap. "
+"Records without a resource are not limited."
+msgstr ""
+"السجلات التي تشترك في نفس المورد (آلة، موظف...) لا تتداخل أبداً. السجلات بلا"
+" مورد غير مقيَّدة."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__reduced_cost
+msgid "Reduced Cost"
+msgstr "التكلفة المخفَّضة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__group_by_relation
+msgid "Related Model"
+msgstr "النموذج المرتبط"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__sched_predecessor_field_id
+msgid ""
+"Relational field on the same model listing the records that must finish "
+"first."
+msgstr "حقل علاقة في نفس النموذج يحدد السجلات التي يجب أن تنتهي أولاً."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Removing any one of these constraints makes the problem feasible: %s"
+msgstr "حذف أي واحد من هذه القيود يجعل المسألة ممكنة الحل: %s"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.xml:0
+msgid "Resource"
+msgstr "المورد"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_capacity_field_id
+msgid "Resource Capacity"
+msgstr "سعة المورد"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_resource_cost_field_id
+msgid "Resource Cost"
+msgstr "تكلفة المورد"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_resource_field_id
+msgid "Resource Field"
+msgstr "حقل المورد"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_resource_match_field_id
+msgid "Resource Match Field"
+msgstr "حقل مطابقة المورد"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_model_name
+msgid "Resource Model"
+msgstr "نموذج الموارد"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_cost_mode__resource
+msgid "Resource field"
+msgstr "حقل المورد"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_domain
+msgid "Resources Filter"
+msgstr "عامل تصفية الموارد"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem_constraint__domain
+msgid "Restrict the constraint to the records matching this filter."
+msgstr "قصر القيد على السجلات المطابقة لعامل التصفية هذا."
+
+#. module: operations_research
+#: model:ir.actions.act_window,name:operations_research.or_run_line_action
+msgid "Result Lines"
+msgstr "أسطر النتائج"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__line_ids
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_line_view_list
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Results"
+msgstr "النتائج"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Results applied to %(count)s record(s)."
+msgstr "تم تطبيق النتائج على %(count)s سجل/سجلات."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Review and apply an answer"
+msgstr "مراجعة الإجابة وتطبيقها"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_road_factor
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_route_road_factor
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form_routing
+msgid "Road Factor"
+msgstr "معامل الطريق"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_res_config_settings__or_route_road_factor
+msgid "Road distance / straight-line distance. 1.3 is typical in cities."
+msgstr "مسافة الطريق / المسافة المستقيمة. 1.3 قيمة شائعة داخل المدن."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run_routing.py:0
+msgid "Routes %s"
+msgstr "مسارات %s"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_routing
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form_routing
+msgid "Routing"
+msgstr "التوجيه"
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_routing_vehicle
+msgid "Routing Vehicle"
+msgstr "مركبة توجيه"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Routing problems"
+msgstr "مسائل التوجيه"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.xml:0
+#: code:addons/operations_research/static/src/map/or_route_map.xml:0
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__run_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__run_id
+msgid "Run"
+msgstr "التشغيل"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Run %s cannot be cancelled in its current state."
+msgstr "لا يمكن إلغاء التشغيل %s في حالته الحالية."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Run %s cannot be queued in its current state."
+msgstr "لا يمكن إدراج التشغيل %s في الطابور في حالته الحالية."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Run %s cannot be solved in its current state."
+msgstr "لا يمكن حل التشغيل %s في حالته الحالية."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Run %s has no feasible solution to apply."
+msgstr "لا يوجد حل ممكن للتطبيق في التشغيل %s."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Run %s has no result to apply (state: %s)."
+msgstr "لا توجد نتيجة للتطبيق في التشغيل %s (الحالة: %s)."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_user_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run__user_id
+msgid "Run As"
+msgstr "التشغيل باسم"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_active
+msgid "Run Automatically"
+msgstr "تشغيل تلقائي"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__run_count
+msgid "Run Count"
+msgstr "عدد التشغيلات"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Run automatically"
+msgstr "تشغيل تلقائي"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__running
+msgid "Running"
+msgstr "قيد الحل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__run_ids
+#: model:ir.ui.menu,name:operations_research.or_menu_runs
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Runs"
+msgstr "التشغيلات"
+
+#. module: operations_research
+#: model:res.groups,comment:operations_research.group_or_user
+msgid "Runs existing optimization problems and reviews the results."
+msgstr "يشغّل مسائل التحسين الموجودة ويراجع النتائج."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Runs still 'running' after this many minutes are marked as failed."
+msgstr "التشغيلات التي تبقى «قيد الحل» بعد هذا العدد من الدقائق تُعتبر فاشلة."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Same for all, a resource field (e.g. hourly rate), or record field x "
+"resource field (e.g. hours x rate)."
+msgstr ""
+"نفس التكلفة للجميع، أو حقل في المورد (مثل أجر الساعة)، أو حقل السجل × حقل "
+"المورد (مثل الساعات × الأجر)."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_cost_mode__constant
+msgid "Same for every pair"
+msgstr "نفس التكلفة لكل زوج"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Scenario"
+msgstr "سيناريو"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Scenario Comparison"
+msgstr "مقارنة السيناريوهات"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__scenario_count
+msgid "Scenario Count"
+msgstr "عدد السيناريوهات"
+
+#. module: operations_research
+#. odoo-javascript
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__scenario_ids
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+msgid "Scenarios"
+msgstr "السيناريوهات"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Schedule"
+msgstr "الجدولة الزمنية"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run_scheduling.py:0
+msgid "Schedule %s"
+msgstr "جدول %s"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__trigger__scheduled
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Scheduled"
+msgstr "مجدول"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__problem_type__scheduling
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_scheduling
+msgid "Scheduling"
+msgstr "الجدولة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_objective
+msgid "Scheduling Goal"
+msgstr "هدف الجدولة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Scheduling problems"
+msgstr "مسائل الجدولة"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Seconds the solver may search before returning its best solution."
+msgstr "الثواني التي يبحث فيها المحلِّل قبل إرجاع أفضل حل لديه."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sequence
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__sequence
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__sequence
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_service_field_id
+msgid "Service Time Field (min)"
+msgstr "حقل زمن الخدمة (دقيقة)"
+
+#. module: operations_research
+#: model:ir.actions.act_window,name:operations_research.or_config_settings_action
+#: model:ir.ui.menu,name:operations_research.or_menu_settings
+msgid "Settings"
+msgstr "الإعدادات"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Settings (Configuration menu) let a manager change the default time limit "
+"and the size limits. Happy optimizing!"
+msgstr ""
+"تتيح «الإعدادات» (قائمة التهيئة) للمدير تغيير المهلة الافتراضية وحدود الحجم."
+" تحسين موفق!"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid ""
+"Several constraints conflict together; no single constraint explains it."
+msgstr "عدة قيود تتعارض معاً؛ لا يوجد قيد واحد يفسر ذلك."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__dual_value
+msgid "Shadow Price"
+msgstr "سعر الظل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_drop_penalty_km
+msgid "Skip Penalty (km)"
+msgstr "غرامة التخطي (كم)"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__route_dropped
+msgid "Skipped"
+msgstr "متخطاة"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Skipped stops: %s"
+msgstr "المحطات المتخطاة: %s"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/map/or_route_map.xml:0
+msgid "Skipped:"
+msgstr "المتخطاة:"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__slack
+msgid "Slack"
+msgstr "الفائض"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid ""
+"Smaller problems are solved immediately; larger ones are queued in the "
+"background."
+msgstr "تُحل المسائل الأصغر فوراً؛ وتُدرج الأكبر في طابور الخلفية."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__snapshot
+msgid "Snapshot"
+msgstr "لقطة"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_deadline_mode__soft
+msgid "Soft (penalised when late)"
+msgstr "مرن (غرامة عند التأخير)"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Soft: try to be on time, late jobs are penalized by priority.\n"
+"Hard: must be on time, otherwise there is no solution."
+msgstr ""
+"مرن: حاول الالتزام بالموعد، ويُعاقَب التأخير حسب الأولوية.\n"
+"صارم: يجب الالتزام بالموعد، وإلا فلا يوجد حل."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Solve"
+msgstr "حل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_sync_max_variables
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Solve Instantly Up To"
+msgstr "الحل الفوري حتى"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Solve Now"
+msgstr "حل الآن"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__solve_time
+msgid "Solve Time (s)"
+msgstr "زمن الحل (ثانية)"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Solve and review"
+msgstr "الحل والمراجعة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Solve each scenario, then 'Compare Scenarios' lists their results side by "
+"side so you can choose."
+msgstr ""
+"احلّ كل سيناريو، ثم يعرض «مقارنة السيناريوهات» نتائجها جنباً إلى جنب لتختار."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Solve every hour, day, week or month, e.g. plan tomorrow's routes every "
+"night."
+msgstr "حل كل ساعة أو يوم أو أسبوع أو شهر، مثل تخطيط مسارات الغد كل ليلة."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Solve in Background"
+msgstr "حل في الخلفية"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Solve, then check 'Proposed Resource' for every record and Apply."
+msgstr "احلّ المسألة، ثم راجع «المورد المقترح» لكل سجل واضغط «تطبيق»."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__done
+msgid "Solved"
+msgstr "محلول"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Solved On"
+msgstr "تاريخ الحل"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Solver"
+msgstr "المحلِّل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__solver_name
+msgid "Solver Name"
+msgstr "اسم المحلِّل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "Solver Outcomes"
+msgstr "نتائج المحلِّل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__solver_status
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Solver Status"
+msgstr "حالة المحلِّل"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__num_workers
+msgid "Solver Threads"
+msgstr "خيوط المحلِّل"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__abnormal
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__abnormal
+msgid "Solver error"
+msgstr "خطأ في المحلِّل"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Start and end must be written to different fields."
+msgstr "يجب كتابة البداية والنهاية في حقلين مختلفين."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__route_depot_id
+msgid "Start and end of every route. Needs a geolocation."
+msgstr "بداية ونهاية كل مسار. يحتاج إلى موقع جغرافي."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__state
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "State"
+msgstr "الحالة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Status"
+msgstr "الحالة"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة بناءً على الأنشطة\n"
+"متأخر: تجاوز تاريخ الاستحقاق\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"مخطط: أنشطة مستقبلية."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__route_stop_name
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form_routing
+msgid "Stop"
+msgstr "المحطة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_location_mode
+msgid "Stop Location"
+msgstr "موقع المحطة"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__mip_gap
+msgid ""
+"Stop integer search when the solution is within this % of the best bound."
+msgstr ""
+"إيقاف البحث في الأعداد الصحيحة عندما يكون الحل ضمن هذه النسبة % من أفضل حد."
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_routing
+msgid "Stops"
+msgstr "المحطات"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form_routing
+msgid ""
+"Straight-line distances are multiplied by this factor to approximate roads."
+msgstr "تُضرب المسافات المستقيمة في هذا المعامل لتقريب مسافات الطرق."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+msgid "Success Rate"
+msgstr "نسبة النجاح"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_constraint_view_form
+msgid "Sum of"
+msgstr "مجموع"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__summary
+msgid "Summary"
+msgstr "الملخص"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_scheduling
+msgid "Tasks"
+msgstr "المهام"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The Gantt chart"
+msgstr "مخطط جانت"
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_mip_gap_range
+msgid "The accepted gap must be between 0 and 100%."
+msgstr "يجب أن تكون الفجوة المقبولة بين 0 و100%."
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_route_speed_positive
+msgid "The average speed must be positive."
+msgstr "يجب أن يكون متوسط السرعة موجباً."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The chatter on the right keeps who solved and who applied, and when."
+msgstr "يحتفظ سجل المحادثة على اليمين بمن حلّ ومن طبّق ومتى."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The dashboard"
+msgstr "لوحة المعلومات"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The date fields that receive the planned start and end when you Apply."
+msgstr "حقول التاريخ التي تستقبل البداية والنهاية المخططتين عند التطبيق."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "The depot %s has no geolocation."
+msgstr "المستودع %s ليس له موقع جغرافي."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"The history of all answers: when, by whom, and whether they were applied."
+msgstr "سجل كل الإجابات: متى، ومن، وهل طُبّقت."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The map"
+msgstr "الخريطة"
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_num_workers_positive
+msgid "The number of solver threads must be positive."
+msgstr "يجب أن يكون عدد خيوط المحلِّل موجباً."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "The predecessors field must point to the same model (%s)."
+msgstr "يجب أن يشير حقل المهام السابقة إلى نفس النموذج (%s)."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid ""
+"The problem configuration changed since run %s was solved; run it again."
+msgstr "تغيرت تهيئة المسألة منذ حل التشغيل %s؛ أعد تشغيلها."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The result"
+msgstr "النتيجة"
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_route_factor_valid
+msgid "The road factor must be at least 1."
+msgstr "يجب ألا يقل معامل الطريق عن 1."
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_schedule_interval_positive
+msgid "The schedule interval must be positive."
+msgstr "يجب أن تكون فترة الجدولة موجبة."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__var_field_id
+msgid ""
+"The solver computes a value for this field on every record; Apply writes it "
+"back."
+msgstr "يحسب المحلِّل قيمة لهذا الحقل في كل سجل؛ ويكتبها «تطبيق» في السجلات."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid ""
+"The solver was interrupted (server restart or worker timeout). Queue it "
+"again or reduce the time limit."
+msgstr ""
+"توقف المحلِّل (إعادة تشغيل الخادم أو انتهاء مهلة العامل). أدرجه في الطابور "
+"مجدداً أو قلّل المهلة."
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_time_limit_positive
+msgid "The time limit must be positive."
+msgstr "يجب أن تكون المهلة موجبة."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The value of your goal with this plan, e.g. the total margin."
+msgstr "قيمة هدفك مع هذه الخطة، مثل إجمالي الهامش."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"The value per unit, e.g. 'Unit Margin'. The solver maximizes the total: "
+"margin x quantity, summed over all records."
+msgstr ""
+"القيمة لكل وحدة، مثل «هامش الوحدة». يعظّم المحلِّل الإجمالي: الهامش × الكمية"
+" لجميع السجلات."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"This app finds the best answer to everyday planning questions: how much to make, who does what, when to do it, and which route to drive.\n"
+"You describe the question once, press Solve, check the answer and apply it."
+msgstr ""
+"هذا التطبيق يجد أفضل إجابة لأسئلة التخطيط اليومية: كم تصنع، ومن يفعل ماذا، ومتى، وأي مسار تسلك.\n"
+"تصف السؤال مرة واحدة، وتضغط «حل»، وتراجع الإجابة وتطبقها."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_service.js:0
+msgid "This guided tour is not available."
+msgstr "هذه الجولة الإرشادية غير متاحة."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid ""
+"This problem has about %(size)s variables, above the limit of %(limit)s. "
+"Narrow the records filter or raise the limit in Settings."
+msgstr ""
+"تحتوي هذه المسألة على نحو %(size)s متغير، أي فوق الحد البالغ %(limit)s. ضيّق"
+" عامل تصفية السجلات أو ارفع الحد من الإعدادات."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.js:0
+msgid "This run has no planned tasks."
+msgstr "لا توجد مهام مخططة في هذا التشغيل."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Tick 'Allow Skipping Stops' to get the best partial plan instead of 'no "
+"solution'."
+msgstr ""
+"حدد «السماح بتخطي المحطات» للحصول على أفضل خطة جزئية بدلاً من «لا يوجد حل»."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__time_limit
+msgid "Time Limit (s)"
+msgstr "المهلة (ثانية)"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "To Apply"
+msgstr "بانتظار التطبيق"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Too many constraints to analyse infeasibility automatically."
+msgstr "عدد القيود كبير جداً لتحليل عدم الإمكانية تلقائياً."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Too many stops?"
+msgstr "محطات كثيرة جداً؟"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__trigger
+msgid "Trigger"
+msgstr "المُشغِّل"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_routing
+msgid "Trip"
+msgstr "الرحلة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: code:addons/operations_research/static/src/tutorials/or_tutorials.xml:0
+#: model:ir.actions.client,name:operations_research.or_tutorials_action
+#: model:ir.ui.menu,name:operations_research.or_menu_tutorials
+msgid "Tutorials"
+msgstr "الدروس التعليمية"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي في السجل."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_unassigned_penalty
+msgid "Unassigned Penalty"
+msgstr "غرامة عدم التعيين"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__unbounded
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__unbounded
+msgid "Unbounded"
+msgstr "غير محدود"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.xml:0
+msgid "Unchanged"
+msgstr "دون تغيير"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Undefined"
+msgstr "غير محدد"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Unexpected error: %s"
+msgstr "خطأ غير متوقع: %s"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__usage_percent
+msgid "Usage (%)"
+msgstr "الاستخدام (%)"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Use a name everyone understands, e.g. 'Weekly Production Plan'."
+msgstr "استخدم اسماً يفهمه الجميع، مثل «خطة الإنتاج الأسبوعية»."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__activity
+msgid "Used"
+msgstr "المستخدَم"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form_routing
+msgid "Used to turn distances into travel times for new routing problems."
+msgstr "يُستخدم لتحويل المسافات إلى أزمنة سفر في مسائل التوجيه الجديدة."
+
+#. module: operations_research
+#: model:res.groups,name:operations_research.group_or_user
+msgid "User"
+msgstr "مستخدم"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Users solve problems and look at the answers.\n"
+"Designers also create and change problems.\n"
+"Managers also apply answers to the records.\n"
+"Set this per person in Settings > Users."
+msgstr ""
+"المستخدمون يحلّون المسائل ويطّلعون على الإجابات.\n"
+"المصممون ينشئون المسائل ويعدّلونها أيضاً.\n"
+"المديرون يطبّقون الإجابات على السجلات أيضاً.\n"
+"اضبط ذلك لكل شخص من الإعدادات > المستخدمون."
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_run_line__snapshot
+msgid "Value of the target field(s) at solve time, used to detect conflicts."
+msgstr "قيمة الحقل/الحقول المستهدفة وقت الحل، تُستخدم لاكتشاف التعارضات."
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__var_type
+msgid "Variable Type"
+msgstr "نوع المتغير"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__route_vehicle_id
+msgid "Vehicle"
+msgstr "المركبة"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_routing_vehicle.py:0
+msgid "Vehicle %(vehicle)s must be linked to a %(model)s record."
+msgstr "يجب ربط المركبة %(vehicle)s بسجل من نوع %(model)s."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__problem_type__routing
+msgid "Vehicle Routing"
+msgstr "توجيه المركبات"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_vehicle_ids
+msgid "Vehicles"
+msgstr "المركبات"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/tutorials/or_tutorials.xml:0
+msgid ""
+"Watch a short video, or start a guided tour: it opens the real screens and points at each button.\n"
+"                    Press Auto-play to let it run by itself like a video."
+msgstr ""
+"شاهد فيديو قصيراً، أو ابدأ جولة إرشادية: تفتح الشاشات الحقيقية وتشير إلى كل زر.\n"
+"                    اضغط «تشغيل تلقائي» لتعمل وحدها كالفيديو."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/tutorials/or_tutorials.xml:0
+msgid "Watch video"
+msgstr "شاهد الفيديو"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"We will build a question like: 'How many of each product should we make this"
+" week to earn the most, without overloading the machines?'"
+msgstr ""
+"سنبني سؤالاً مثل: «كم يجب أن نصنع من كل منتج هذا الأسبوع لنربح أكثر، دون "
+"تحميل الآلات فوق طاقتها؟»"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__schedule_interval_type__weeks
+msgid "Weeks"
+msgstr "أسابيع"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__coef_mode
+msgid "Weight"
+msgstr "الوزن"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__coef_field_id
+msgid "Weight Field"
+msgstr "حقل الوزن"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Welcome to Operations Research"
+msgstr "مرحباً بك في بحوث العمليات"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Welcome: find your way"
+msgstr "مرحباً: تعرّف على التطبيق"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "What if...?"
+msgstr "ماذا لو...؟"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "What-if scenarios and automatic runs"
+msgstr "سيناريوهات «ماذا لو» والتشغيل التلقائي"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_mismatch_policy
+msgid "When Not Matching"
+msgstr "عند عدم المطابقة"
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__route_allow_drop
+msgid "When capacity or time is short, skip stops instead of failing."
+msgstr "عند نقص السعة أو الوقت، تخطَّ المحطات بدلاً من الفشل."
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__route_departure_mode__now
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_start_mode__now
+msgid "When solving"
+msgstr "عند الحل"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "When? (Scheduling and Gantt)"
+msgstr "متى؟ (الجدولة ومخطط جانت)"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Where are the stops?"
+msgstr "أين المحطات؟"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Where the answer goes"
+msgstr "أين تُكتب الإجابة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Where the plan goes"
+msgstr "أين تُكتب الخطة"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Where trucks start and end, and when they leave. Speed and road factor turn "
+"distances into driving times."
+msgstr ""
+"من أين تبدأ الشاحنات وتنتهي، ومتى تنطلق. السرعة ومعامل الطريق يحوّلان "
+"المسافات إلى أزمنة قيادة."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Which route? (Delivery routing)"
+msgstr "أي مسار؟ (توجيه التسليم)"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Who can do what"
+msgstr "من يفعل ماذا"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Who does what? (Assignment)"
+msgstr "من يفعل ماذا؟ (التعيين)"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_tw_end_field_id
+msgid "Window End Field"
+msgstr "حقل نهاية النافذة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_tw_start_field_id
+msgid "Window Start Field"
+msgstr "حقل بداية النافذة"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_eta_field_id
+msgid "Write Arrival Time To"
+msgstr "كتابة وقت الوصول في"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_end_field_id
+msgid "Write End To"
+msgstr "كتابة النهاية في"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_routing
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_scheduling
+msgid "Write Results To"
+msgstr "كتابة النتائج في"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_start_field_id
+msgid "Write Start To"
+msgstr "كتابة البداية في"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_sequence_field_id
+msgid "Write Stop Order To"
+msgstr "كتابة ترتيب المحطة في"
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_vehicle_field_id
+msgid "Write Vehicle To"
+msgstr "كتابة المركبة في"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__var_type__binary
+msgid "Yes / No (0-1)"
+msgstr "نعم / لا (0-1)"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "You cannot delete a problem while one of its runs is solving."
+msgstr "لا يمكنك حذف مسألة أثناء حل أحد تشغيلاتها."
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "You cannot delete a run while it is solving."
+msgstr "لا يمكنك حذف تشغيل أثناء الحل."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "You're ready"
+msgstr "أنت جاهز"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Your numbers at a glance: how many problems you have, how many times they "
+"were solved, and how many answers are waiting."
+msgstr "أرقامك في لمحة: عدد مسائلك، وعدد مرات حلها، وعدد الإجابات المنتظرة."
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Your trucks"
+msgstr "شاحناتك"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "days"
+msgstr "يوم"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_constraint_view_form
+msgid "e.g. Machine hours"
+msgstr "مثلاً: ساعات الآلات"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "e.g. Weekly production mix"
+msgstr "مثلاً: مزيج الإنتاج الأسبوعي"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "id"
+msgstr "المعرّف"
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/map/or_route_map.xml:0
+msgid "km"
+msgstr "كم"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "problem_id"
+msgstr "المسألة"
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_kanban
+msgid "runs"
+msgstr "تشغيلات"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__operator__<=
+msgid "≤ At most"
+msgstr "≤ على الأكثر"
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__operator__>=
+msgid "≥ At least"
+msgstr "≥ على الأقل"

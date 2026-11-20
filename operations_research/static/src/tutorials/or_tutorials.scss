@@ -1,0 +1,14 @@
+.o_or_tutorials {
+    .o_or_tutorial_icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        color: $white;
+        background: $primary;
+        flex: 0 0 auto;
+    }
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="operations_research.Tutorials">
+        <div class="o_or_tutorials o_action h-100 overflow-auto p-3">
+            <div class="mb-3">
+                <h2 class="mb-1">Tutorials</h2>
+                <p class="text-muted mb-0">
+                    Watch a short video, or start a guided tour: it opens the real screens and points at each button.
+                    Press Auto-play to let it run by itself like a video.
+                </p>
+            </div>
+            <div class="row g-3">
+                <t t-foreach="state.tutorials" t-as="tutorial" t-key="tutorial.key">
+                    <div class="col-12 col-md-6 col-xl-4">
+                        <div t-attf-class="card h-100 o_or_tutorial o_or_tutorial_#{tutorial.key}">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="o_or_tutorial_icon"><i t-attf-class="fa #{tutorial.icon}"/></span>
+                                    <h5 class="m-0" t-out="tutorial.name"/>
+                                </div>
+                                <p class="text-muted flex-grow-1" t-out="tutorial.description"/>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button t-if="tutorial.video" class="btn btn-secondary o_or_tutorial_video"
+                                            t-on-click="() => this.watch(tutorial)">
+                                        <i class="fa fa-film me-1"/>Watch video
+                                    </button>
+                                    <button class="btn btn-primary o_or_tutorial_start"
+                                            t-on-click="() => this.startTour(tutorial)">
+                                        <i class="fa fa-hand-pointer-o me-1"/>Guided tour
+                                    </button>
+                                    <button class="btn btn-outline-primary o_or_tutorial_autoplay"
+                                            t-on-click="() => this.startTour(tutorial, true)">
+                                        <i class="fa fa-play me-1"/>Auto-play
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="operations_research.VideoDialog">
+        <Dialog title="props.title" size="'xl'" footer="false">
+            <video class="w-100 rounded o_or_tutorial_player" t-att-src="props.src" controls="controls"
+                   autoplay="autoplay" preload="metadata"/>
+        </Dialog>
+    </t>
+</templates>

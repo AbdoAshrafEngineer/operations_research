@@ -1,0 +1,51 @@
+.o_or_gantt {
+    $or-label-width: 180px;
+    .o_or_gantt_grid {
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        min-width: 720px;
+    }
+    .o_or_gantt_row {
+        display: flex;
+        min-height: 40px;
+        border-bottom: 1px solid $border-color;
+        &:last-child { border-bottom: 0; }
+    }
+    .o_or_gantt_header { min-height: 32px; background: $gray-100; }
+    .o_or_gantt_label {
+        flex: 0 0 $or-label-width;
+        padding: 8px 12px;
+        border-inline-end: 1px solid $border-color;
+    }
+    .o_or_gantt_track {
+        position: relative;
+        flex: 1 1 auto;
+        margin-inline: 12px;
+    }
+    .o_or_gantt_tick {
+        position: absolute;
+        top: 6px;
+        font-size: 0.75rem;
+        color: $text-muted;
+        white-space: nowrap;
+    }
+    .o_or_gantt_tick_mid { transform: translateX(-50%); }
+    .o_or_gantt_bar {
+        position: absolute;
+        top: 7px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        padding: 0 6px;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 0.8rem;
+        overflow: hidden;
+        cursor: pointer;
+        &:hover { filter: brightness(0.9); }
+    }
+    .o_or_gantt_bar_changed, .o_or_gantt_legend_changed { background: $primary; color: $primary; }
+    .o_or_gantt_bar_same, .o_or_gantt_legend_same { background: $gray-500; color: $gray-500; }
+    .o_or_gantt_bar_late, .o_or_gantt_legend_late { background: $danger; color: $danger; }
+    .o_or_gantt_bar_changed, .o_or_gantt_bar_same, .o_or_gantt_bar_late { color: #fff; }
+}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="or_problem_view_form_routing" model="ir.ui.view">
+        <field name="name">or.problem.form.routing</field>
+        <field name="model">or.problem</field>
+        <field name="inherit_id" ref="operations_research.or_problem_view_form"/>
+        <field name="arch" type="xml">
+            <page name="lp_decision" position="before">
+                <page string="Routing" name="routing" invisible="problem_type != 'routing'">
+                    <group>
+                        <group string="Stops">
+                            <field name="route_location_mode" widget="radio"/>
+                            <field name="route_partner_field_id" invisible="route_location_mode != 'partner'"
+                                   required="problem_type == 'routing' and route_location_mode == 'partner'"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="route_lat_field_id" invisible="route_location_mode != 'fields'"
+                                   required="problem_type == 'routing' and route_location_mode == 'fields'"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="route_lng_field_id" invisible="route_location_mode != 'fields'"
+                                   required="problem_type == 'routing' and route_location_mode == 'fields'"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="route_demand_field_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="route_service_field_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="route_tw_start_field_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="route_tw_end_field_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group string="Trip">
+                            <field name="route_depot_id" required="problem_type == 'routing'"/>
+                            <field name="route_departure_mode" widget="radio" options="{'horizontal': True}"/>
+                            <field name="route_departure_date" invisible="route_departure_mode != 'fixed'"
+                                   required="problem_type == 'routing' and route_departure_mode == 'fixed'"/>
+                            <field name="route_speed_kmh"/>
+                            <field name="route_road_factor"/>
+                            <field name="route_balance"/>
+                            <field name="route_allow_drop"/>
+                            <field name="route_drop_penalty_km" invisible="not route_allow_drop"/>
+                        </group>
+                        <group string="Write Results To">
+                            <field name="route_vehicle_field_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="route_sequence_field_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="route_eta_field_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                    <field name="route_vehicle_ids" context="{'default_problem_id': id}">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="capacity"/>
+                            <field name="max_distance_km"/>
+                            <field name="target_ref" column_invisible="not parent.route_vehicle_field_id"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </list>
+                    </field>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <record id="or_run_view_form_routing" model="ir.ui.view">
+        <field name="name">or.run.form.routing</field>
+        <field name="model">or.run</field>
+        <field name="inherit_id" ref="operations_research.or_run_view_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_open_route_map" type="object" class="oe_stat_button" icon="fa-map-o"
+                        string="Map" invisible="problem_type != 'routing' or not line_count"/>
+            </div>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='res_name']" position="before">
+                <field name="route_vehicle_id" column_invisible="parent.problem_type != 'routing'"/>
+                <field name="sequence" string="Stop" column_invisible="parent.problem_type != 'routing'"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='res_name']" position="after">
+                <field name="route_stop_name" column_invisible="parent.problem_type != 'routing'"/>
+                <field name="route_eta" column_invisible="parent.problem_type != 'routing'"/>
+                <field name="route_leg_km" column_invisible="parent.problem_type != 'routing'"/>
+                <field name="route_dropped" column_invisible="parent.problem_type != 'routing'"
+                       widget="boolean" decoration-danger="route_dropped" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_config_settings_view_form_routing" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.or_routing</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="operations_research.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <block name="or_limit_settings" position="after">
+                <block title="Routing" name="or_routing_settings">
+                    <setting id="or_route_speed" string="Average Speed"
+                             help="Used to turn distances into travel times for new routing problems.">
+                        <field name="or_route_speed_kmh"/>
+                    </setting>
+                    <setting id="or_route_road_factor" string="Road Factor"
+                             help="Straight-line distances are multiplied by this factor to approximate roads.">
+                        <field name="or_route_road_factor"/>
+                    </setting>
+                </block>
+            </block>
+        </field>
+    </record>
+</odoo>

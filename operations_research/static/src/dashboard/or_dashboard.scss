@@ -1,0 +1,5 @@
+.o_or_dashboard {
+    .o_or_kpi_clickable, .o_or_recent_row, .o_or_top_problem { cursor: pointer; }
+    .o_or_kpi_clickable:hover { box-shadow: $box-shadow-sm; }
+    .o_or_status_bar { height: 18px; }
+}
