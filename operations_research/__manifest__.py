@@ -20,6 +20,7 @@ press Solve, review the proposal and apply it to your records.
     'author': 'Abdelrahman Ashraf',
     'website': 'https://edu-abdelrahman-ashraf.odoo.com',
     'license': 'LGPL-3',
+    'live_test_url': 'https://www.youtube.com/watch?v=4bLPr5Jh78U',
     'images': ['static/description/banner.png'],
     'depends': ['base', 'mail', 'web'],
     'external_dependencies': {'python': ['ortools']},
