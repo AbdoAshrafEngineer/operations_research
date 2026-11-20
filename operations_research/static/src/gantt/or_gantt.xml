@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="operations_research.Gantt">
+        <div class="o_or_gantt o_action h-100 overflow-auto p-3">
+            <div t-if="this.state.error" class="alert alert-info o_or_gantt_empty" role="status" t-out="this.state.error"/>
+            <t t-if="this.state.data">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <button class="btn btn-secondary o_or_gantt_back" t-on-click="this.openRun">
+                        <i class="oi oi-arrow-left me-1"/>Run
+                    </button>
+                    <h3 class="m-0" t-out="this.state.data.run.problem"/>
+                    <span class="badge text-bg-primary" t-out="this.state.data.run.name"/>
+                    <span class="ms-auto text-muted">
+                        <i class="fa fa-square o_or_gantt_legend_changed"/> Changed
+                        <i class="fa fa-square o_or_gantt_legend_same ms-2"/> Unchanged
+                        <i class="fa fa-square o_or_gantt_legend_late ms-2"/> Late
+                    </span>
+                </div>
+                <div class="o_or_gantt_grid">
+                    <div class="o_or_gantt_row o_or_gantt_header">
+                        <div class="o_or_gantt_label fw-bold">Resource</div>
+                        <div class="o_or_gantt_track">
+                            <t t-foreach="this.ticks" t-as="tick" t-key="tick.key">
+                                <span t-attf-class="o_or_gantt_tick #{tick.cls}" t-att-style="tick.style"
+                                      t-out="tick.label"/>
+                            </t>
+                        </div>
+                    </div>
+                    <t t-foreach="this.state.data.rows" t-as="row" t-key="row.id">
+                        <div class="o_or_gantt_row">
+                            <div class="o_or_gantt_label text-truncate" t-att-title="row.name" t-out="row.name"/>
+                            <div class="o_or_gantt_track">
+                                <t t-foreach="row.tasks" t-as="task" t-key="task.id">
+                                    <div t-attf-class="o_or_gantt_bar #{this.barClass(task)}"
+                                         t-att-style="this.barStyle(task)" t-att-title="this.tooltip(task)"
+                                         t-on-click="() => this.openTask(task)">
+                                        <span class="text-truncate" t-out="task.name"/>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

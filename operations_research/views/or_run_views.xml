@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="or_run_view_list" model="ir.ui.view">
+        <field name="name">or.run.list</field>
+        <field name="model">or.run</field>
+        <field name="arch" type="xml">
+            <list string="Optimization Runs" create="0">
+                <field name="name"/>
+                <field name="problem_id"/>
+                <field name="base_problem_id" optional="hide"/>
+                <field name="trigger" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-info="state in ('queued', 'running')"
+                       decoration-success="state in ('done', 'applied')"
+                       decoration-danger="state == 'failed'"/>
+                <field name="solver_status" widget="badge"
+                       decoration-success="solver_status == 'optimal'"
+                       decoration-info="solver_status == 'feasible'"
+                       decoration-danger="solver_status in ('infeasible', 'unbounded', 'abnormal', 'model_invalid')"
+                       decoration-warning="solver_status == 'not_solved'"/>
+                <field name="objective_value"/>
+                <field name="gap" optional="show"/>
+                <field name="solve_time" optional="show"/>
+                <field name="num_variables" optional="hide"/>
+                <field name="date_done" optional="show"/>
+                <field name="user_id" widget="many2one_avatar_user" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="or_run_view_graph" model="ir.ui.view">
+        <field name="name">or.run.graph</field>
+        <field name="model">or.run</field>
+        <field name="arch" type="xml">
+            <graph string="Objective by Problem" type="bar">
+                <field name="problem_id"/>
+                <field name="objective_value" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="or_run_view_form" model="ir.ui.view">
+        <field name="name">or.run.form</field>
+        <field name="model">or.run</field>
+        <field name="arch" type="xml">
+            <form string="Optimization Run" create="0">
+                <header>
+                    <button name="action_apply" type="object" string="Apply" class="btn-primary"
+                            groups="operations_research.group_or_manager" data-hotkey="a"
+                            invisible="state != 'done' or not has_solution"/>
+                    <button name="action_force_apply" type="object" string="Force Apply"
+                            groups="operations_research.group_or_manager"
+                            confirm="Records changed since solving will be overwritten. Continue?"
+                            invisible="state != 'done' or not has_solution"/>
+                    <button name="action_solve_now" type="object" string="Solve Now"
+                            invisible="state not in ('draft', 'queued', 'failed', 'cancelled')"/>
+                    <button name="action_queue" type="object" string="Queue"
+                            invisible="state not in ('draft', 'failed', 'cancelled')"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state not in ('draft', 'queued', 'done', 'failed')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="queued,running,done,applied"/>
+                </header>
+                <div class="alert alert-danger mb-0" role="alert" invisible="not error_message">
+                    <field name="error_message"/>
+                </div>
+                <div class="alert alert-warning mb-0" role="alert"
+                     invisible="state != 'done' or solver_status not in ('infeasible', 'unbounded', 'not_solved')">
+                    <span invisible="solver_status != 'infeasible'">No solution satisfies all constraints. See the Log and Conflicts tabs.</span>
+                    <span invisible="solver_status != 'unbounded'">The goal can grow without limit: add a maximum or a constraint.</span>
+                    <span invisible="solver_status != 'not_solved'">No solution was found within the time limit: raise the time limit.</span>
+                </div>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_changed" type="object" class="oe_stat_button"
+                                icon="fa-exchange" invisible="not line_count">
+                            <field name="changed_count" widget="statinfo" string="Changes"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <field name="has_solution" invisible="1"/>
+                    <field name="has_sensitivity" invisible="1"/>
+                    <field name="line_count" invisible="1"/>
+                    <group>
+                        <group>
+                            <field name="problem_id"/>
+                            <field name="solver_status" widget="badge"
+                                   decoration-success="solver_status == 'optimal'"
+                                   decoration-info="solver_status == 'feasible'"
+                                   decoration-danger="solver_status in ('infeasible', 'unbounded', 'abnormal', 'model_invalid')"
+                                   decoration-warning="solver_status == 'not_solved'"/>
+                            <field name="objective_value" invisible="not has_solution"/>
+                            <field name="gap" invisible="not has_solution"/>
+                            <field name="solve_time"/>
+                        </group>
+                        <group>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="trigger"/>
+                            <field name="date_done"/>
+                            <field name="date_applied" invisible="state != 'applied'"/>
+                            <field name="applied_by_id" invisible="state != 'applied'"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Results" name="results" invisible="not line_count">
+                            <field name="line_ids">
+                                <list decoration-bf="changed" decoration-muted="not changed">
+                                    <field name="res_name"/>
+                                    <field name="value_before" column_invisible="parent.problem_type != 'lp'"/>
+                                    <field name="value" column_invisible="parent.problem_type != 'lp'"/>
+                                    <field name="delta" column_invisible="parent.problem_type != 'lp'"
+                                           decoration-success="delta &gt; 0" decoration-danger="delta &lt; 0"/>
+                                    <field name="assigned_before_name" column_invisible="parent.problem_type not in ('assignment', 'routing')"/>
+                                    <field name="assigned_name" column_invisible="parent.problem_type not in ('assignment', 'scheduling')"/>
+                                    <field name="objective_coef" optional="hide"/>
+                                    <field name="reduced_cost" column_invisible="not parent.has_sensitivity" optional="show"/>
+                                    <field name="changed" column_invisible="1"/>
+                                    <button name="action_open_record" type="object" icon="fa-external-link"
+                                            title="Open record"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Constraints" name="constraints" invisible="not constraint_result_ids">
+                            <field name="constraint_result_ids">
+                                <list decoration-warning="is_binding">
+                                    <field name="name"/>
+                                    <field name="activity"/>
+                                    <field name="operator" string="" width="30px"/>
+                                    <field name="rhs"/>
+                                    <field name="slack"/>
+                                    <field name="usage_percent" widget="progressbar" width="120px"/>
+                                    <field name="dual_value" column_invisible="not parent.has_sensitivity"/>
+                                    <field name="is_binding" width="100px"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Conflicts" name="conflicts" invisible="not conflict_ids">
+                            <field name="conflict_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="summary"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Log" name="log">
+                            <group>
+                                <group>
+                                    <field name="solver_name"/>
+                                    <field name="num_variables"/>
+                                    <field name="num_constraints"/>
+                                    <field name="best_bound" invisible="not has_solution"/>
+                                </group>
+                                <group>
+                                    <field name="date_queued"/>
+                                    <field name="date_started"/>
+                                </group>
+                            </group>
+                            <field name="log" nolabel="1" class="o_or_log"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="or_run_view_search" model="ir.ui.view">
+        <field name="name">or.run.search</field>
+        <field name="model">or.run</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="problem_id"/>
+                <field name="base_problem_id"/>
+                <filter name="to_apply" string="To Apply" domain="[('state', '=', 'done'), ('has_solution', '=', True)]"/>
+                <filter name="in_progress" string="In Progress" domain="[('state', 'in', ('queued', 'running'))]"/>
+                <filter name="failed" string="Failed / No Solution"
+                        domain="['|', ('state', '=', 'failed'), ('solver_status', 'in', ('infeasible', 'unbounded', 'not_solved', 'abnormal'))]"/>
+                <filter name="applied" string="Applied" domain="[('state', '=', 'applied')]"/>
+                <separator/>
+                <filter name="my_runs" string="My Runs" domain="[('user_id', '=', uid)]"/>
+                <filter name="scheduled" string="Scheduled" domain="[('trigger', '=', 'scheduled')]"/>
+                <filter name="date_done" string="Solved On" date="date_done"/>
+                <group>
+                    <filter name="group_problem" string="Problem" context="{'group_by': 'problem_id'}"/>
+                    <filter name="group_base_problem" string="Base Problem" context="{'group_by': 'base_problem_id'}"/>
+                    <filter name="group_state" string="State" context="{'group_by': 'state'}"/>
+                    <filter name="group_status" string="Solver Status" context="{'group_by': 'solver_status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="or_run_action" model="ir.actions.act_window">
+        <field name="name">Optimization Runs</field>
+        <field name="res_model">or.run</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No run yet</p>
+            <p>Open a problem and click Solve.</p>
+        </field>
+    </record>
+
+    <record id="or_run_line_view_list" model="ir.ui.view">
+        <field name="name">or.run.line.list</field>
+        <field name="model">or.run.line</field>
+        <field name="arch" type="xml">
+            <list string="Results" create="0" edit="0">
+                <field name="run_id"/>
+                <field name="res_name"/>
+                <field name="value_before"/>
+                <field name="value"/>
+                <field name="delta"/>
+                <field name="assigned_before_name" optional="show"/>
+                <field name="assigned_name" optional="show"/>
+                <field name="reduced_cost" optional="hide"/>
+                <button name="action_open_record" type="object" icon="fa-external-link" title="Open record"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="or_run_line_view_search" model="ir.ui.view">
+        <field name="name">or.run.line.search</field>
+        <field name="model">or.run.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="res_name"/>
+                <field name="run_id"/>
+                <filter name="changed" string="Changed" domain="[('changed', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="or_run_line_action" model="ir.actions.act_window">
+        <field name="name">Result Lines</field>
+        <field name="res_model">or.run.line</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

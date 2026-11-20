@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.operations_research</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Operations Research" string="Operations Research" name="operations_research"
+                     groups="operations_research.group_or_manager">
+                    <block title="Solver" name="or_solver_settings">
+                        <setting id="or_time_limit" string="Default Time Limit"
+                                 help="Seconds the solver may search before returning its best solution.">
+                            <field name="or_time_limit"/>
+                        </setting>
+                        <setting id="or_num_workers" string="Default Solver Threads"
+                                 help="CPU threads used by integer solvers. Keep low on shared servers.">
+                            <field name="or_num_workers"/>
+                        </setting>
+                    </block>
+                    <block title="Limits" name="or_limit_settings">
+                        <setting id="or_max_variables" string="Maximum Variables"
+                                 help="Problems larger than this are refused to protect the server.">
+                            <field name="or_max_variables"/>
+                        </setting>
+                        <setting id="or_sync_max_variables" string="Solve Instantly Up To"
+                                 help="Smaller problems are solved immediately; larger ones are queued in the background.">
+                            <field name="or_sync_max_variables"/>
+                        </setting>
+                        <setting id="or_stuck_minutes" string="Interrupted Runs"
+                                 help="Runs still 'running' after this many minutes are marked as failed.">
+                            <field name="or_stuck_minutes"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="or_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'module': 'operations_research', 'bin_size': False}</field>
+    </record>
+</odoo>

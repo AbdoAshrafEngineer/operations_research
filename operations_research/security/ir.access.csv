@@ -1,0 +1,21 @@
+id,name,model_id,group_id/id,operation,domain
+access_or_problem_user,or.problem user,or.problem,operations_research.group_or_user,r,
+access_or_problem_designer,or.problem designer,or.problem,operations_research.group_or_designer,crud,
+access_or_problem_constraint_user,or.problem.constraint user,or.problem.constraint,operations_research.group_or_user,r,
+access_or_problem_constraint_designer,or.problem.constraint designer,or.problem.constraint,operations_research.group_or_designer,crud,
+access_or_run_user,or.run user,or.run,operations_research.group_or_user,cru,
+access_or_run_manager,or.run manager,or.run,operations_research.group_or_manager,crud,
+access_or_run_line_user,or.run.line user,or.run.line,operations_research.group_or_user,r,
+access_or_run_line_manager,or.run.line manager,or.run.line,operations_research.group_or_manager,crud,
+access_or_run_constraint_user,or.run.constraint user,or.run.constraint,operations_research.group_or_user,r,
+access_or_run_constraint_manager,or.run.constraint manager,or.run.constraint,operations_research.group_or_manager,crud,
+access_or_routing_vehicle_user,or.routing.vehicle user,or.routing.vehicle,operations_research.group_or_user,r,
+access_or_routing_vehicle_designer,or.routing.vehicle designer,or.routing.vehicle,operations_research.group_or_designer,crud,
+access_ir_model_or_user,ir.model read for optimization users,ir.model,operations_research.group_or_user,r,
+access_ir_model_fields_or_user,ir.model.fields read for optimization users,ir.model.fields,operations_research.group_or_user,r,
+or_problem_company_rule,Optimization problem: multi-company,or.problem,,crud,"[('company_id', 'in', company_ids)]"
+or_problem_constraint_company_rule,Optimization constraint: multi-company,or.problem.constraint,,crud,"[('company_id', 'in', company_ids)]"
+or_run_company_rule,Optimization run: multi-company,or.run,,crud,"[('company_id', 'in', company_ids)]"
+or_run_line_company_rule,Optimization result: multi-company,or.run.line,,crud,"[('company_id', 'in', company_ids)]"
+or_run_constraint_company_rule,Optimization constraint result: multi-company,or.run.constraint,,crud,"[('company_id', 'in', company_ids)]"
+or_routing_vehicle_company_rule,Routing vehicle: multi-company,or.routing.vehicle,,crud,"[('company_id', 'in', company_ids)]"

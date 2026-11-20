@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="operations_research.GuideOverlay">
+        <div t-if="this.state.active" class="o_or_guide" t-att-class="{'o_or_guide_centered': !this.layout.hole}">
+            <div t-if="this.layout.hole" class="o_or_guide_hole" t-att-style="this.layout.hole"/>
+            <div t-else="" class="o_or_guide_backdrop"/>
+            <div class="o_or_guide_bubble card shadow-lg" t-att-style="this.layout.hole ? this.layout.bubble : ''"
+                 role="dialog" aria-live="polite">
+                <div class="card-body p-3">
+                    <div class="d-flex align-items-center mb-1">
+                        <span class="badge text-bg-primary o_or_guide_counter">
+                            <t t-out="this.state.index + 1"/> / <t t-out="this.state.steps.length"/>
+                        </span>
+                        <span class="text-muted small ms-2 text-truncate" t-out="this.state.name"/>
+                        <button class="btn btn-link btn-sm ms-auto p-0 text-muted o_or_guide_close"
+                                t-on-click="() => this.guide.stop()" title="Close">
+                            <i class="fa fa-times"/>
+                        </button>
+                    </div>
+                    <h5 class="mb-1 o_or_guide_title" t-out="this.step.title"/>
+                    <p class="mb-3 o_or_guide_text" t-out="this.step.text"/>
+                    <div t-if="this.state.busy" class="text-muted small mb-2"><i class="fa fa-circle-o-notch fa-spin me-1"/>Loading…</div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="btn btn-sm btn-secondary o_or_guide_back" t-att-disabled="this.state.index === 0 or this.state.busy"
+                                t-on-click="() => this.guide.back()">Back</button>
+                        <button t-attf-class="btn btn-sm #{this.state.autoplay ? 'btn-warning' : 'btn-outline-primary'} o_or_guide_play"
+                                t-on-click="() => this.guide.toggleAutoplay()">
+                            <i t-attf-class="fa #{this.state.autoplay ? 'fa-pause' : 'fa-play'} me-1"/>
+                            <t t-if="this.state.autoplay">Pause</t><t t-else="">Auto-play</t>
+                        </button>
+                        <button t-if="!this.isLast" class="btn btn-sm btn-primary ms-auto o_or_guide_next"
+                                t-att-disabled="this.state.busy" t-on-click="() => this.guide.next()">Next</button>
+                        <button t-else="" class="btn btn-sm btn-success ms-auto o_or_guide_finish"
+                                t-on-click="() => this.guide.stop()">Finish</button>
+                    </div>
+                </div>
+                <div t-if="this.state.autoplay and !this.state.busy" class="o_or_guide_progress" t-key="this.state.token + '_' + this.state.index">
+                    <div t-att-style="this.progressStyle"/>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

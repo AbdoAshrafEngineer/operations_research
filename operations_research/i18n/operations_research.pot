@@ -1,0 +1,3608 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* operations_research
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-20 15:22+0000\n"
+"PO-Revision-Date: 2026-11-20 15:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid ""
+"%(count)s record(s) were changed or deleted since this run was solved: "
+"%(names)s. Run the problem again, or use Force Apply to overwrite."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "%(name)s - Scenario %(number)s"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "%(task)s: predecessor %(pred)s is outside the problem and is ignored."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "%(vehicle)s: %(stops)s stop(s), %(km)s km"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "%s deleted record(s) skipped."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "%s: delivery window already closed at departure."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"'Linear / Integer Program' answers 'how much?' questions. Other types: "
+"Assignment (who does what), Scheduling (when) and Vehicle Routing (which "
+"route)."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"'New Scenario' copies the problem so you can change a limit (e.g. add an "
+"extra shift) without touching the original."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"'To Apply' counts answers that are ready but not yet written into your "
+"records. Click it to see them."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_routing_vehicle__max_distance_km
+msgid "0 = unlimited."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "1. Give it a name"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "10. Factory limits"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "11. Time limit"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "12. Solve"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "2. Type of question"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "3. Which records?"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "4. Filter them (optional)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "5. What should be decided?"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "6. Kind of number"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "7. Your goal"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "8. What to count"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "9. Limits per record"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid ""
+"<span invisible=\"solver_status != 'infeasible'\">No solution satisfies all constraints. See the Log and Conflicts tabs.</span>\n"
+"                    <span invisible=\"solver_status != 'unbounded'\">The goal can grow without limit: add a maximum or a constraint.</span>\n"
+"                    <span invisible=\"solver_status != 'not_solved'\">No solution was found within the time limit: raise the time limit.</span>"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__operator__=
+msgid "= Exactly"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"A 2-minute walk through the app: dashboard, problems, runs and who can do "
+"what."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "A Yes/No decision field requires the variable type 'Yes / No (0-1)'."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"A field on your records pointing to the resource, e.g. 'Assigned Line'. The "
+"resources are the records of that field."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "A filter must be a list of conditions."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "A new problem"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"A problem is a saved question, for example 'How much glass should we produce"
+" this week?'. You build it once and solve it again whenever your data "
+"changes."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "A scenario cannot be based on another scenario."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "A scenario must keep the problem type of its base problem."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__route_drop_penalty_km
+msgid "A skipped stop costs as much as driving this many km."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "A solved run"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__mip_gap
+msgid "Accepted Gap (%)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_needaction
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__active
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__active
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__active
+msgid "Active"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Add at least one vehicle."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Add one line per limit with 'Add a line'. Example: machine hours used must "
+"be at most the machine capacity, one rule per machine. Each line is "
+"summarized in plain words."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_mismatch_policy__penalty
+msgid "Add penalty"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "After solving, the Gantt button shows the plan per machine."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "After solving, the Map button draws the routes."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_allow_drop
+msgid "Allow Skipping Stops"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Answers waiting for you"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__applied
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Applied"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__applied_by_id
+msgid "Applied By"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__domain
+msgid "Applies To"
+msgstr ""
+
+#. module: operations_research
+#: model:res.groups,comment:operations_research.group_or_manager
+msgid "Applies results to records and manages settings."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Apply"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_auto_apply
+msgid "Apply Automatically"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Apply automatically (Managers)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__schedule_auto_apply
+msgid ""
+"Apply results automatically when the solver proves optimality and no record "
+"changed since solving. The 'Run As' user must be an Optimization Manager."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+msgid "Archived"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__route_eta
+msgid "Arrival"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Assign"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_field_id
+msgid "Assigned Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__assigned_res_id
+msgid "Assigned Resource ID"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__problem_type__assignment
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Assignment"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Assignment problems"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_attachment_count
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__auto_apply
+msgid "Auto Apply"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+#: code:addons/operations_research/static/src/tutorials/or_tutorials.xml:0
+msgid "Auto-play"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Automatic apply failed: %s"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form_routing
+msgid "Average Speed"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_speed_kmh
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_route_speed_kmh
+msgid "Average Speed (km/h)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+msgid "Avg. Solve Time (s)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Back"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_balance
+msgid "Balance Routes"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__parent_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run__base_problem_id
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Base Problem"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+msgid "Base Problems"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__best_bound
+msgid "Best Bound"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__is_binding
+msgid "Bottleneck"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Bounds"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Build a 'How much?' problem"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Business context, assumptions, owner..."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "CPU threads used by integer solvers. Keep low on shared servers."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__cancelled
+msgid "Cancelled"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__capacity
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Capacity"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_routing_vehicle_capacity_positive
+msgid "Capacity cannot be negative."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__assign_task_load_field_id
+msgid "Capacity consumed by each record. Empty = 1 per record."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Capacity of %s"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__delta
+msgid "Change"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_run_constraint__dual_value
+msgid "Change of the objective per extra unit of limit (LP only)."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.xml:0
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__changed
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_line_view_search
+msgid "Changed"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__changed_count
+msgid "Changed Records"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Changes"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid ""
+"Choose at least one field to write the routes to (vehicle, stop order or "
+"arrival time)."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Choose both match fields, or none."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Choose the assigned field of problem %s."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Choose the contact field giving each stop's location."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Choose the date to plan from."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Choose the decision field of problem %s."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Choose the departure date."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Choose the depot."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Choose the duration field of problem %s."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Choose the field receiving the planned start."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Choose the latitude and longitude fields."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Choose the record weight field."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Choose the records the answer is about, for example Products. Any model "
+"works, including your custom ones."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Choose the resource cost field."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Circular dependency between: %s"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Click 'Edit Domain' to keep only some records, e.g. only products of type "
+"'Product'. The number shows how many records take part."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Click Solve. Small problems are answered in seconds; big ones run in the background and you get a message when ready.\n"
+"Next tour: review and apply the answer."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Close"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Come back here any time for videos and guided tours like this one."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__company_id
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__company_id
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__company_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run__company_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__company_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__company_id
+msgid "Company"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Compare"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Compare Scenarios"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Compare options side by side, and let problems solve themselves on a "
+"schedule."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__config_signature
+msgid "Config Signature"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.ui.menu,name:operations_research.or_menu_config
+msgid "Configuration"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__conflict_ids
+msgid "Conflicting Constraints"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Conflicts"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__constraint_id
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_constraint_view_form
+msgid "Constraint"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Constraint %(name)s skipped for records without %(field)s."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid ""
+"Constraint %s: a limit taken from a field requires grouping by a many2one "
+"field."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Constraint %s: choose the group field and the limit field."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Constraint %s: choose the weight field."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Constraint %s: the limit field must belong to %s."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__constraint_result_ids
+msgid "Constraint Results"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__constraint_ids
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Constraints"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_partner_field_id
+msgid "Contact Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__route_location_mode__partner
+msgid "Contact field (uses its geolocation)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__var_type__continuous
+msgid "Continuous"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Continuous allows decimals (kilos, hours). Integer gives whole pieces. Yes /"
+" No picks or skips each record."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_cost_mode
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Cost"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Cost of each choice"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__assign_unassigned_penalty
+msgid "Cost of leaving a record unassigned (when minimizing)."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__coef_mode__one
+msgid "Count (1 per record)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem_constraint__group_by_field_id
+msgid "Create one constraint for each value of this field (e.g. per machine)."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.actions.act_window,help:operations_research.or_problem_action
+msgid "Create your first optimization problem"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__create_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__create_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__create_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run__create_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__create_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__create_date
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__create_date
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__create_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run__create_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__create_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: operations_research
+#: model:res.groups,comment:operations_research.group_or_designer
+msgid "Creates and configures optimization problems and scenarios."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__assigned_before_name
+msgid "Current Resource"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__sched_start_before
+msgid "Current Start"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__value_before
+msgid "Current Value"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_run_line__route_stop_name
+msgid "Customer or place of this stop."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/map/or_route_map.xml:0
+msgid "D"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.actions.client,name:operations_research.or_dashboard_action
+#: model:ir.ui.menu,name:operations_research.or_menu_dashboard
+msgid "Dashboard"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__date_applied
+msgid "Date Applied"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__date_done
+msgid "Date Done"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__date_queued
+msgid "Date Queued"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__date_started
+msgid "Date Started"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_scheduling
+msgid "Dates"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__schedule_interval_type__days
+msgid "Days"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_duration_unit__days
+msgid "Days (24h)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_deadline_field_id
+msgid "Deadline Field"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Deadline earlier than earliest start + duration for: %s"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_deadline_mode
+msgid "Deadlines"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Decide quantities (production mix, budget split, which projects to pick) "
+"within your limits."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Decide which truck visits which customer, and in which order, driving as "
+"little as possible."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Decision"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Decision & Goal"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__var_field_id
+msgid "Decision Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_num_workers
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Default Solver Threads"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Default Time Limit"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_time_limit
+msgid "Default Time Limit (s)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_demand_field_id
+msgid "Demand Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_departure_mode
+msgid "Departure"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_departure_date
+msgid "Departure Date"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_depot_id
+msgid "Depot"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Depot and departure"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__description
+msgid "Description"
+msgstr ""
+
+#. module: operations_research
+#: model:res.groups,name:operations_research.group_or_designer
+msgid "Designer"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__display_name
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__display_name
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__display_name
+#: model:ir.model.fields,field_description:operations_research.field_or_run__display_name
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__display_name
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__display_name
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Duration"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_duration_field_id
+msgid "Duration Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_duration_unit
+msgid "Duration Unit"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem_constraint__rhs_field_id
+msgid "E.g. the capacity field of the machine the records are grouped by."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Each record (e.g. an order) gets exactly one resource (e.g. a production "
+"line), at the lowest cost and without overloading anyone."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem_constraint__coef_mode
+msgid "Each record's decision value is multiplied by this weight and summed."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Each time you press Solve you get a run like this one. Let's read it."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_release_field_id
+msgid "Earliest Start Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__assign_capacity_field_id
+msgid "Empty = each resource takes at most one record."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__error_message
+msgid "Error Message"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_interval_number
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Every"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_all
+msgid "Every Record Must Be Assigned"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Every time someone presses Solve, a run is saved here with its result. Click"
+" a line to open it."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__failed
+msgid "Failed"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Failed / No Solution"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__feasible
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__feasible
+msgid "Feasible (not proven optimal)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid ""
+"Field %(field)s cannot be written (computed, related or not stored); choose "
+"a stored editable field."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Field %(field)s does not belong to model %(model)s."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Field %(field)s must belong to the resource model %(model)s."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Field %s no longer exists."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__rhs_mode__group_field
+msgid "Field on the grouped record"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__coef_mode__field
+msgid "Field value"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Finish"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_objective__makespan
+msgid "Finish everything as early as possible"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Finish everything early, be late as little as possible, or finish important "
+"jobs first."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__route_departure_mode__fixed
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_start_mode__fixed
+msgid "Fixed date"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__rhs_mode__constant
+msgid "Fixed value"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_follower_ids
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_partner_ids
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"For big problems: keep working while it solves. You get a message in Discuss"
+" when the answer is ready."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"For every record: current value, proposed value and the difference. Bold "
+"lines will change. Click the arrow icon to open a record."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__assign_model_name
+#: model:ir.model.fields,help:operations_research.field_or_problem_constraint__group_by_relation
+msgid "For relationship fields, the technical name of the target model"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_mismatch_policy__forbid
+msgid "Forbid"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Force Apply"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"From the customer's location on the map (latitude and longitude on the "
+"contact) or from two fields."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form_scheduling
+msgid "Gantt"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__gap
+msgid "Gap (%)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Give each job a start and end time so that a machine never does two jobs at "
+"once, jobs wait for the ones before them, and deadlines are met."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Give each order, task or student to the best line, person or class."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__objective_sense
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_scheduling
+msgid "Goal"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/tutorials/or_tutorials.xml:0
+msgid "Guided tour"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Happy with the answer? A Manager clicks Apply to write it into the records. "
+"If someone changed a record after solving, you get a warning instead of "
+"losing their work."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_deadline_mode__hard
+msgid "Hard (must be met)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid ""
+"Hard deadlines cannot all be met. Switch deadlines to soft to see the best "
+"compromise."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__has_message
+#: model:ir.model.fields,field_description:operations_research.field_or_run__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__has_sensitivity
+msgid "Has Sensitivity"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__has_solution
+msgid "Has Solution"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_help
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form_help
+msgid "Help"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "History"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_duration_unit__hours
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__schedule_interval_type__hours
+msgid "Hours"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "How long each job takes, in minutes, hours or days."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"How long the solver may search. 30 seconds is plenty for most problems; it "
+"stops earlier when it has the best answer."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"How much each resource can take, and how much each record needs (the load). "
+"Empty = one record per resource."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"How much each stop needs (pallets, boxes). Trucks never carry more than "
+"their capacity."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"How much of each limit is used. 'Bottleneck' ticked = fully used: this is what stops you from doing more.\n"
+"For decimal problems, 'Shadow Price' shows what one extra unit of that limit is worth."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__id
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__id
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__id
+#: model:ir.model.fields,field_description:operations_research.field_or_run__id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__id
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"If capacity is short, untick this: some records stay unassigned (at a "
+"penalty) instead of 'no solution'."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__message_needaction
+#: model:ir.model.fields,help:operations_research.field_or_run__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__message_has_error
+#: model:ir.model.fields,help:operations_research.field_or_run__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_mismatch_policy__ignore
+msgid "Ignore"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "In Progress"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__infeasible
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__infeasible
+msgid "Infeasible"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Infeasible because of the variable bounds (minimum/maximum)."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__var_type__integer
+msgid "Integer"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Interrupted Runs"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_interval_type
+msgid "Interval Unit"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Invalid filter on constraint %(name)s: %(error)s"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Invalid filter: %(error)s"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__model_invalid
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__model_invalid
+msgid "Invalid model"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Invalid records filter: %s"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Invalid resources filter: %s"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_is_follower
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__is_scenario
+msgid "Is Scenario"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Jobs listed here must finish first, e.g. cutting before tempering."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Jobs on the same machine never overlap."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__last_objective
+msgid "Last Objective"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__last_run_id
+msgid "Last Run"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__last_run_status
+msgid "Last Status"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__write_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__write_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__write_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run__write_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__write_uid
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__write_date
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__write_date
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__write_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run__write_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__write_date
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.js:0
+#: code:addons/operations_research/static/src/gantt/or_gantt.xml:0
+msgid "Late"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__sched_late_minutes
+msgid "Late (min)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Late: %s"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__route_location_mode__fields
+msgid "Latitude / longitude fields"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_lat_field_id
+msgid "Latitude Field"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Left unassigned: %s"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__route_leg_km
+msgid "Leg (km)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__rhs_value
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__rhs
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_constraint_view_form
+msgid "Limit"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__rhs_field_id
+msgid "Limit Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__rhs_mode
+msgid "Limit Type"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Limits"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Limits used"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__line_count
+msgid "Line Count"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__problem_type__lp
+msgid "Linear / Integer Program"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Link every vehicle to a record to write the vehicle field."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__target_ref
+msgid "Linked Record"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Load"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Loading…"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__log
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Log"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_lng_field_id
+msgid "Longitude Field"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Machine or person"
+msgstr ""
+
+#. module: operations_research
+#: model:res.groups,name:operations_research.group_or_manager
+msgid "Manager"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__trigger__manual
+msgid "Manual"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__assign_field_id
+msgid "Many2one field on the records that receives the chosen resource."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form_routing
+msgid "Map"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_stuck_minutes
+msgid "Mark Runs Failed After (min)"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Matching"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__record_count
+msgid "Matching Records"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Matching rules"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__max_distance_km
+msgid "Max Distance (km)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__objective_sense__max
+msgid "Maximize"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Maximize (profit, output) or Minimize (cost, waste)."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__ub_value
+msgid "Maximum"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__ub_field_id
+msgid "Maximum From Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_max_variables
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Maximum Variables"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_routing_vehicle_distance_positive
+msgid "Maximum distance cannot be negative."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_routing_vehicle__capacity
+msgid "Maximum total demand. 0 = unlimited."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_has_error
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_ids
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_objective__completion
+msgid "Minimise weighted completion time"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_objective__tardiness
+msgid "Minimise weighted lateness"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Minimising lateness requires a deadline field."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__objective_sense__min
+msgid "Minimize"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__lb_value
+msgid "Minimum"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__lb_field_id
+msgid "Minimum From Field"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Minimum is greater than maximum for: %s"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_duration_unit__minutes
+msgid "Minutes"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_mismatch_penalty
+msgid "Mismatch Penalty"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__res_model
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+msgid "Model"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Model %s is not installed."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__model_name
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__model_name
+msgid "Model Technical Name"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__schedule_interval_type__months
+msgid "Months"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "Most Used Problems"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Must everyone be assigned?"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "My Runs"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__name
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__name
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__name
+#: model:ir.model.fields,field_description:operations_research.field_or_run__name
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__name
+msgid "Name"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Negative duration for: %s"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "New Scenario"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Next"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_next_date
+msgid "Next Run"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "No %(model)s record matches the problem filter."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__ub_infinite
+msgid "No Maximum"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "No data for this period."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid ""
+"No geolocation for: %s. Geolocate the contacts (latitude/longitude) first."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "No matching resource for: %s"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run_scheduling.py:0
+msgid "No resource"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "No resource matches the resources filter."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid ""
+"No route plan fits the capacities, distances and time windows. Add vehicles,"
+" relax windows, or allow skipping stops."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.actions.act_window,help:operations_research.or_run_action
+msgid "No run yet"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "No run yet."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__not_solved
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__not_solved
+msgid "No solution in time limit"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Not applied automatically: %s is not an Optimization Manager."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid ""
+"Not every record can be assigned: total load %(load)s, total capacity "
+"%(cap)s. Add resources, raise capacities or untick 'Every Record Must Be "
+"Assigned'."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Notes"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Nothing solved yet"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__num_constraints
+msgid "Num Constraints"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__num_variables
+msgid "Num Variables"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_needaction_counter
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__message_has_error_counter
+#: model:ir.model.fields,field_description:operations_research.field_or_run__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__message_needaction_counter
+#: model:ir.model.fields,help:operations_research.field_or_run__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__message_has_error_counter
+#: model:ir.model.fields,help:operations_research.field_or_run__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__objective_value
+msgid "Objective"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__objective_field_id
+msgid ""
+"Objective = sum over records of (this field x decision value). Leave empty "
+"to just look for any feasible solution."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__objective_field_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__objective_coef
+msgid "Objective Coefficient"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_graph
+msgid "Objective by Problem"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__group_by_field_id
+msgid "One Constraint Per"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"One color per truck, numbers show the stop order, D is the depot. Click a "
+"truck on the right to highlight its route."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"One line per truck: capacity, maximum km, and the record written on the "
+"deliveries (e.g. the driver)."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"One row per machine. Purple = new times, gray = unchanged, red = late. Click"
+" a bar to open the job."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Only Optimization Managers can apply results."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__domain
+msgid "Only records matching this filter take part in the problem."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.actions.act_window,help:operations_research.or_run_action
+msgid "Open a problem and click Solve."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Open a problem and press Solve first, then start this tour again to learn "
+"how to read and apply the answer."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/map/or_route_map.js:0
+msgid "Open a routing run and click Map."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.js:0
+msgid "Open a scheduling run and click Gantt."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_line_view_list
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Open record"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+#: model:ir.module.category,name:operations_research.module_category_operations_research
+#: model:ir.ui.menu,name:operations_research.or_menu_root
+#: model:res.groups.privilege,name:operations_research.res_groups_privilege_or
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Operations Research"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.actions.server,name:operations_research.ir_cron_or_scheduled_problems_ir_actions_server
+msgid "Operations Research: Scheduled Problems"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.actions.server,name:operations_research.ir_cron_or_process_queue_ir_actions_server
+msgid "Operations Research: Solve Queued Runs"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__operator
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__operator
+msgid "Operator"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__optimal
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__optimal
+msgid "Optimal"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Optimal = the best possible answer.\n"
+"Feasible = a good answer, not proven best.\n"
+"Infeasible = your rules can't all be met (the Conflicts tab tells you which one).\n"
+"Unbounded = a limit is missing."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Optimization %(problem)s finished: %(status)s."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_problem_constraint
+msgid "Optimization Constraint"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_run_constraint
+msgid "Optimization Constraint Result"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_problem
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Optimization Problem"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.actions.act_window,name:operations_research.or_problem_action
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_list
+msgid "Optimization Problems"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_run_line
+msgid "Optimization Result Line"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_run
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Optimization Run"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.actions.act_window,name:operations_research.or_run_action
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_list
+msgid "Optimization Runs"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Optional minimum and maximum, from a field or a fixed number. Example: never"
+" plan more than the customer demand."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Optional: e.g. the required skill must equal the line's skill. Mismatches "
+"can be forbidden or simply cost extra."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Optional: write the answer automatically when it is the best possible one "
+"and nothing changed since solving."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Order of work"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_overlay.xml:0
+msgid "Pause"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.actions.act_window,help:operations_research.or_problem_action
+msgid ""
+"Pick any model, choose what the solver decides, the goal and the limits.\n"
+"               Solve, review the proposal, then apply it to your records."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Pick the field the solver fills in for every record, e.g. 'Planned Qty'. "
+"Nothing is written until you click Apply."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_start_mode
+msgid "Plan From"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_start_date
+msgid "Plan From Date"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Plan jobs on machines or people in the right order and on time."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Plan truck routes with capacities, delivery windows and the shortest "
+"driving."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__sched_end
+msgid "Planned End"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__sched_start
+msgid "Planned Start"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_predecessor_field_id
+msgid "Predecessors Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__route_balance
+msgid "Prefer routes of similar length over the shortest total."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_weight_field_id
+msgid "Priority Weight Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__problem_id
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__problem_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run__problem_id
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Problem"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__problem_type
+#: model:ir.model.fields,field_description:operations_research.field_or_run__problem_type
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+msgid "Problem Type"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Problem type %s is not supported."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model:ir.ui.menu,name:operations_research.or_menu_problems
+msgid "Problems"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Problems larger than this are refused to protect the server."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__assigned_name
+msgid "Proposed Resource"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__value
+msgid "Proposed Value"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Proposed changes"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Queue"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__queued
+msgid "Queued"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Read the result, find the bottleneck, and write the plan into your records "
+"safely."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Reading the Gantt"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Reading the map"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "Recent Runs"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Recent runs"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__res_name
+msgid "Record"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__res_id
+msgid "Record ID"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_task_load_field_id
+msgid "Record Load"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_task_match_field_id
+msgid "Record Match Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_task_weight_field_id
+msgid "Record Weight"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_cost_mode__product
+msgid "Record field x resource field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_routing_vehicle__target_ref
+msgid ""
+"Record written to the problem's vehicle field for the stops of this vehicle "
+"(e.g. a driver or a fleet vehicle)."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Records"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__domain
+msgid "Records Filter"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__model_id
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__model_id
+msgid "Records Model"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Records changed since solving will be overwritten. Continue?"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__sched_resource_field_id
+msgid ""
+"Records sharing the same resource (machine, employee...) never overlap. "
+"Records without a resource are not limited."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__reduced_cost
+msgid "Reduced Cost"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__group_by_relation
+msgid "Related Model"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__sched_predecessor_field_id
+msgid ""
+"Relational field on the same model listing the records that must finish "
+"first."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Removing any one of these constraints makes the problem feasible: %s"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.xml:0
+msgid "Resource"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_capacity_field_id
+msgid "Resource Capacity"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_resource_cost_field_id
+msgid "Resource Cost"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_resource_field_id
+msgid "Resource Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_resource_match_field_id
+msgid "Resource Match Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_model_name
+msgid "Resource Model"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_cost_mode__resource
+msgid "Resource field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_domain
+msgid "Resources Filter"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem_constraint__domain
+msgid "Restrict the constraint to the records matching this filter."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.actions.act_window,name:operations_research.or_run_line_action
+msgid "Result Lines"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__line_ids
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_line_view_list
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Results"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Results applied to %(count)s record(s)."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Review and apply an answer"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_road_factor
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_route_road_factor
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form_routing
+msgid "Road Factor"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_res_config_settings__or_route_road_factor
+msgid "Road distance / straight-line distance. 1.3 is typical in cities."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run_routing.py:0
+msgid "Routes %s"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_routing
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form_routing
+msgid "Routing"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model,name:operations_research.model_or_routing_vehicle
+msgid "Routing Vehicle"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Routing problems"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.xml:0
+#: code:addons/operations_research/static/src/map/or_route_map.xml:0
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__run_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__run_id
+msgid "Run"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Run %s cannot be cancelled in its current state."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Run %s cannot be queued in its current state."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Run %s cannot be solved in its current state."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Run %s has no feasible solution to apply."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Run %s has no result to apply (state: %s)."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_user_id
+#: model:ir.model.fields,field_description:operations_research.field_or_run__user_id
+msgid "Run As"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__schedule_active
+msgid "Run Automatically"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__run_count
+msgid "Run Count"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Run automatically"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__running
+msgid "Running"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__run_ids
+#: model:ir.ui.menu,name:operations_research.or_menu_runs
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Runs"
+msgstr ""
+
+#. module: operations_research
+#: model:res.groups,comment:operations_research.group_or_user
+msgid "Runs existing optimization problems and reviews the results."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Runs still 'running' after this many minutes are marked as failed."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Same for all, a resource field (e.g. hourly rate), or record field x "
+"resource field (e.g. hours x rate)."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__assign_cost_mode__constant
+msgid "Same for every pair"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Scenario"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Scenario Comparison"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__scenario_count
+msgid "Scenario Count"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__scenario_ids
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+msgid "Scenarios"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Schedule"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run_scheduling.py:0
+msgid "Schedule %s"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__trigger__scheduled
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_search
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Scheduled"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__problem_type__scheduling
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_scheduling
+msgid "Scheduling"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_objective
+msgid "Scheduling Goal"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Scheduling problems"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Seconds the solver may search before returning its best solution."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sequence
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__sequence
+#: model:ir.model.fields,field_description:operations_research.field_or_routing_vehicle__sequence
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_service_field_id
+msgid "Service Time Field (min)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.actions.act_window,name:operations_research.or_config_settings_action
+#: model:ir.ui.menu,name:operations_research.or_menu_settings
+msgid "Settings"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Settings (Configuration menu) let a manager change the default time limit "
+"and the size limits. Happy optimizing!"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid ""
+"Several constraints conflict together; no single constraint explains it."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__dual_value
+msgid "Shadow Price"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_drop_penalty_km
+msgid "Skip Penalty (km)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__route_dropped
+msgid "Skipped"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "Skipped stops: %s"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/map/or_route_map.xml:0
+msgid "Skipped:"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__slack
+msgid "Slack"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid ""
+"Smaller problems are solved immediately; larger ones are queued in the "
+"background."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__snapshot
+msgid "Snapshot"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_deadline_mode__soft
+msgid "Soft (penalised when late)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Soft: try to be on time, late jobs are penalized by priority.\n"
+"Hard: must be on time, otherwise there is no solution."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Solve"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_res_config_settings__or_sync_max_variables
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Solve Instantly Up To"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form
+msgid "Solve Now"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__solve_time
+msgid "Solve Time (s)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Solve and review"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Solve each scenario, then 'Compare Scenarios' lists their results side by "
+"side so you can choose."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Solve every hour, day, week or month, e.g. plan tomorrow's routes every "
+"night."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "Solve in Background"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Solve, then check 'Proposed Resource' for every record and Apply."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__state__done
+msgid "Solved"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Solved On"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form
+msgid "Solver"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__solver_name
+msgid "Solver Name"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "Solver Outcomes"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__solver_status
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "Solver Status"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__num_workers
+msgid "Solver Threads"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__abnormal
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__abnormal
+msgid "Solver error"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "Start and end must be written to different fields."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__route_depot_id
+msgid "Start and end of every route. Needs a geolocation."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__state
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "State"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Status"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__route_stop_name
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_form_routing
+msgid "Stop"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_location_mode
+msgid "Stop Location"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__mip_gap
+msgid ""
+"Stop integer search when the solution is within this % of the best bound."
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_routing
+msgid "Stops"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form_routing
+msgid ""
+"Straight-line distances are multiplied by this factor to approximate roads."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+msgid "Success Rate"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_constraint_view_form
+msgid "Sum of"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__summary
+msgid "Summary"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_scheduling
+msgid "Tasks"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The Gantt chart"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_mip_gap_range
+msgid "The accepted gap must be between 0 and 100%."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_route_speed_positive
+msgid "The average speed must be positive."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The chatter on the right keeps who solved and who applied, and when."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The dashboard"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The date fields that receive the planned start and end when you Apply."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_routing.py:0
+msgid "The depot %s has no geolocation."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"The history of all answers: when, by whom, and whether they were applied."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The map"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_num_workers_positive
+msgid "The number of solver threads must be positive."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_scheduling.py:0
+msgid "The predecessors field must point to the same model (%s)."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid ""
+"The problem configuration changed since run %s was solved; run it again."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The result"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_route_factor_valid
+msgid "The road factor must be at least 1."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_schedule_interval_positive
+msgid "The schedule interval must be positive."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__var_field_id
+msgid ""
+"The solver computes a value for this field on every record; Apply writes it "
+"back."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid ""
+"The solver was interrupted (server restart or worker timeout). Queue it "
+"again or reduce the time limit."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.constraint,message:operations_research.constraint_or_problem_time_limit_positive
+msgid "The time limit must be positive."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "The value of your goal with this plan, e.g. the total margin."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"The value per unit, e.g. 'Unit Margin'. The solver maximizes the total: "
+"margin x quantity, summed over all records."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"This app finds the best answer to everyday planning questions: how much to make, who does what, when to do it, and which route to drive.\n"
+"You describe the question once, press Solve, check the answer and apply it."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_service.js:0
+msgid "This guided tour is not available."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid ""
+"This problem has about %(size)s variables, above the limit of %(limit)s. "
+"Narrow the records filter or raise the limit in Settings."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.js:0
+msgid "This run has no planned tasks."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Tick 'Allow Skipping Stops' to get the best partial plan instead of 'no "
+"solution'."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__time_limit
+msgid "Time Limit (s)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.js:0
+#: model_terms:ir.ui.view,arch_db:operations_research.or_run_view_search
+msgid "To Apply"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "Too many constraints to analyse infeasibility automatically."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Too many stops?"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run__trigger
+msgid "Trigger"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_routing
+msgid "Trip"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+#: code:addons/operations_research/static/src/tutorials/or_tutorials.xml:0
+#: model:ir.actions.client,name:operations_research.or_tutorials_action
+#: model:ir.ui.menu,name:operations_research.or_menu_tutorials
+msgid "Tutorials"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_unassigned_penalty
+msgid "Unassigned Penalty"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__last_run_status__unbounded
+#: model:ir.model.fields.selection,name:operations_research.selection__or_run__solver_status__unbounded
+msgid "Unbounded"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/gantt/or_gantt.xml:0
+msgid "Unchanged"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem_constraint.py:0
+msgid "Undefined"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "Unexpected error: %s"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__usage_percent
+msgid "Usage (%)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Use a name everyone understands, e.g. 'Weekly Production Plan'."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_constraint__activity
+msgid "Used"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.res_config_settings_view_form_routing
+msgid "Used to turn distances into travel times for new routing problems."
+msgstr ""
+
+#. module: operations_research
+#: model:res.groups,name:operations_research.group_or_user
+msgid "User"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Users solve problems and look at the answers.\n"
+"Designers also create and change problems.\n"
+"Managers also apply answers to the records.\n"
+"Set this per person in Settings > Users."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_run_line__snapshot
+msgid "Value of the target field(s) at solve time, used to detect conflicts."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__var_type
+msgid "Variable Type"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_run_line__route_vehicle_id
+msgid "Vehicle"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_routing_vehicle.py:0
+msgid "Vehicle %(vehicle)s must be linked to a %(model)s record."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__problem_type__routing
+msgid "Vehicle Routing"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_vehicle_ids
+msgid "Vehicles"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/tutorials/or_tutorials.xml:0
+msgid ""
+"Watch a short video, or start a guided tour: it opens the real screens and points at each button.\n"
+"                    Press Auto-play to let it run by itself like a video."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/tutorials/or_tutorials.xml:0
+msgid "Watch video"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"We will build a question like: 'How many of each product should we make this"
+" week to earn the most, without overloading the machines?'"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__schedule_interval_type__weeks
+msgid "Weeks"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__coef_mode
+msgid "Weight"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem_constraint__coef_field_id
+msgid "Weight Field"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Welcome to Operations Research"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Welcome: find your way"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "What if...?"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "What-if scenarios and automatic runs"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__assign_mismatch_policy
+msgid "When Not Matching"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,help:operations_research.field_or_problem__route_allow_drop
+msgid "When capacity or time is short, skip stops instead of failing."
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__route_departure_mode__now
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__sched_start_mode__now
+msgid "When solving"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "When? (Scheduling and Gantt)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Where are the stops?"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Where the answer goes"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Where the plan goes"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Where trucks start and end, and when they leave. Speed and road factor turn "
+"distances into driving times."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Which route? (Delivery routing)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Who can do what"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Who does what? (Assignment)"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_tw_end_field_id
+msgid "Window End Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_tw_start_field_id
+msgid "Window Start Field"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_eta_field_id
+msgid "Write Arrival Time To"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_end_field_id
+msgid "Write End To"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_routing
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form_scheduling
+msgid "Write Results To"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__sched_start_field_id
+msgid "Write Start To"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_sequence_field_id
+msgid "Write Stop Order To"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields,field_description:operations_research.field_or_problem__route_vehicle_field_id
+msgid "Write Vehicle To"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem__var_type__binary
+msgid "Yes / No (0-1)"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "You cannot delete a problem while one of its runs is solving."
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_run.py:0
+msgid "You cannot delete a run while it is solving."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "You're ready"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid ""
+"Your numbers at a glance: how many problems you have, how many times they "
+"were solved, and how many answers are waiting."
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/guide/or_guide_tours.js:0
+msgid "Your trucks"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/dashboard/or_dashboard.xml:0
+msgid "days"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_constraint_view_form
+msgid "e.g. Machine hours"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_form
+msgid "e.g. Weekly production mix"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "id"
+msgstr ""
+
+#. module: operations_research
+#. odoo-javascript
+#: code:addons/operations_research/static/src/map/or_route_map.xml:0
+msgid "km"
+msgstr ""
+
+#. module: operations_research
+#. odoo-python
+#: code:addons/operations_research/models/or_problem.py:0
+msgid "problem_id"
+msgstr ""
+
+#. module: operations_research
+#: model_terms:ir.ui.view,arch_db:operations_research.or_problem_view_kanban
+msgid "runs"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__operator__<=
+msgid "≤ At most"
+msgstr ""
+
+#. module: operations_research
+#: model:ir.model.fields.selection,name:operations_research.selection__or_problem_constraint__operator__>=
+msgid "≥ At least"
+msgstr ""

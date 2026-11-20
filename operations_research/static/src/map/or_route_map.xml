@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="operations_research.RouteMap">
+        <div class="o_or_route_map o_action h-100 overflow-auto p-3">
+            <div t-if="this.state.error" class="alert alert-info" role="status" t-out="this.state.error"/>
+            <t t-if="this.state.data">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <button class="btn btn-secondary" t-on-click="this.openRun">
+                        <i class="oi oi-arrow-left me-1"/>Run
+                    </button>
+                    <h3 class="m-0" t-out="this.state.data.run.problem"/>
+                    <span class="badge text-bg-primary" t-out="this.state.data.run.name"/>
+                    <span class="ms-auto fw-bold"><t t-out="this.state.data.run.objective.toFixed(1)"/> km</span>
+                </div>
+                <div class="d-flex flex-wrap gap-3">
+                    <div class="o_or_route_canvas border rounded flex-grow-1">
+                        <svg t-att-viewBox="'0 0 ' + this.width + ' ' + this.height" dir="ltr" class="w-100 h-auto">
+                            <t t-foreach="this.state.data.routes" t-as="route" t-key="route.id">
+                                <polyline t-att-points="this.path(route)" fill="none" t-att-stroke="route.color"
+                                          stroke-width="3" stroke-linejoin="round"
+                                          t-att-opacity="this.isDimmed(route) ? 0.15 : 0.9"/>
+                                <t t-foreach="route.stops" t-as="stop" t-key="stop.id">
+                                    <g class="o_or_route_stop" t-on-click="() => this.openStop(stop)"
+                                       t-att-opacity="this.isDimmed(route) ? 0.2 : 1">
+                                        <title t-out="stop.name + ' ' + this.formatEta(stop)"/>
+                                        <circle t-att-cx="this.x(stop)" t-att-cy="this.y(stop)" r="11" t-att-fill="route.color"/>
+                                        <text t-att-x="this.x(stop)" t-att-y="this.y(stop) + 4" text-anchor="middle"
+                                              class="o_or_route_label" t-out="stop.sequence"/>
+                                    </g>
+                                </t>
+                            </t>
+                            <t t-foreach="this.state.data.dropped" t-as="stop" t-key="stop.id">
+                                <g class="o_or_route_stop o_or_route_dropped" t-on-click="() => this.openStop(stop)">
+                                    <title t-out="stop.name"/>
+                                    <circle t-att-cx="this.x(stop)" t-att-cy="this.y(stop)" r="9" fill="#ADB5BD"/>
+                                    <text t-att-x="this.x(stop)" t-att-y="this.y(stop) + 4" text-anchor="middle"
+                                          class="o_or_route_label">×</text>
+                                </g>
+                            </t>
+                            <g class="o_or_route_depot">
+                                <title t-out="this.state.data.depot.name"/>
+                                <rect t-att-x="this.x(this.state.data.depot) - 12" t-att-y="this.y(this.state.data.depot) - 12"
+                                      width="24" height="24" rx="4" fill="#212529"/>
+                                <text t-att-x="this.x(this.state.data.depot)" t-att-y="this.y(this.state.data.depot) + 5"
+                                      text-anchor="middle" class="o_or_route_label">D</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="o_or_route_legend">
+                        <t t-foreach="this.state.data.routes" t-as="route" t-key="route.id">
+                            <div class="card mb-2 o_or_route_card" t-on-click="() => this.toggle(route)"
+                                 t-att-class="{'border-primary': this.state.selected === route.id}">
+                                <div class="card-body p-2">
+                                    <div class="d-flex align-items-center gap-2 fw-bold">
+                                        <span class="o_or_route_swatch" t-att-style="'background:' + route.color"/>
+                                        <span t-out="route.name"/>
+                                        <span class="ms-auto text-muted"><t t-out="route.km"/> km</span>
+                                    </div>
+                                    <ol class="mb-0 mt-1 ps-3 small">
+                                        <li t-foreach="route.stops" t-as="stop" t-key="stop.id">
+                                            <t t-out="stop.name"/>
+                                            <span class="text-muted" t-if="stop.eta" t-att-title="this.formatEta(stop)"> · <t t-out="this.formatEtaTime(stop)"/></span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </t>
+                        <div t-if="this.state.data.dropped.length" class="alert alert-warning p-2 small">
+                            <strong>Skipped:</strong>
+                            <t t-foreach="this.state.data.dropped" t-as="stop" t-key="stop.id">
+                                <div t-out="stop.name"/>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

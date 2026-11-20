@@ -1,0 +1,52 @@
+.o_or_guide {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    pointer-events: none;
+
+    .o_or_guide_hole {
+        position: fixed;
+        border-radius: 8px;
+        box-shadow: 0 0 0 4px #ffb020, 0 0 0 9999px rgba(15, 18, 30, 0.5);
+        transition: all 0.25s ease;
+    }
+    .o_or_guide_backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 18, 30, 0.5);
+    }
+    .o_or_guide_bubble {
+        position: fixed;
+        width: 380px;
+        max-width: calc(100vw - 28px);
+        pointer-events: auto;
+        border: 0;
+        border-top: 4px solid $primary;
+        transition: top 0.25s ease, left 0.25s ease;
+        overflow: hidden;
+    }
+    &.o_or_guide_centered .o_or_guide_bubble {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 460px;
+    }
+    .o_or_guide_text { white-space: pre-line; }
+    .o_or_guide_progress {
+        height: 4px;
+        background: $gray-200;
+        > div {
+            height: 100%;
+            width: 0;
+            background: $primary;
+            animation-name: o_or_guide_fill;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+    }
+}
+
+@keyframes o_or_guide_fill {
+    from { width: 0; }
+    to { width: 100%; }
+}

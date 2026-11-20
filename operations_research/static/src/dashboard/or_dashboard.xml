@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="operations_research.Dashboard">
+        <div class="o_or_dashboard o_action h-100 overflow-auto p-3">
+            <div class="d-flex align-items-center mb-3">
+                <h2 class="m-0">Operations Research</h2>
+                <button class="btn btn-sm btn-primary ms-auto me-2 o_or_tutorials_button" t-on-click="this.openTutorials">
+                    <i class="fa fa-graduation-cap me-1"/>Tutorials
+                </button>
+                <div class="btn-group" role="group">
+                    <t t-foreach="[7, 30, 90]" t-as="d" t-key="d">
+                        <button t-attf-class="btn btn-sm #{this.state.days === d ? 'btn-primary' : 'btn-secondary'} o_or_days_#{d}"
+                                t-on-click="() => this.setDays(d)"><t t-out="d"/> days</button>
+                    </t>
+                </div>
+            </div>
+            <t t-if="this.state.data">
+                <div class="row g-3 mb-3 o_or_kpis">
+                    <t t-foreach="this.cards" t-as="card" t-key="card.key">
+                        <div class="col-6 col-md-3">
+                            <div t-attf-class="card h-100 o_or_kpi o_or_kpi_#{card.key} #{card.open ? 'o_or_kpi_clickable' : ''} #{card.highlight ? 'border-primary' : ''} #{card.danger ? 'border-danger' : ''}"
+                                 t-on-click="() => card.open and card.open()">
+                                <div class="card-body d-flex align-items-center gap-3">
+                                    <i t-attf-class="fa #{card.icon} fa-2x text-muted"/>
+                                    <div>
+                                        <div class="fs-3 fw-bold o_or_kpi_value" t-out="card.value"/>
+                                        <div class="text-muted small" t-out="card.label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <div class="row g-3">
+                    <div class="col-lg-7">
+                        <div class="card h-100">
+                            <div class="card-header fw-bold">Recent Runs</div>
+                            <table class="table table-sm table-hover mb-0 o_or_recent">
+                                <tbody>
+                                    <tr t-foreach="this.state.data.recent" t-as="run" t-key="run.id"
+                                        class="o_or_recent_row" t-on-click="() => this.openRun(run.id)">
+                                        <td t-out="run.name"/>
+                                        <td t-out="run.problem"/>
+                                        <td><span t-if="run.solver_status" t-attf-class="badge #{this.statusClass(run.solver_status)}" t-out="run.status_label"/></td>
+                                        <td class="text-end" t-out="run.objective"/>
+                                        <td class="text-muted small" t-out="this.formatDate(run.date)"/>
+                                    </tr>
+                                    <tr t-if="!this.state.data.recent.length"><td class="text-muted">No run yet.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card mb-3">
+                            <div class="card-header fw-bold">Solver Outcomes</div>
+                            <div class="card-body">
+                                <div class="progress o_or_status_bar mb-2" t-if="this.state.data.status.length">
+                                    <t t-foreach="this.state.data.status" t-as="s" t-key="s.key">
+                                        <div t-attf-class="progress-bar #{this.statusClass(s.key)}"
+                                             t-att-style="'width: ' + (100 * s.count / this.statusTotal) + '%'"
+                                             t-att-title="s.label + ': ' + s.count"/>
+                                    </t>
+                                </div>
+                                <div class="d-flex flex-wrap gap-2 small">
+                                    <t t-foreach="this.state.data.status" t-as="s" t-key="s.key">
+                                        <span t-attf-class="badge #{this.statusClass(s.key)}"><t t-out="s.label"/>: <t t-out="s.count"/></span>
+                                    </t>
+                                    <span t-if="!this.state.data.status.length" class="text-muted">No data for this period.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header fw-bold">Most Used Problems</div>
+                            <ul class="list-group list-group-flush">
+                                <li t-foreach="this.state.data.top_problems" t-as="p" t-key="p.id"
+                                    class="list-group-item list-group-item-action d-flex o_or_top_problem"
+                                    t-on-click="() => this.openProblem(p.id)">
+                                    <span t-out="p.name"/>
+                                    <span class="ms-auto badge text-bg-secondary" title="Runs"><i class="fa fa-cogs me-1"/><t t-out="p.count"/></span>
+                                </li>
+                                <li t-if="!this.state.data.top_problems.length" class="list-group-item text-muted">No data for this period.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>
