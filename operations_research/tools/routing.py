@@ -6,6 +6,9 @@ from ortools.constraint_solver import pywrapcp, routing_enums_pb2
 
 EARTH_RADIUS_KM = 6371.0088
 BIG = 10 ** 9
+# Loads are scaled to integers for the solver: 0.001 units of precision (0.4 m3, 2.5 pallets...)
+DEMAND_SCALE = 1000
+BIG_LOAD = 10 ** 15
 
 
 def haversine_km(lat1, lng1, lat2, lng2):
@@ -58,12 +61,14 @@ def solve_vrp(depot, stops, vehicles, road_factor=1.3, speed_kmh=40.0, allow_dro
     if balance:
         routing.GetDimensionOrDie('Distance').SetGlobalSpanCostCoefficient(100)
 
-    demands = [0] + [int(round(s.get('demand') or 0)) for s in stops]
+    demands = [0] + [int(round((s.get('demand') or 0) * DEMAND_SCALE)) for s in stops]
+    if any(d < 0 for d in demands):
+        raise ValueError("demands must be >= 0")
     if any(demands):
         def demand_cb(i):
             return demands[manager.IndexToNode(i)]
         dem_idx = routing.RegisterUnaryTransitCallback(demand_cb)
-        caps = [int(round(v['capacity'])) if v['capacity'] else BIG for v in vehicles]
+        caps = [int(round(v['capacity'] * DEMAND_SCALE)) if v['capacity'] else BIG_LOAD for v in vehicles]
         routing.AddDimensionWithVehicleCapacity(dem_idx, 0, caps, True, 'Capacity')
 
     windows = any(s.get('tw_start') is not None or s.get('tw_end') is not None for s in stops)
@@ -79,9 +84,11 @@ def solve_vrp(depot, stops, vehicles, road_factor=1.3, speed_kmh=40.0, allow_dro
         time_dim = routing.GetDimensionOrDie('Time')
         for node, stop in enumerate(stops, 1):
             index = manager.NodeToIndex(node)
-            start = stop.get('tw_start') or 0
+            start = max(0, stop.get('tw_start') or 0)
             end = stop['tw_end'] if stop.get('tw_end') is not None else horizon
-            time_dim.CumulVar(index).SetRange(max(0, start), max(0, end))
+            if end < start:
+                raise ValueError("time window of stop %r ends before it starts" % (stop['key'],))
+            time_dim.CumulVar(index).SetRange(start, max(0, end))
         for v in range(len(vehicles)):
             time_dim.CumulVar(routing.Start(v)).SetRange(0, 0)
     else:
@@ -97,6 +104,7 @@ def solve_vrp(depot, stops, vehicles, road_factor=1.3, speed_kmh=40.0, allow_dro
         params.local_search_metaheuristic = (
             routing_enums_pb2.LocalSearchMetaheuristic.GUIDED_LOCAL_SEARCH)
     params.time_limit.FromSeconds(max(int(time_limit or 30), 1))
+    params.log_search = False
     solution = routing.SolveWithParameters(params)
     search_status = routing.status()
 

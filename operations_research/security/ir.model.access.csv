@@ -3,13 +3,20 @@ access_or_problem_user,or.problem user,model_or_problem,group_or_user,1,0,0,0
 access_or_problem_designer,or.problem designer,model_or_problem,group_or_designer,1,1,1,1
 access_or_problem_constraint_user,or.problem.constraint user,model_or_problem_constraint,group_or_user,1,0,0,0
 access_or_problem_constraint_designer,or.problem.constraint designer,model_or_problem_constraint,group_or_designer,1,1,1,1
-access_or_run_user,or.run user,model_or_run,group_or_user,1,1,1,0
-access_or_run_manager,or.run manager,model_or_run,group_or_manager,1,1,1,1
+access_or_run_user,or.run user,model_or_run,group_or_user,1,0,0,0
+access_or_run_manager,or.run manager,model_or_run,group_or_manager,1,0,0,1
 access_or_run_line_user,or.run.line user,model_or_run_line,group_or_user,1,0,0,0
-access_or_run_line_manager,or.run.line manager,model_or_run_line,group_or_manager,1,1,1,1
+access_or_run_line_manager,or.run.line manager,model_or_run_line,group_or_manager,1,0,0,0
 access_or_run_constraint_user,or.run.constraint user,model_or_run_constraint,group_or_user,1,0,0,0
-access_or_run_constraint_manager,or.run.constraint manager,model_or_run_constraint,group_or_manager,1,1,1,1
+access_or_run_constraint_manager,or.run.constraint manager,model_or_run_constraint,group_or_manager,1,0,0,0
 access_ir_model_or_user,ir.model read for optimization users,base.model_ir_model,group_or_user,1,0,0,0
 access_ir_model_fields_or_user,ir.model.fields read for optimization users,base.model_ir_model_fields,group_or_user,1,0,0,0
 access_or_routing_vehicle_user,or.routing.vehicle user,model_or_routing_vehicle,operations_research.group_or_user,1,0,0,0
 access_or_routing_vehicle_designer,or.routing.vehicle designer,model_or_routing_vehicle,operations_research.group_or_designer,1,1,1,1
+access_or_template_user,or.template user,model_or_template,group_or_user,1,0,0,0
+access_or_template_manager,or.template manager,model_or_template,group_or_manager,1,1,1,1
+access_or_setup_check_user,or.setup.check user,model_or_setup_check,group_or_user,1,1,1,0
+access_or_setup_check_line_user,or.setup.check.line user,model_or_setup_check_line,group_or_user,1,1,1,0
+access_or_run_kpi_user,or.run.kpi user,model_or_run_kpi,group_or_user,1,0,0,0
+access_or_problem_builder_designer,or.problem.builder designer,model_or_problem_builder,group_or_designer,1,1,1,1
+access_or_problem_builder_limit_designer,or.problem.builder.limit designer,model_or_problem_builder_limit,group_or_designer,1,1,1,1

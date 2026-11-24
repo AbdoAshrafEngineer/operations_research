@@ -88,3 +88,19 @@ class OrCase(TransactionCase):
     def solve(self, problem, user=None):
         problem = problem.with_user(user) if user else problem
         return self.env['or.run'].browse(problem.action_run()['res_id'])
+
+    def make_calendar(self, holidays=()):
+        """Mon-Fri 08:00-12:00 and 13:00-17:00 UTC, with optional full-day closures."""
+        days = []
+        for day in range(5):
+            days += [(0, 0, {'name': 'AM', 'dayofweek': str(day), 'hour_from': 8, 'hour_to': 12,
+                             'day_period': 'morning'}),
+                     (0, 0, {'name': 'PM', 'dayofweek': str(day), 'hour_from': 13, 'hour_to': 17,
+                             'day_period': 'afternoon'})]
+        calendar = self.env['resource.calendar'].create({
+            'name': 'OR test hours', 'tz': 'UTC', 'attendance_ids': [(5, 0, 0)] + days})
+        for day in holidays:
+            self.env['resource.calendar.leaves'].create({
+                'name': 'Holiday', 'calendar_id': calendar.id,
+                'date_from': day.replace(hour=0, minute=0), 'date_to': day.replace(hour=23, minute=59)})
+        return calendar

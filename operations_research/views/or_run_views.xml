@@ -53,6 +53,15 @@
                             groups="operations_research.group_or_manager"
                             confirm="Records changed since solving will be overwritten. Continue?"
                             invisible="state != 'done' or not has_solution"/>
+                    <button name="action_view_apply_choice" type="object" string="Choose What to Apply"
+                            groups="operations_research.group_or_manager"
+                            invisible="state != 'done' or not has_solution or not line_count"/>
+                    <button name="action_undo_apply" type="object" string="Undo Apply"
+                            groups="operations_research.group_or_manager" invisible="not applied_count"
+                            confirm="Put back the values the records had before Apply?"/>
+                    <button name="action_force_undo" type="object" string="Force Undo"
+                            groups="operations_research.group_or_manager" invisible="not applied_count"
+                            confirm="Records edited after Apply will also be put back. Continue?"/>
                     <button name="action_solve_now" type="object" string="Solve Now"
                             invisible="state not in ('draft', 'queued', 'failed', 'cancelled')"/>
                     <button name="action_queue" type="object" string="Queue"
@@ -70,6 +79,13 @@
                     <span invisible="solver_status != 'unbounded'">The goal can grow without limit: add a maximum or a constraint.</span>
                     <span invisible="solver_status != 'not_solved'">No solution was found within the time limit: raise the time limit.</span>
                 </div>
+                <field name="kpi_improved" invisible="1"/>
+                <div class="alert alert-success mb-0 fs-5" role="status" invisible="not kpi_headline or not kpi_improved">
+                    <i class="fa fa-line-chart me-2" title="Benefit"/><field name="kpi_headline" class="d-inline"/>
+                </div>
+                <div class="alert alert-info mb-0 fs-5" role="status" invisible="not kpi_headline or kpi_improved">
+                    <i class="fa fa-info-circle me-2" title="Benefit"/><field name="kpi_headline" class="d-inline"/>
+                </div>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_view_changed" type="object" class="oe_stat_button"
@@ -83,6 +99,7 @@
                     <field name="has_solution" invisible="1"/>
                     <field name="has_sensitivity" invisible="1"/>
                     <field name="line_count" invisible="1"/>
+                    <field name="applied_count" invisible="1"/>
                     <group>
                         <group>
                             <field name="problem_id"/>
@@ -105,6 +122,26 @@
                         </group>
                     </group>
                     <notebook>
+                        <page string="Benefit" name="benefit" invisible="not kpi_ids">
+                            <field name="kpi_ids">
+                                <list create="0" delete="0" decoration-success="improved"
+                                      decoration-muted="not has_baseline">
+                                    <field name="name"/>
+                                    <field name="before" invisible="not has_baseline"/>
+                                    <field name="after"/>
+                                    <field name="unit"/>
+                                    <field name="delta" invisible="not has_baseline"/>
+                                    <field name="delta_percent" invisible="not has_baseline or not before"/>
+                                    <field name="note" optional="show"/>
+                                    <field name="has_baseline" column_invisible="1"/>
+                                    <field name="improved" column_invisible="1"/>
+                                </list>
+                            </field>
+                            <p class="text-muted small">
+                                "Current plan" is what the records hold now. A measure without a current value
+                                means the records have no current plan to compare with.
+                            </p>
+                        </page>
                         <page string="Results" name="results" invisible="not line_count">
                             <field name="line_ids">
                                 <list decoration-bf="changed" decoration-muted="not changed">
@@ -118,6 +155,7 @@
                                     <field name="objective_coef" optional="hide"/>
                                     <field name="reduced_cost" column_invisible="not parent.has_sensitivity" optional="show"/>
                                     <field name="changed" column_invisible="1"/>
+                                    <field name="applied" optional="show" widget="boolean_toggle" readonly="1"/>
                                     <button name="action_open_record" type="object" icon="fa-external-link"
                                             title="Open record"/>
                                 </list>
@@ -149,6 +187,7 @@
                             <group>
                                 <group>
                                     <field name="solver_name"/>
+                                    <field name="solver_version"/>
                                     <field name="num_variables"/>
                                     <field name="num_constraints"/>
                                     <field name="best_bound" invisible="not has_solution"/>
@@ -208,15 +247,26 @@
         <field name="name">or.run.line.list</field>
         <field name="model">or.run.line</field>
         <field name="arch" type="xml">
-            <list string="Results" create="0" edit="0">
-                <field name="run_id"/>
+            <list string="Results" create="0" edit="0" decoration-muted="applied">
+                <field name="run_id" column_invisible="context.get('or_problem_type')"/>
                 <field name="res_name"/>
-                <field name="value_before"/>
-                <field name="value"/>
-                <field name="delta"/>
-                <field name="assigned_before_name" optional="show"/>
-                <field name="assigned_name" optional="show"/>
-                <field name="reduced_cost" optional="hide"/>
+                <field name="value_before" column_invisible="context.get('or_problem_type') not in (False, 'lp')"/>
+                <field name="value" column_invisible="context.get('or_problem_type') not in (False, 'lp')"/>
+                <field name="delta" column_invisible="context.get('or_problem_type') not in (False, 'lp')"/>
+                <field name="assigned_before_name" optional="show"
+                       column_invisible="context.get('or_problem_type') not in (False, 'assignment', 'routing')"/>
+                <field name="assigned_name" optional="show"
+                       column_invisible="context.get('or_problem_type') == 'lp'"/>
+                <field name="sched_start_before" column_invisible="context.get('or_problem_type') != 'scheduling'"/>
+                <field name="sched_start" column_invisible="context.get('or_problem_type') != 'scheduling'"/>
+                <field name="sched_end" column_invisible="context.get('or_problem_type') != 'scheduling'"/>
+                <field name="sched_late_minutes" column_invisible="context.get('or_problem_type') != 'scheduling'"
+                       decoration-danger="sched_late_minutes &gt; 0"/>
+                <field name="sequence" string="Stop #" column_invisible="context.get('or_problem_type') != 'routing'"/>
+                <field name="route_eta" column_invisible="context.get('or_problem_type') != 'routing'"/>
+                <field name="route_dropped" column_invisible="context.get('or_problem_type') != 'routing'"/>
+                <field name="reduced_cost" optional="hide" column_invisible="context.get('or_problem_type') not in (False, 'lp')"/>
+                <field name="applied" optional="show"/>
                 <button name="action_open_record" type="object" icon="fa-external-link" title="Open record"/>
             </list>
         </field>
@@ -230,6 +280,9 @@
                 <field name="res_name"/>
                 <field name="run_id"/>
                 <filter name="changed" string="Changed" domain="[('changed', '=', True)]"/>
+                <separator/>
+                <filter name="not_applied" string="Not Applied" domain="[('applied', '=', False)]"/>
+                <filter name="applied" string="Applied" domain="[('applied', '=', True)]"/>
             </search>
         </field>
     </record>
@@ -238,5 +291,25 @@
         <field name="name">Result Lines</field>
         <field name="res_model">or.run.line</field>
         <field name="view_mode">list</field>
+    </record>
+
+    <record id="or_run_line_action_apply_selected" model="ir.actions.server">
+        <field name="name">Apply Selected</field>
+        <field name="model_id" ref="model_or_run_line"/>
+        <field name="binding_model_id" ref="model_or_run_line"/>
+        <field name="binding_view_types">list</field>
+        <field name="group_ids" eval="[(4, ref('operations_research.group_or_manager'))]"/>
+        <field name="state">code</field>
+        <field name="code">records.action_apply_selected()</field>
+    </record>
+
+    <record id="or_run_line_action_undo_selected" model="ir.actions.server">
+        <field name="name">Undo Selected</field>
+        <field name="model_id" ref="model_or_run_line"/>
+        <field name="binding_model_id" ref="model_or_run_line"/>
+        <field name="binding_view_types">list</field>
+        <field name="group_ids" eval="[(4, ref('operations_research.group_or_manager'))]"/>
+        <field name="state">code</field>
+        <field name="code">records.action_undo_selected()</field>
     </record>
 </odoo>

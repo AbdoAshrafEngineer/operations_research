@@ -1,6 +1,6 @@
 {
     'name': 'Operations Research: Best Plans for Any Model (OR-Tools)',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.2.1',
     'category': 'Productivity',
     'summary': 'Find the best plan inside Odoo: quantities, assignments, schedules and delivery routes '
                'with Google OR-Tools. Review, then apply. Videos and guided tours included.',
@@ -11,7 +11,11 @@ Every planning question has three parts: what you DECIDE, your GOAL and your LIM
 Describe them once on any model (Sales, Purchase, Inventory, Accounting or your own),
 press Solve, review the proposal and apply it to your records.
 
-* Linear / integer programs, assignment, scheduling (Gantt) and vehicle routing (map)
+* Build a Problem: six plain questions, every field pre-filled from your data
+* 19 ready-made templates (delivery routes, workshop plan, leads to teams, budgets...)
+* Check Setup: what is missing, in plain words, before you solve
+* Linear / integer programs, assignment, scheduling within working hours (Gantt) and vehicle routing (map)
+* See the gain against the current plan, apply only the lines you choose, undo an apply
 * Review-then-apply with conflict detection, scenarios (what-if), sensitivity analysis
 * Background queue, scheduled runs, multi-company, three access levels
 * Dashboard, tutorial video and interactive guided tours inside Odoo
@@ -22,7 +26,7 @@ press Solve, review the proposal and apply it to your records.
     'license': 'LGPL-3',
     'live_test_url': 'https://www.youtube.com/watch?v=4bLPr5Jh78U',
     'images': ['static/description/banner.png'],
-    'depends': ['base', 'mail', 'web'],
+    'depends': ['base', 'mail', 'web', 'resource'],
     'external_dependencies': {'python': ['ortools']},
     'data': [
         'security/or_security.xml',
@@ -30,7 +34,10 @@ press Solve, review the proposal and apply it to your records.
         'security/or_routing_security.xml',
         'data/ir_sequence_data.xml',
         'data/ir_cron_data.xml',
+        'data/or_template_data.xml',
         'views/or_problem_views.xml',
+        'views/or_template_views.xml',
+        'views/or_problem_builder_views.xml',
         'views/or_run_views.xml',
         'views/res_config_settings_views.xml',
         'views/or_menus.xml',

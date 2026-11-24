@@ -10,3 +10,6 @@ from . import or_problem_routing
 from . import or_run_routing
 from . import res_config_settings_routing
 from . import or_run_dashboard
+from . import or_template
+from . import or_setup_check
+from . import or_problem_builder

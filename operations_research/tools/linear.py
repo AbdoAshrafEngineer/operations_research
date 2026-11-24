@@ -16,6 +16,15 @@ except ImportError:  # pragma: no cover - checked at install via external_depend
 
 EPS = 1e-7
 
+
+def ortools_version():
+    """Installed OR-Tools version, stored on each run for reproducibility."""
+    try:
+        import ortools
+    except ImportError:  # pragma: no cover
+        return False
+    return getattr(ortools, '__version__', False)
+
 # Solver statuses stored on or.run.solver_status
 OPTIMAL = 'optimal'
 FEASIBLE = 'feasible'

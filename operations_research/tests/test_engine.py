@@ -171,7 +171,7 @@ class TestOtherProblemTypes(OrCase):
         data = run.get_route_map_data()
         self.assertEqual(sum(len(r['stops']) for r in data['routes']), 4)
         problem.route_vehicle_ids[1].active = False
-        self.assertEqual(self.solve(problem).solver_status, 'infeasible')
+        self.assertIn('Total load', self.solve(problem).error_message, "explained before solving")
         problem.route_allow_drop = True
         self.assertEqual(len(self.solve(problem).line_ids.filtered('route_dropped')), 2)
 

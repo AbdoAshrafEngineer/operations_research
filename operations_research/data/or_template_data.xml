@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tpl_order_cash" model="or.template">
+        <field name="name">Reorder within a cash limit</field>
+        <field name="sequence">10</field>
+        <field name="problem_type">lp</field>
+        <field name="app_name">Inventory</field>
+        <field name="model_name">stock.warehouse.orderpoint</field>
+        <field name="summary">Decides how much to order on each reordering rule. Goal: the highest sales value of what you buy. Limits: the cash you can spend and the shelf space.</field>
+        <field name="next_steps">Set the cash and shelf-space limits to your real numbers.
+Check the products have a cost, a sales price and a volume.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"trigger\", \"=\", \"manual\")]",
+  "var_type": "integer",
+  "objective_sense": "max",
+  "objective_path": "product_id.list_price",
+  "ub_infinite": true
+ },
+ "fields": {
+  "var_field_id": [
+   "qty_to_order_manual",
+   "qty_to_order"
+  ],
+  "ub_field_id": [
+   "product_max_qty"
+  ]
+ },
+ "constraints": [
+  {
+   "name": "Cash",
+   "coef_path": "product_id.standard_price",
+   "operator": "&lt;=",
+   "rhs_value": 20000
+  },
+  {
+   "name": "Shelf space (m3)",
+   "coef_path": "product_id.volume",
+   "operator": "&lt;=",
+   "rhs_value": 3
+  }
+ ],
+ "model": "stock.warehouse.orderpoint"
+}</field>
+    </record>
+    <record id="tpl_purchase_budget" model="or.template">
+        <field name="name">Spend a purchase budget</field>
+        <field name="sequence">20</field>
+        <field name="problem_type">lp</field>
+        <field name="app_name">Purchase</field>
+        <field name="model_name">purchase.order.line</field>
+        <field name="summary">Decides the quantity on each draft purchase line, up to what was requested. Goal: the highest sales value. Limit: the purchase budget.</field>
+        <field name="next_steps">Set the budget limit.
+Keep only the RFQs of this period in the records filter.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"state\", \"=\", \"draft\")]",
+  "var_type": "integer",
+  "objective_sense": "max",
+  "objective_path": "product_id.list_price",
+  "ub_infinite": true
+ },
+ "fields": {
+  "var_field_id": [
+   "product_qty"
+  ],
+  "ub_field_id": [
+   "product_qty"
+  ]
+ },
+ "constraints": [
+  {
+   "name": "Budget",
+   "coef_path": "price_unit",
+   "operator": "&lt;=",
+   "rhs_value": 30000
+  }
+ ],
+ "model": "purchase.order.line"
+}</field>
+    </record>
+    <record id="tpl_share_stock" model="or.template">
+        <field name="name">Share scarce stock between quotations</field>
+        <field name="sequence">30</field>
+        <field name="problem_type">lp</field>
+        <field name="app_name">Sales</field>
+        <field name="model_name">sale.order.line</field>
+        <field name="summary">Decides how many units each quotation line gets, up to what the customer asked. Goal: the highest revenue. Limit: the units in stock.</field>
+        <field name="next_steps">Filter the records to the one product that is short.
+Set the stock limit to the units you have.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"state\", \"in\", [\"draft\", \"sent\"])]",
+  "var_type": "integer",
+  "objective_sense": "max",
+  "objective_path": "price_unit",
+  "ub_infinite": true
+ },
+ "fields": {
+  "var_field_id": [
+   "product_uom_qty"
+  ],
+  "ub_field_id": [
+   "product_uom_qty"
+  ]
+ },
+ "constraints": [
+  {
+   "name": "Units in stock",
+   "coef_mode": "one",
+   "operator": "&lt;=",
+   "rhs_value": 80
+  }
+ ],
+ "model": "sale.order.line"
+}</field>
+    </record>
+    <record id="tpl_mo_quantities" model="or.template">
+        <field name="name">Choose production quantities</field>
+        <field name="sequence">40</field>
+        <field name="problem_type">lp</field>
+        <field name="app_name">Manufacturing</field>
+        <field name="model_name">mrp.production</field>
+        <field name="summary">Decides the quantity of each draft manufacturing order. Goal: the highest sales value. Limits: line capacity and material.</field>
+        <field name="next_steps">Set the line capacity and material limits.
+Check the products have a sales price and a weight.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"state\", \"=\", \"draft\")]",
+  "var_type": "integer",
+  "objective_sense": "max",
+  "objective_path": "product_id.list_price",
+  "ub_infinite": true
+ },
+ "fields": {
+  "var_field_id": [
+   "product_qty"
+  ],
+  "ub_field_id": [
+   "product_qty"
+  ]
+ },
+ "constraints": [
+  {
+   "name": "Line capacity (units)",
+   "coef_mode": "one",
+   "operator": "&lt;=",
+   "rhs_value": 120
+  },
+  {
+   "name": "Material (kg)",
+   "coef_path": "product_id.weight",
+   "operator": "&lt;=",
+   "rhs_value": 3000
+  }
+ ],
+ "model": "mrp.production"
+}</field>
+    </record>
+    <record id="tpl_container" model="or.template">
+        <field name="name">Fill a shipping container</field>
+        <field name="sequence">50</field>
+        <field name="problem_type">lp</field>
+        <field name="app_name">Purchase</field>
+        <field name="model_name">purchase.order.line</field>
+        <field name="summary">Decides what to load from the draft purchase lines. Goal: the highest sales value. Limits: container volume and weight, and a spend limit per vendor.</field>
+        <field name="next_steps">Set the container size (33 m3 and 21,000 kg for a 20 ft container).
+Check the products have a volume and a weight.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"state\", \"=\", \"draft\")]",
+  "var_type": "integer",
+  "objective_sense": "max",
+  "objective_path": "product_id.list_price",
+  "ub_infinite": true
+ },
+ "fields": {
+  "var_field_id": [
+   "product_qty"
+  ],
+  "ub_field_id": [
+   "product_qty"
+  ]
+ },
+ "constraints": [
+  {
+   "name": "Volume (m3)",
+   "coef_path": "product_id.volume",
+   "operator": "&lt;=",
+   "rhs_value": 33
+  },
+  {
+   "name": "Weight (kg)",
+   "coef_path": "product_id.weight",
+   "operator": "&lt;=",
+   "rhs_value": 21000
+  },
+  {
+   "name": "Spend per vendor",
+   "coef_path": "price_unit",
+   "operator": "&lt;=",
+   "rhs_value": 40000,
+   "group_by": [
+    "partner_id"
+   ]
+  }
+ ],
+ "model": "purchase.order.line"
+}</field>
+    </record>
+    <record id="tpl_leads_teams" model="or.template">
+        <field name="name">Assign new leads to sales teams</field>
+        <field name="sequence">60</field>
+        <field name="problem_type">assignment</field>
+        <field name="app_name">CRM</field>
+        <field name="model_name">crm.lead</field>
+        <field name="summary">Decides which team gets each lead without a team. Goal: spread the work. Limit: the pipeline value each team can handle.</field>
+        <field name="next_steps">Fill the capacity of each team (Invoicing Target, or your own capacity field).
+Leads need an expected revenue.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"team_id\", \"=\", False)]",
+  "objective_sense": "min",
+  "assign_cost_mode": "constant",
+  "assign_all": true
+ },
+ "fields": {
+  "assign_field_id": [
+   "team_id"
+  ],
+  "assign_task_load_field_id": [
+   "expected_revenue"
+  ],
+  "assign_capacity_field_id": [
+   "crm.team/invoiced_target",
+   "crm.team/x_pipeline_capacity"
+  ]
+ },
+ "model": "crm.lead"
+}</field>
+    </record>
+    <record id="tpl_jobs_machines" model="or.template">
+        <field name="name">Put work orders on the cheapest machine</field>
+        <field name="sequence">70</field>
+        <field name="problem_type">assignment</field>
+        <field name="app_name">Manufacturing</field>
+        <field name="model_name">mrp.workorder</field>
+        <field name="summary">Decides the work center of each ready work order. Goal: the lowest cost (hourly cost x duration). Limit: the hours each work center has.</field>
+        <field name="next_steps">Add a number field "Hours available" on work centers and fill it.
+Work centers need a cost per hour.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"state\", \"=\", \"ready\")]",
+  "objective_sense": "min",
+  "assign_cost_mode": "product",
+  "assign_all": true
+ },
+ "fields": {
+  "assign_field_id": [
+   "workcenter_id"
+  ],
+  "assign_resource_cost_field_id": [
+   "mrp.workcenter/costs_hour"
+  ],
+  "assign_task_weight_field_id": [
+   "duration_expected"
+  ],
+  "assign_task_load_field_id": [
+   "duration_expected"
+  ],
+  "assign_capacity_field_id": [
+   "mrp.workcenter/x_hours_available"
+  ]
+ },
+ "model": "mrp.workorder"
+}</field>
+    </record>
+    <record id="tpl_jobs_overflow" model="or.template">
+        <field name="name">Assign jobs when time is short</field>
+        <field name="sequence">80</field>
+        <field name="problem_type">assignment</field>
+        <field name="app_name">Manufacturing</field>
+        <field name="model_name">mrp.workorder</field>
+        <field name="summary">Like the cheapest machine, but jobs may stay unassigned when there are not enough hours. Goal: the lowest cost, with a penalty for each job left out.</field>
+        <field name="next_steps">Set the unassigned penalty above the cost of any job.
+Add and fill an "Hours available" field on work centers.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"state\", \"=\", \"ready\")]",
+  "objective_sense": "min",
+  "assign_cost_mode": "product",
+  "assign_all": false,
+  "assign_unassigned_penalty": 100000
+ },
+ "fields": {
+  "assign_field_id": [
+   "workcenter_id"
+  ],
+  "assign_resource_cost_field_id": [
+   "mrp.workcenter/costs_hour"
+  ],
+  "assign_task_weight_field_id": [
+   "duration_expected"
+  ],
+  "assign_task_load_field_id": [
+   "duration_expected"
+  ],
+  "assign_capacity_field_id": [
+   "mrp.workcenter/x_hours_available"
+  ]
+ },
+ "model": "mrp.workorder"
+}</field>
+    </record>
+    <record id="tpl_drivers" model="or.template">
+        <field name="name">Give each vehicle a driver</field>
+        <field name="sequence">90</field>
+        <field name="problem_type">assignment</field>
+        <field name="app_name">Fleet</field>
+        <field name="model_name">fleet.vehicle</field>
+        <field name="summary">Decides the driver of each vehicle without one. Goal: every vehicle gets a driver. Limit: one vehicle per driver.</field>
+        <field name="next_steps">Keep only your drivers in the resources filter.
+Optional: match a licence field on vehicles and drivers.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"driver_id\", \"=\", False)]",
+  "assign_domain": "[(\"employee\", \"=\", True)]",
+  "objective_sense": "min",
+  "assign_cost_mode": "constant",
+  "assign_all": true
+ },
+ "fields": {
+  "assign_field_id": [
+   "driver_id"
+  ]
+ },
+ "model": "fleet.vehicle"
+}</field>
+    </record>
+    <record id="tpl_customers_reps" model="or.template">
+        <field name="name">Split customers between salespeople</field>
+        <field name="sequence">100</field>
+        <field name="problem_type">assignment</field>
+        <field name="app_name">Contacts</field>
+        <field name="model_name">res.partner</field>
+        <field name="summary">Decides the salesperson of each company without one, only in the same country. Goal: cover every customer. Limit: how many accounts each salesperson can handle.</field>
+        <field name="next_steps">Add and fill a number field "Max accounts" on users.
+Set the country of each salesperson.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"is_company\", \"=\", True), (\"user_id\", \"=\", False)]",
+  "assign_domain": "[(\"share\", \"=\", False)]",
+  "objective_sense": "min",
+  "assign_cost_mode": "constant",
+  "assign_all": true,
+  "assign_mismatch_policy": "forbid"
+ },
+ "fields": {
+  "assign_field_id": [
+   "user_id"
+  ],
+  "assign_task_match_field_id": [
+   "country_id"
+  ],
+  "assign_resource_match_field_id": [
+   "res.users/country_id"
+  ],
+  "assign_capacity_field_id": [
+   "res.users/x_max_accounts"
+  ]
+ },
+ "model": "res.partner"
+}</field>
+    </record>
+    <record id="tpl_workshop" model="or.template">
+        <field name="name">Plan the workshop</field>
+        <field name="sequence">110</field>
+        <field name="problem_type">scheduling</field>
+        <field name="app_name">Manufacturing</field>
+        <field name="model_name">mrp.workorder</field>
+        <field name="summary">Decides when each work order starts, one at a time per work center, after the steps before it. Goal: finish everything as early as possible, inside working hours.</field>
+        <field name="next_steps">Check the expected duration of the work orders.
+Check the working hours of your company.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"state\", \"not in\", [\"done\", \"cancel\"])]",
+  "sched_duration_unit": "minutes",
+  "sched_objective": "makespan",
+  "sched_start_mode": "now"
+ },
+ "calendar": "company",
+ "fields": {
+  "sched_duration_field_id": [
+   "duration_expected"
+  ],
+  "sched_resource_field_id": [
+   "workcenter_id"
+  ],
+  "sched_predecessor_field_id": [
+   "blocked_by_workorder_ids"
+  ],
+  "sched_start_field_id": [
+   "date_start"
+  ],
+  "sched_end_field_id": [
+   "date_finished"
+  ]
+ },
+ "model": "mrp.workorder"
+}</field>
+    </record>
+    <record id="tpl_maintenance" model="or.template">
+        <field name="name">Plan preventive maintenance</field>
+        <field name="sequence">120</field>
+        <field name="problem_type">scheduling</field>
+        <field name="app_name">Maintenance</field>
+        <field name="model_name">maintenance.request</field>
+        <field name="summary">Decides when each preventive request starts, one at a time per technician. Goal: finish all requests as early as possible, inside working hours.</field>
+        <field name="next_steps">Requests need a duration.
+Choose the single technician field (Odoo 20 needs a custom "Technician" field).</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"maintenance_type\", \"=\", \"preventive\")]",
+  "sched_duration_unit": "hours",
+  "sched_objective": "makespan",
+  "sched_start_mode": "now"
+ },
+ "calendar": "company",
+ "fields": {
+  "sched_duration_field_id": [
+   "duration"
+  ],
+  "sched_resource_field_id": [
+   "user_id",
+   "x_technician_id"
+  ],
+  "sched_start_field_id": [
+   "schedule_date"
+  ],
+  "sched_end_field_id": [
+   "schedule_end"
+  ]
+ },
+ "model": "maintenance.request"
+}</field>
+    </record>
+    <record id="tpl_project" model="or.template">
+        <field name="name">Plan project tasks before their deadlines</field>
+        <field name="sequence">130</field>
+        <field name="problem_type">scheduling</field>
+        <field name="app_name">Project</field>
+        <field name="model_name">project.task</field>
+        <field name="summary">Decides when each task starts, after the tasks it depends on. Goal: the least lateness against the deadlines.</field>
+        <field name="next_steps">Narrow the records filter to one project.
+Tasks need allocated hours.
+Add a date-time field "Planned Start" on tasks to receive the start.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"project_id\", \"!=\", False), (\"is_closed\", \"=\", False)]",
+  "sched_duration_unit": "hours",
+  "sched_objective": "tardiness",
+  "sched_deadline_mode": "soft",
+  "sched_start_mode": "now"
+ },
+ "calendar": "company",
+ "fields": {
+  "sched_duration_field_id": [
+   "allocated_hours"
+  ],
+  "sched_predecessor_field_id": [
+   "depend_on_ids"
+  ],
+  "sched_deadline_field_id": [
+   "date_deadline"
+  ],
+  "sched_start_field_id": [
+   "planned_date_begin",
+   "x_start"
+  ]
+ },
+ "model": "project.task"
+}</field>
+    </record>
+    <record id="tpl_meetings" model="or.template">
+        <field name="name">Pack meetings early in the day</field>
+        <field name="sequence">140</field>
+        <field name="problem_type">scheduling</field>
+        <field name="app_name">Calendar</field>
+        <field name="model_name">calendar.event</field>
+        <field name="summary">Decides when each upcoming meeting starts, without double-booking the organizer. Goal: finish meetings as early as possible, inside working hours.</field>
+        <field name="next_steps">Narrow the records filter to the meetings you may move.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"start\", \"&gt;=\", context_today().strftime(\"%Y-%m-%d\"))]",
+  "sched_duration_unit": "hours",
+  "sched_objective": "completion",
+  "sched_start_mode": "now"
+ },
+ "calendar": "company",
+ "fields": {
+  "sched_duration_field_id": [
+   "duration"
+  ],
+  "sched_resource_field_id": [
+   "user_id"
+  ],
+  "sched_start_field_id": [
+   "start"
+  ],
+  "sched_end_field_id": [
+   "stop"
+  ]
+ },
+ "model": "calendar.event"
+}</field>
+    </record>
+    <record id="tpl_deliveries" model="or.template">
+        <field name="name">Plan delivery routes</field>
+        <field name="sequence">150</field>
+        <field name="problem_type">routing</field>
+        <field name="app_name">Inventory</field>
+        <field name="model_name">stock.picking</field>
+        <field name="summary">Decides which van takes each ready delivery and in what order. Goal: the fewest kilometres. Limit: what each van carries.</field>
+        <field name="next_steps">Edit the vans: capacity and the driver (user) each van writes on the delivery.
+Customers need latitude and longitude.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"picking_type_code\", \"=\", \"outgoing\"), (\"state\", \"=\", \"assigned\")]",
+  "route_location_mode": "partner",
+  "route_departure_mode": "now"
+ },
+ "depot": "company",
+ "vehicles": [
+  {
+   "name": "Van 1",
+   "capacity": 1000
+  },
+  {
+   "name": "Van 2",
+   "capacity": 1000
+  }
+ ],
+ "fields": {
+  "route_partner_field_id": [
+   "partner_id"
+  ],
+  "route_demand_field_id": [
+   "shipping_weight",
+   "weight"
+  ],
+  "route_eta_field_id": [
+   "scheduled_date"
+  ],
+  "route_vehicle_field_id": [
+   "user_id"
+  ]
+ },
+ "model": "stock.picking"
+}</field>
+    </record>
+    <record id="tpl_promises" model="or.template">
+        <field name="name">Promise delivery times on quotations</field>
+        <field name="sequence">160</field>
+        <field name="problem_type">routing</field>
+        <field name="app_name">Sales</field>
+        <field name="model_name">sale.order</field>
+        <field name="summary">Plans the delivery route of open quotations and writes the expected arrival as the promised date. Goal: the fewest kilometres.</field>
+        <field name="next_steps">Set the van capacities.
+Delivery addresses need latitude and longitude.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"state\", \"in\", [\"draft\", \"sent\"])]",
+  "route_location_mode": "partner",
+  "route_departure_mode": "now"
+ },
+ "depot": "company",
+ "vehicles": [
+  {
+   "name": "Van 1",
+   "capacity": 1000
+  },
+  {
+   "name": "Van 2",
+   "capacity": 1000
+  }
+ ],
+ "fields": {
+  "route_partner_field_id": [
+   "partner_shipping_id"
+  ],
+  "route_demand_field_id": [
+   "shipping_weight"
+  ],
+  "route_eta_field_id": [
+   "commitment_date"
+  ]
+ },
+ "model": "sale.order"
+}</field>
+    </record>
+    <record id="tpl_pickups" model="or.template">
+        <field name="name">Collect from suppliers with one truck</field>
+        <field name="sequence">170</field>
+        <field name="problem_type">routing</field>
+        <field name="app_name">Inventory</field>
+        <field name="model_name">stock.picking</field>
+        <field name="summary">Decides the order of supplier pickups for one truck. Goal: the fewest kilometres. Limit: the truck load; pickups that do not fit wait for next time.</field>
+        <field name="next_steps">Set the truck capacity and link the truck to its driver.
+Suppliers need latitude and longitude.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"picking_type_code\", \"=\", \"incoming\"), (\"state\", \"=\", \"assigned\")]",
+  "route_location_mode": "partner",
+  "route_departure_mode": "now",
+  "route_allow_drop": true,
+  "route_drop_penalty_km": 300
+ },
+ "depot": "company",
+ "vehicles": [
+  {
+   "name": "Truck",
+   "capacity": 5000
+  }
+ ],
+ "fields": {
+  "route_partner_field_id": [
+   "partner_id"
+  ],
+  "route_demand_field_id": [
+   "shipping_weight",
+   "weight"
+  ],
+  "route_eta_field_id": [
+   "scheduled_date"
+  ],
+  "route_vehicle_field_id": [
+   "user_id"
+  ]
+ },
+ "model": "stock.picking"
+}</field>
+    </record>
+    <record id="tpl_repairs" model="or.template">
+        <field name="name">Plan technician visits</field>
+        <field name="sequence">180</field>
+        <field name="problem_type">routing</field>
+        <field name="app_name">Repairs</field>
+        <field name="model_name">repair.order</field>
+        <field name="summary">Decides which technician visits each confirmed repair and in what order, with balanced days. Goal: the fewest kilometres.</field>
+        <field name="next_steps">Link each technician line to its user.
+Customers need latitude and longitude.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"state\", \"=\", \"confirmed\")]",
+  "route_location_mode": "partner",
+  "route_departure_mode": "now",
+  "route_balance": true
+ },
+ "depot": "company",
+ "vehicles": [
+  {
+   "name": "Technician 1"
+  },
+  {
+   "name": "Technician 2"
+  }
+ ],
+ "fields": {
+  "route_partner_field_id": [
+   "partner_id"
+  ],
+  "route_eta_field_id": [
+   "schedule_date"
+  ],
+  "route_vehicle_field_id": [
+   "user_id"
+  ]
+ },
+ "model": "repair.order"
+}</field>
+    </record>
+    <record id="tpl_territories" model="or.template">
+        <field name="name">Draw balanced sales territories</field>
+        <field name="sequence">190</field>
+        <field name="problem_type">routing</field>
+        <field name="app_name">Contacts</field>
+        <field name="model_name">res.partner</field>
+        <field name="summary">Groups nearby customers into one territory per salesperson, with balanced travel. Goal: the fewest kilometres.</field>
+        <field name="next_steps">Link each area line to its salesperson.
+Customers need latitude and longitude.</field>
+        <field name="config">{
+ "values": {
+  "domain": "[(\"is_company\", \"=\", True), (\"partner_latitude\", \"!=\", 0)]",
+  "route_location_mode": "fields",
+  "route_departure_mode": "now",
+  "route_balance": true
+ },
+ "depot": "company",
+ "vehicles": [
+  {
+   "name": "Area 1"
+  },
+  {
+   "name": "Area 2"
+  }
+ ],
+ "fields": {
+  "route_lat_field_id": [
+   "partner_latitude"
+  ],
+  "route_lng_field_id": [
+   "partner_longitude"
+  ],
+  "route_vehicle_field_id": [
+   "user_id"
+  ]
+ },
+ "model": "res.partner"
+}</field>
+    </record>
+</odoo>

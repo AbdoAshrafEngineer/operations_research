@@ -67,6 +67,8 @@ A new problem type is a small addon::
         def _or_solve_my_type(self, run): ...          # fill run.line_ids
         def _or_apply_my_type(self, run, lines): ...   # write the proposal
         def _or_snapshot_my_type(self, records): ...   # values used for conflicts
+        def _or_written_fields_my_type(self): ...      # fields Apply writes (kept for Undo)
+        def _or_setup_checks_my_type(self, records): ...  # optional: Check Setup messages
 
 The queue, review/apply workflow, scenarios, schedules, security and dashboard
 work unchanged.
@@ -75,6 +77,48 @@ Tests
 =====
 
 ``odoo-bin -d <db> -i operations_research --test-tags /operations_research --stop-after-init``
+
+Changelog
+=========
+
+1.2.1
+-----
+
+* Problem Builder stepper: the current step is white on the brand purple, finished steps are
+  green with a check, upcoming steps are grey; every coloured label meets 4.5:1 contrast and
+  the layout mirrors correctly in Arabic (right to left). Arabic translation completed.
+
+1.2.0
+-----
+
+* Build a Problem: a six-screen guided builder (question, records, decide, goal, limits,
+  review). Odoo pre-fills every answer from the model's own field names, shows only the
+  fields that fit each answer, and sums up the problem in plain words before creating it.
+* Working hours follow the user's time zone on Odoo 20 (calendars there have no time zone).
+
+1.1.0
+-----
+
+* Security: runs can no longer be edited directly; only the module changes their state,
+  "Run As" and "Auto Apply". Only managers can make a scheduled problem run as another
+  user, and a non-manager edit turns automatic apply off.
+* Scheduling can plan inside working hours and public holidays (``resource.calendar``);
+  jobs not finished today continue the next working day. Tasks off the critical path now
+  start as early as possible. Priority weights keep their ratios at any size.
+* Routing counts decimal loads (0.4 m3, 2.5 pallets) exactly and explains, before solving,
+  stops bigger than any vehicle, total load above the fleet, negative loads and reversed
+  delivery windows; when no plan fits it names the stops that cannot fit.
+* Long solves always run in the background, and the time limit is kept under the server's
+  worker limit so a run is never killed half-way.
+* 19 templates built on standard Odoo fields; missing apps, fields or filters are reported,
+  never fatal.
+* Check Setup: blockers, warnings and tips in plain words before solving.
+* Benefit: the same measure for the current plan and the proposal (goal value, cost,
+  hours, lateness, kilometres). A current plan that breaks a limit is reported instead of
+  compared.
+* Apply only selected result lines; Undo Apply puts back the previous values and protects
+  later edits (Force Undo to override).
+* The OR-Tools version is stored on each run.
 
 License
 =======
