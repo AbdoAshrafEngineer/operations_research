@@ -11,7 +11,7 @@ Every plan has three parts:
 * **Goal** - what to maximise or minimise (revenue, cost, kilometres, finish time).
 * **Limits** - what cannot be exceeded (budget, space, capacity, one job at a time).
 
-Video: https://www.youtube.com/watch?v=4bLPr5Jh78U
+Video: https://www.youtube.com/watch?v=mnAzq0grUt8
 
 Problem types
 =============
