@@ -1,12 +1,14 @@
 import hashlib
 import json
 import logging
+import time
 
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models
-from odoo.exceptions import UserError, ValidationError
+from odoo.exceptions import AccessError, UserError, ValidationError
 from odoo.fields import Command, Domain
+from odoo.tools import config
 from odoo.tools.safe_eval import safe_eval, datetime as safe_datetime, dateutil as safe_dateutil, time as safe_time
 
 from ..tools import linear
@@ -159,8 +161,10 @@ class OrProblem(models.Model):
         [('hours', 'Hours'), ('days', 'Days'), ('weeks', 'Weeks'), ('months', 'Months')],
         string='Interval Unit', default='days')
     schedule_next_date = fields.Datetime(string='Next Run', copy=False)
-    schedule_user_id = fields.Many2one('res.users', string='Run As',
-                                       default=lambda self: self.env.user)
+    schedule_user_id = fields.Many2one('res.users', string='Run As', copy=False,
+                                       default=lambda self: self.env.user,
+                                       help="Scheduled runs read data with this user's access rights. "
+                                            "Only an Optimization Manager can choose another user.")
     schedule_auto_apply = fields.Boolean(
         string='Apply Automatically', groups='operations_research.group_or_manager', copy=False,
         help="Apply results automatically when the solver proves optimality and no record "
@@ -180,6 +184,39 @@ class OrProblem(models.Model):
                                               'The number of solver threads must be positive.')
     _schedule_interval_positive = models.Constraint(
         'CHECK(schedule_interval_number > 0)', 'The schedule interval must be positive.')
+
+    # ------------------------------------------------------------------
+    # Security: scheduled runs must not let a non-manager borrow someone else's rights
+    # ------------------------------------------------------------------
+    def _or_is_manager(self):
+        return self.env.su or self.env.user.has_group('operations_research.group_or_manager')
+
+    def _or_check_schedule_user(self, vals):
+        user_id = vals.get('schedule_user_id')
+        if user_id and user_id != self.env.uid and not self._or_is_manager():
+            raise AccessError(self.env._(
+                "Only an Optimization Manager can make a problem run as another user."))
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            self._or_check_schedule_user(vals)
+        return super().create(vals_list)
+
+    def write(self, vals):
+        self._or_check_schedule_user(vals)
+        res = super().write(vals)
+        if not self._or_is_manager():
+            # A manager approved automatic apply for the configuration they saw; any later
+            # change by a non-manager must be approved again.
+            auto = self.sudo().filtered('schedule_auto_apply')
+            if auto:
+                auto.schedule_auto_apply = False
+                for problem in auto:
+                    problem.message_post(body=self.env._(
+                        "Automatic apply was turned off because %s changed the problem. "
+                        "An Optimization Manager can turn it on again.", self.env.user.name))
+        return res
 
     # ------------------------------------------------------------------
     # Defaults / computes
@@ -457,11 +494,41 @@ class OrProblem(models.Model):
     def _or_signature_fields(self):
         return ['var_field_id', 'assign_field_id']
 
+    def _or_server_time_budget(self):
+        """Seconds a solve may use before the server kills the worker (None = no hard limit).
+
+        Odoo kills a worker after ``limit_time_real`` (``limit_time_real_cron`` for scheduled
+        actions) in multi-worker mode; a killed solve would leave the run stuck.
+        """
+        if not config.get('workers'):
+            return None
+        limit = config.get('limit_time_real') or 0
+        if self.env.context.get('cron_id'):
+            cron_limit = config.get('limit_time_real_cron')
+            if cron_limit is not None and cron_limit >= 0:
+                limit = cron_limit
+        if not limit or limit <= 0:
+            return None
+        return max(5, int(limit * 0.6))
+
+    def _or_effective_time_limit(self):
+        limit = self.time_limit or 30
+        budget = self._or_server_time_budget()
+        return min(limit, max(1, budget // 2)) if budget else limit
+
     def _or_solver_kwargs(self):
         return {
-            'time_limit': self.time_limit or 30,
+            'time_limit': self._or_effective_time_limit(),
             'num_threads': self.num_workers or 1,
         }
+
+    def _or_can_solve_now(self):
+        """Solve inside the web request only when it surely ends before the request limit."""
+        max_seconds = self._default_param('sync_max_seconds', 60)
+        budget = self._or_server_time_budget()
+        if budget:
+            max_seconds = min(max_seconds, budget // 2)
+        return (self.time_limit or 30) <= max_seconds
 
     # ------------------------------------------------------------------
     # Dispatch: templates implement _or_check_<type>, _or_solve_<type>,
@@ -485,6 +552,50 @@ class OrProblem(models.Model):
     def _or_apply(self, run, lines):
         self.ensure_one()
         return self._or_dispatch('_or_apply', run, lines)
+
+    @api.model
+    def _or_kpi(self, name, before, after, better='lower', unit='', has_baseline=True):
+        return {'name': name, 'before': before if has_baseline else 0.0, 'after': after,
+                'better': better, 'unit': unit or False, 'has_baseline': has_baseline}
+
+    def _or_kpi_broken_plan(self, broken):
+        """KPI line telling that the current plan breaks ``broken`` (list of limit names)."""
+        _ = self.env._
+        shown = ', '.join(dict.fromkeys(broken[:5])) + (' …' if len(broken) > 5 else '')
+        kpi = self._or_kpi(_("Limits broken"), len(broken), 0, better='lower')
+        kpi['note'] = _("The current plan breaks %(count)s limit(s) (%(names)s); the proposal respects "
+                        "all of them.", count=len(broken), names=shown)
+        return kpi
+
+    def _or_written_fields(self):
+        """Names of the business fields Apply writes (kept for Undo)."""
+        self.ensure_one()
+        return [name for name in self._or_dispatch('_or_written_fields') if name]
+
+    @api.model
+    def _or_read_values(self, records, names):
+        """{record id: {field: JSON-safe value}} of ``names`` (many2one as id, dates as text)."""
+        result = {}
+        for rec in records:
+            values = {}
+            for name in names:
+                field = rec._fields[name]
+                value = rec[name]
+                if field.type == 'many2one':
+                    value = value.id or False
+                elif field.type in ('date', 'datetime'):
+                    value = field.to_string(value) if value else False
+                elif field.type in ('one2many', 'many2many'):
+                    value = value.ids
+                values[name] = value
+            result[rec.id] = values
+        return result
+
+    def _or_written_fields_lp(self):
+        return [self.var_field_id.name]
+
+    def _or_written_fields_assignment(self):
+        return [self.assign_field_id.name]
 
     def _or_snapshot(self, records):
         """Current values of the written fields: {record_id: str} for conflict detection."""
@@ -568,6 +679,16 @@ class OrProblem(models.Model):
                 'slack': info['slack'],
                 'dual_value': info['dual'],
             })
+        kpis = []
+        if lines:
+            current = {line['res_id']: line['value_before'] for line in lines}
+            broken = self._or_lp_broken_limits(variables, constraints, current)
+            before = sum(line['objective_coef'] * line['value_before'] for line in lines)
+            if broken:
+                kpis.append(self._or_kpi_broken_plan(broken))
+            kpis.append(self._or_kpi(self.env._("Goal value"), before, result['objective'],
+                                     better='higher' if self.objective_sense == 'max' else 'lower',
+                                     has_baseline=not broken))
         conflicts = self.env['or.problem.constraint']
         if result['status'] == linear.INFEASIBLE:
             conflicts, analysis_log = self._or_lp_explain_infeasibility(
@@ -578,8 +699,30 @@ class OrProblem(models.Model):
             'constraint_lines': constraint_lines,
             'conflict_ids': conflicts.ids,
             'log': log,
+            'kpis': kpis,
         })
         return result
+
+    def _or_lp_broken_limits(self, variables, constraints, values):
+        """Names of the limits (and min/max) the given values break."""
+        broken = []
+        bounds_broken = 0
+        for var in variables:
+            value = values.get(var['key'], 0.0)
+            lb = var.get('lb') if var['type'] != 'binary' else 0.0
+            ub = var.get('ub') if var['type'] != 'binary' else 1.0
+            if (lb is not None and value < lb - 1e-6) or (ub is not None and value > ub + 1e-6):
+                bounds_broken += 1
+        if bounds_broken:
+            broken.append(self.env._("minimum/maximum of %s record(s)", bounds_broken))
+        for row in constraints:
+            activity = sum(coef * values.get(key, 0.0) for key, coef in row['coefs'].items())
+            tolerance = 1e-6 * max(1.0, abs(row['rhs']))
+            if ((row['op'] == '<=' and activity > row['rhs'] + tolerance)
+                    or (row['op'] == '>=' and activity < row['rhs'] - tolerance)
+                    or (row['op'] == '=' and abs(activity - row['rhs']) > tolerance)):
+                broken.append(row['name'])
+        return broken
 
     def _or_lp_explain_infeasibility(self, variables, objective, constraints, rows_meta):
         """Find constraint lines whose removal alone restores feasibility."""
@@ -593,8 +736,13 @@ class OrProblem(models.Model):
             log.append(self.env._("Too many constraints to analyse infeasibility automatically."))
             return conflicts, log
         kwargs = self._or_solver_kwargs()
-        kwargs['time_limit'] = min(kwargs['time_limit'], 10)
+        deadline = time.monotonic() + max(kwargs['time_limit'], 10)
         for line_id in line_ids:
+            remaining = deadline - time.monotonic()
+            if remaining < 1:
+                log.append(self.env._("Infeasibility analysis stopped early (time limit)."))
+                break
+            kwargs['time_limit'] = min(10, remaining)
             subset = [c for c in constraints if rows_meta[c['key']]['line_id'] != line_id]
             result = linear.solve_linear(variables, {}, subset, **kwargs)
             if result['status'] in linear.SOLUTION_STATUSES:
@@ -725,7 +873,22 @@ class OrProblem(models.Model):
         unassigned = [line['res_name'] for line in lines if not line['assigned_res_id']]
         if unassigned:
             log.append(self.env._("Left unassigned: %s", ', '.join(unassigned[:20])))
-        result.update({'lines': lines, 'constraint_lines': constraint_lines, 'log': log})
+        kpis = []
+        if lines:
+            current = {task.id: task[fname] for task in tasks}
+            proposed = {task.id: res_by_id.get(result['assignment'][task.id]) for task in tasks}
+            if self.assign_cost_mode != 'constant':
+                with_current = [task for task in tasks if current[task.id]]
+                before = sum(self._or_assignment_cost(task, current[task.id]) for task in with_current)
+                after = sum(self._or_assignment_cost(task, proposed[task.id]) for task in tasks if proposed[task.id])
+                comparable = len(with_current) == len(tasks)
+                kpis.append(self._or_kpi(self.env._("Total value") if maximize else self.env._("Total cost"),
+                                         before, after, better='higher' if maximize else 'lower',
+                                         has_baseline=comparable))
+            kpis.append(self._or_kpi(self.env._("Records assigned"),
+                                     sum(1 for task in tasks if current[task.id]),
+                                     sum(1 for task in tasks if proposed[task.id]), better='higher'))
+        result.update({'lines': lines, 'constraint_lines': constraint_lines, 'log': log, 'kpis': kpis})
         return result
 
     def _or_snapshot_assignment(self, records):
@@ -747,13 +910,19 @@ class OrProblem(models.Model):
     # Actions
     # ------------------------------------------------------------------
     def _or_new_run(self, trigger='manual', user=None):
+        """Create a run in sudo: runs are not user-creatable (see or.run.create)."""
         self.ensure_one()
-        return self.env['or.run'].create({
+        self.check_access('read')
+        if user and user != self.env.user and not (
+                self.env.su or self.env.user.has_group('operations_research.group_or_manager')):
+            raise AccessError(self.env._("Only an Optimization Manager can run a problem as another user."))
+        run = self.env['or.run'].sudo().create({
             'problem_id': self.id,
             'trigger': trigger,
             'user_id': (user or self.env.user).id,
             'company_id': self.company_id.id,
         })
+        return run.sudo(self.env.su)
 
     def action_run(self):
         """Solve now when small, otherwise queue in the background."""
@@ -762,7 +931,7 @@ class OrProblem(models.Model):
         size = self._or_estimate_size()
         self._or_check_size(size)
         run = self._or_new_run()
-        if size <= self._or_sync_max_variables():
+        if size <= self._or_sync_max_variables() and self._or_can_solve_now():
             run._solve()
         else:
             run.action_queue()
@@ -865,8 +1034,8 @@ class OrProblem(models.Model):
             while next_date <= now:
                 next_date = problem._or_next_date(next_date)
             problem.schedule_next_date = next_date
-            run = problem._or_new_run(trigger='scheduled', user=user)
-            run.auto_apply = problem.sudo().schedule_auto_apply
+            run = problem.sudo()._or_new_run(trigger='scheduled', user=user)
+            run.sudo().auto_apply = problem.sudo().schedule_auto_apply
             runs |= run
         if runs:
             runs.action_queue()

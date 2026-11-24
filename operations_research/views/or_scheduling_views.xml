@@ -17,6 +17,10 @@
                             <field name="sched_weight_field_id" options="{'no_create': True, 'no_open': True}"/>
                         </group>
                         <group string="Dates">
+                            <field name="sched_time_mode" widget="radio"/>
+                            <field name="sched_calendar_id" invisible="sched_time_mode != 'calendar'"
+                                   required="problem_type == 'scheduling' and sched_time_mode == 'calendar'"
+                                   options="{'no_create': True}"/>
                             <field name="sched_start_mode" widget="radio" options="{'horizontal': True}"/>
                             <field name="sched_start_date" invisible="sched_start_mode != 'fixed'"
                                    required="problem_type == 'scheduling' and sched_start_mode == 'fixed'"/>

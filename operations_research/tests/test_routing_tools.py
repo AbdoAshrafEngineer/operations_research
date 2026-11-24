@@ -76,3 +76,27 @@ class TestRoutingTools(BaseCase):
         stops = [stop(i, 0.003 * i) for i in range(1, 15)]
         res = solve_vrp(DEPOT, stops, [vehicle('a')], time_limit=1)
         self.assertEqual(len(res['routes']['a']), 14)
+
+
+@tagged('post_install', '-at_install', 'operations_research')
+class TestRoutingDecimals(BaseCase):
+
+    def test_decimal_loads_count(self):
+        stops = [stop(i, 0.01 * i, demand=0.4) for i in range(1, 6)]
+        res = solve_vrp(DEPOT, stops, [vehicle('a', 1.0), vehicle('b', 1.0), vehicle('c', 1.0)], time_limit=2)
+        loads = [round(0.4 * len(route), 3) for route in res['routes'].values()]
+        self.assertTrue(all(load <= 1.0 for load in loads), loads)
+        self.assertEqual(sum(len(r) for r in res['routes'].values()), 5)
+
+    def test_decimal_capacity_exact_fit(self):
+        stops = [stop(1, 0.01, demand=2.5), stop(2, 0.02, demand=2.5)]
+        res = solve_vrp(DEPOT, stops, [vehicle('a', 5.0)], time_limit=1)
+        self.assertEqual(sorted(res['routes']['a']), [1, 2])
+        res = solve_vrp(DEPOT, stops, [vehicle('a', 4.999)], time_limit=1)
+        self.assertEqual(res['status'], 'infeasible')
+
+    def test_invalid_input(self):
+        with self.assertRaises(ValueError):
+            solve_vrp(DEPOT, [stop(1, 0.01, demand=-1)], [vehicle('a', 5)], time_limit=1)
+        with self.assertRaises(ValueError):
+            solve_vrp(DEPOT, [stop(1, 0.01, tw_start=600, tw_end=300)], [vehicle('a')], time_limit=1)

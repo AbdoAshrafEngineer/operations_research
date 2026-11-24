@@ -2,3 +2,85 @@
     font-family: $font-family-monospace;
     white-space: pre-wrap;
 }
+
+// Problem Builder: a roomy dialog, one clear question per screen.
+// One accent (the brand primary) marks where you are; finished steps are calm green with a check;
+// upcoming steps are quiet. Every filled colour carries white text at 4.5:1 contrast or more.
+.modal-dialog:has(.o_or_builder) {
+    max-width: 1000px;
+}
+.o_or_builder {
+    h2 { font-size: 1.6rem; margin-bottom: .25rem; }
+    .o_field_widget[name=question] .o_radio_item { padding-block: .45rem; font-size: 1.1rem; }
+    .o_inner_group .o_cell { padding-top: .35rem; padding-bottom: .35rem; }
+}
+.o_or_builder_steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: 1.25rem;
+}
+.o_or_step {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding-block: .3rem;
+    padding-inline: .35rem .85rem;
+    border-radius: 999px;
+    border: 1px solid #d8dadd;
+    color: #5f6368;
+    background: transparent;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+.o_or_step_num {
+    display: inline-grid;
+    place-items: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background: #eceef0;
+    color: #374151;
+    font-size: .75rem;
+    font-weight: 600;
+}
+.o_or_step_current {
+    background: #714b67;
+    border-color: #714b67;
+    color: #fff;
+    font-weight: 600;
+    .o_or_step_num { background: #fff; color: #714b67; }
+}
+.o_or_step_done {
+    padding-inline-start: .6rem;
+    &::before {
+        content: "\2713";
+        font-weight: 700;
+    }
+    background: #e8f5ee;
+    border-color: #b7dfc8;
+    color: #146c43;
+}
+.o_or_summary_row {
+    display: flex;
+    align-items: baseline;
+    gap: .75rem;
+    margin-bottom: .6rem;
+}
+.o_or_tag {
+    flex: 0 0 auto;
+    min-width: 5.5rem;
+    white-space: nowrap;
+    padding: .2rem .6rem;
+    border-radius: .375rem;
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-align: center;
+    text-transform: uppercase;
+}
+.o_or_tag_decide { background: #714b67; }
+.o_or_tag_goal { background: #146c43; }
+.o_or_tag_limits { background: #8a4b08; }

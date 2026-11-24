@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="or_problem_builder_view_form" model="ir.ui.view">
+        <field name="name">or.problem.builder.form</field>
+        <field name="model">or.problem.builder</field>
+        <field name="arch" type="xml">
+            <form string="Build a Problem" class="o_or_builder" dialog_size="extra-large">
+                <field name="step" invisible="1"/>
+                <field name="model_name" invisible="1"/>
+                <field name="resource_model" invisible="1"/>
+                <field name="vehicle_model" invisible="1"/>
+                <div class="o_or_builder_steps">
+                    <span class="o_or_step o_or_step_current" invisible="step != 'question'"><span class="o_or_step_num">1</span>Question</span>
+                    <span class="o_or_step o_or_step_done" invisible="step not in ['records', 'decide', 'goal', 'limits', 'review']">Question</span>
+                    <span class="o_or_step o_or_step_current" invisible="step != 'records'"><span class="o_or_step_num">2</span>Records</span>
+                    <span class="o_or_step o_or_step_done" invisible="step not in ['decide', 'goal', 'limits', 'review']">Records</span>
+                    <span class="o_or_step o_or_step_todo" invisible="step not in ['question']"><span class="o_or_step_num">2</span>Records</span>
+                    <span class="o_or_step o_or_step_current" invisible="step != 'decide'"><span class="o_or_step_num">3</span>Decide</span>
+                    <span class="o_or_step o_or_step_done" invisible="step not in ['goal', 'limits', 'review']">Decide</span>
+                    <span class="o_or_step o_or_step_todo" invisible="step not in ['question', 'records']"><span class="o_or_step_num">3</span>Decide</span>
+                    <span class="o_or_step o_or_step_current" invisible="step != 'goal'"><span class="o_or_step_num">4</span>Goal</span>
+                    <span class="o_or_step o_or_step_done" invisible="step not in ['limits', 'review']">Goal</span>
+                    <span class="o_or_step o_or_step_todo" invisible="step not in ['question', 'records', 'decide']"><span class="o_or_step_num">4</span>Goal</span>
+                    <span class="o_or_step o_or_step_current" invisible="step != 'limits'"><span class="o_or_step_num">5</span>Limits</span>
+                    <span class="o_or_step o_or_step_done" invisible="step not in ['review']">Limits</span>
+                    <span class="o_or_step o_or_step_todo" invisible="step not in ['question', 'records', 'decide', 'goal']"><span class="o_or_step_num">5</span>Limits</span>
+                    <span class="o_or_step o_or_step_current" invisible="step != 'review'"><span class="o_or_step_num">6</span>Review</span>
+                    <span class="o_or_step o_or_step_todo" invisible="step not in ['question', 'records', 'decide', 'goal', 'limits']"><span class="o_or_step_num">6</span>Review</span>
+                </div>
+
+                <!-- 1. Question -->
+                <div invisible="step != 'question'">
+                    <h2>What should Odoo decide?</h2>
+                    <p class="text-muted">Pick by what Odoo will write on each record.</p>
+                    <field name="question" widget="radio" class="fs-5"/>
+                </div>
+
+                <!-- 2. Records -->
+                <div invisible="step != 'records'">
+                    <h2>Which records?</h2>
+                    <p class="text-muted">The records that get the answer. Filter them if needed.</p>
+                    <group>
+                        <field name="model_id" string="Record Type" options="{'no_create': True, 'no_open': True}"
+                               placeholder="e.g. Work Order, Lead, Transfer, Purchase Order Line"/>
+                        <field name="domain" widget="domain" options="{'model': 'model_name', 'in_dialog': True}"
+                               invisible="not model_id"/>
+                        <field name="record_count" string="Records" invisible="not model_id" class="fw-bold"/>
+                        <field name="name" placeholder="e.g. Next week's workshop plan"/>
+                    </group>
+                </div>
+
+                <!-- 3. Decide -->
+                <div invisible="step != 'decide'">
+                    <h2>What does Odoo fill in?</h2>
+                    <p class="text-muted">Pre-filled from your fields. Change it only if it is wrong.</p>
+                    <group>
+                        <field name="decide_number_id" invisible="question != 'lp'" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="decide_link_id" invisible="question != 'assignment'" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="decide_date_id" invisible="question != 'scheduling'" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="end_field_id" invisible="question != 'scheduling'" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="vehicle_field_id" invisible="question != 'routing'" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="sequence_field_id" invisible="question != 'routing'" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="eta_field_id" invisible="question != 'routing'" options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                </div>
+
+                <!-- 4. Goal -->
+                <div invisible="step != 'goal'">
+                    <h2>What is best?</h2>
+                    <p class="text-muted">How Odoo compares two plans.</p>
+                    <group invisible="question != 'lp'">
+                        <field name="goal_sense" widget="radio"/>
+                        <field name="goal_path" widget="field_selector" options="{'model': 'model_name'}"/>
+                    </group>
+                    <group invisible="question != 'assignment'">
+                        <field name="assign_goal" widget="radio"/>
+                        <field name="res_cost_field_id" invisible="assign_goal != 'cost'" options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                    <group invisible="question != 'scheduling'">
+                        <field name="sched_goal" widget="radio"/>
+                        <field name="deadline_field_id" options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                    <group invisible="question != 'routing'">
+                        <div colspan="2" class="mb-2">The goal is built in: <strong>the fewest kilometres</strong>.</div>
+                        <field name="route_balance"/>
+                    </group>
+                </div>
+
+                <!-- 5. Limits -->
+                <div invisible="step != 'limits'">
+                    <h2>What must stay true?</h2>
+                    <p class="text-muted">Your real-world rules: money, capacity, time.</p>
+                    <div invisible="question != 'lp'">
+                        <group>
+                            <field name="whole_units"/>
+                            <field name="max_mode" widget="radio"/>
+                            <field name="max_field_id" invisible="max_mode != 'field'" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <field name="limit_ids">
+                            <list editable="bottom">
+                                <field name="model_name" column_invisible="1"/>
+                                <field name="name" placeholder="e.g. Budget"/>
+                                <field name="coef_path" widget="field_selector" options="{'model': 'model_name'}"/>
+                                <field name="operator"/>
+                                <field name="rhs_value"/>
+                            </list>
+                        </field>
+                        <p class="text-muted small">Example: Budget · Unit Price · at most · 30,000</p>
+                    </div>
+                    <group invisible="question != 'assignment'">
+                        <field name="capacity_field_id" options="{'no_create': True, 'no_open': True}"
+                               placeholder="empty = one record each"/>
+                        <field name="load_field_id" invisible="not capacity_field_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="resource_domain" widget="domain" options="{'model': 'resource_model', 'in_dialog': True}"
+                               invisible="not resource_model"/>
+                        <field name="assign_all"/>
+                    </group>
+                    <group invisible="question != 'scheduling'">
+                        <field name="duration_field_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="duration_unit"/>
+                        <field name="resource_field_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="predecessor_field_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="working_hours"/>
+                        <field name="calendar_id" invisible="not working_hours" options="{'no_create': True}"/>
+                    </group>
+                    <group invisible="question != 'routing'">
+                        <field name="partner_field_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="demand_field_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="vehicle_capacity"/>
+                        <field name="vehicle_count" invisible="vehicle_field_id"/>
+                        <field name="vehicle_domain" widget="domain" options="{'model': 'vehicle_model', 'in_dialog': True}"
+                               invisible="not vehicle_field_id"/>
+                        <field name="vehicle_match_count" string="Vehicles" invisible="not vehicle_field_id"/>
+                    </group>
+                </div>
+
+                <!-- 6. Review -->
+                <div invisible="step != 'review'">
+                    <h2>Ready. Here is your plan in plain words</h2>
+                    <field name="summary" class="fs-5"/>
+                    <p class="text-muted">Next: Check Setup, then Solve. Nothing changes until you Apply.</p>
+                </div>
+
+                <footer>
+                    <button name="action_back" type="object" string="Back" class="btn-secondary" invisible="step == 'question'"/>
+                    <button name="action_next" type="object" string="Next" class="btn-primary" invisible="step == 'review'"/>
+                    <button name="action_create" type="object" string="Create Problem" class="btn-primary" invisible="step != 'review'"/>
+                    <button string="Cancel" special="cancel" class="btn-link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="or_problem_builder_action" model="ir.actions.act_window">
+        <field name="name">Build a Problem</field>
+        <field name="res_model">or.problem.builder</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'dialog_size': 'extra-large'}</field>
+    </record>
+</odoo>

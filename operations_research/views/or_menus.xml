@@ -5,6 +5,10 @@
               groups="operations_research.group_or_user"/>
     <menuitem id="or_menu_problems" name="Problems" parent="or_menu_root" sequence="10"
               action="or_problem_action"/>
+    <menuitem id="or_menu_builder" name="Build a Problem" parent="or_menu_root" sequence="12"
+              action="or_problem_builder_action" groups="operations_research.group_or_designer"/>
+    <menuitem id="or_menu_templates" name="Templates" parent="or_menu_root" sequence="15"
+              action="or_template_action"/>
     <menuitem id="or_menu_runs" name="Runs" parent="or_menu_root" sequence="20"
               action="or_run_action"/>
     <menuitem id="or_menu_config" name="Configuration" parent="or_menu_root" sequence="90"

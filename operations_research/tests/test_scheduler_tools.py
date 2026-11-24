@@ -71,3 +71,35 @@ class TestSchedulerTools(BaseCase):
         self.assertEqual(find_cycle({1: [2], 2: [3], 3: [1]})[0], find_cycle({1: [2], 2: [3], 3: [1]})[-1])
         self.assertEqual(find_cycle({1: [1]}), [1, 1])
         self.assertIsNone(find_cycle({1: [42]}))
+
+
+@tagged('post_install', '-at_install', 'operations_research')
+class TestSchedulerTieBreak(BaseCase):
+
+    def test_jobs_off_the_critical_path_start_early(self):
+        res = solve_schedule([task(1, 60, 'm'), task(2, 60, 'm'), task(3, 10), task(4, 5, 'x')], time_limit=5)
+        self.assertEqual(res['objective'], 120)
+        self.assertEqual((res['starts'][3], res['starts'][4]), (0, 0))
+
+    def test_tardiness_keeps_on_time_jobs_early(self):
+        res = solve_schedule([task(1, 30, 'm', deadline=30), task(2, 10, deadline=500)],
+                             objective='tardiness', time_limit=5)
+        self.assertEqual(res['objective'], 0)
+        self.assertEqual(res['starts'][2], 0)
+
+    def test_tiny_weights_are_not_lost(self):
+        res = solve_schedule([task(1, 60, 'm', deadline=60, weight=0.001),
+                              task(2, 60, 'm', deadline=60, weight=0.002)],
+                             objective='tardiness', time_limit=5)
+        self.assertEqual(res['ends'][2], 60, "the heavier job goes first even with tiny weights")
+
+    def test_negative_input_rejected(self):
+        with self.assertRaises(ValueError):
+            solve_schedule([task(1, -5)])
+        with self.assertRaises(ValueError):
+            solve_schedule([task(1, 5, weight=-1)])
+
+    def test_empty_and_zero_duration(self):
+        self.assertEqual(solve_schedule([])['status'], 'optimal')
+        res = solve_schedule([task(1, 0, 'm'), task(2, 30, 'm')], time_limit=5)
+        self.assertEqual(res['objective'], 30)

@@ -107,7 +107,10 @@ class OrProblem(models.Model):
             raise UserError(self.env._("Choose at least one field to write the routes to "
                                        "(vehicle, stop order or arrival time)."))
         if self.route_vehicle_field_id and any(not v.target_ref for v in self.route_vehicle_ids.filtered('active')):
-            raise UserError(self.env._("Link every vehicle to a record to write the vehicle field."))
+            raise UserError(self.env._(
+                "Link every vehicle to a record to write the vehicle field: in the Vehicles tab, choose "
+                "who each vehicle is (for example the driver), because that is what will be written "
+                "on the records."))
         if self.route_departure_mode == 'fixed' and not self.route_departure_date:
             raise UserError(self.env._("Choose the departure date."))
 
@@ -121,20 +124,24 @@ class OrProblem(models.Model):
             return partner.partner_latitude, partner.partner_longitude
         return record[self.route_lat_field_id.name], record[self.route_lng_field_id.name]
 
-    def _or_solve_routing(self, run):
-        records = self._or_get_records()
-        vehicles = self.route_vehicle_ids.filtered('active')
-        self._or_check_size(len(records) * len(vehicles))
-        depot = self.route_depot_id
-        if not self._or_has_location(depot.partner_latitude, depot.partner_longitude):
-            raise UserError(self.env._("The depot %s has no geolocation.", depot.display_name))
-        departure = (self.route_departure_date if self.route_departure_mode == 'fixed'
-                     else fields.Datetime.now()).replace(microsecond=0)
+    def _or_route_departure(self):
+        return (self.route_departure_date if self.route_departure_mode == 'fixed'
+                else fields.Datetime.now()).replace(microsecond=0)
+
+    def _or_route_build_stops(self, records, departure):
+        """Solver stops for ``records``; also used by Check Setup."""
         stops, missing, log = [], [], []
         for rec in records:
             lat, lng = self._or_route_location(rec)
             if not self._or_has_location(lat, lng):
-                missing.append(rec.display_name)
+                label = rec.display_name
+                if self.route_location_mode == 'partner':
+                    partner = rec[self.route_partner_field_id.name]
+                    if not partner:
+                        label = self.env._("%s (no contact)", label)
+                    elif partner.display_name != label:
+                        label = '%s (%s)' % (label, partner.display_name)
+                missing.append(label)
                 continue
             stop = {'key': rec.id, 'lat': lat, 'lng': lng,
                     'demand': self._or_num(rec, self.route_demand_field_id, 0.0),
@@ -147,17 +154,65 @@ class OrProblem(models.Model):
             if stop['tw_end'] is not None and stop['tw_end'] < 0:
                 log.append(self.env._("%s: delivery window already closed at departure.", rec.display_name))
             stops.append(stop)
+        return stops, missing, log
+
+    def _or_route_check_stops(self, stops, vehicles, names, log):
+        """Explain in business words what would make the routing impossible, before solving."""
+        negative = [names[s['key']] for s in stops if s['demand'] < 0]
+        if negative:
+            raise UserError(self.env._(
+                "The load cannot be negative for: %s. Pickups and deliveries on the same route "
+                "are not supported; plan them as separate problems.", ', '.join(negative[:10])))
+        bad_windows = [names[s['key']] for s in stops if s['tw_start'] is not None
+                       and s['tw_end'] is not None and s['tw_end'] < s['tw_start']]
+        if bad_windows:
+            raise UserError(self.env._(
+                "The delivery window ends before it starts for: %s.", ', '.join(bad_windows[:10])))
+        if any(not v.capacity for v in vehicles):
+            return  # at least one vehicle has no capacity limit
+        biggest = max(vehicles.mapped('capacity'))
+        too_big = [names[s['key']] for s in stops if s['demand'] > biggest + 1e-9]
+        total = sum(s['demand'] for s in stops)
+        capacity = sum(vehicles.mapped('capacity'))
+        if too_big:
+            message = self.env._(
+                "These stops need more than the biggest vehicle carries (%(cap)s): %(names)s.",
+                cap=round(biggest, 3), names=', '.join(too_big[:10]))
+            if not self.route_allow_drop:
+                raise UserError(message + ' ' + self.env._(
+                    "Split the order, add a bigger vehicle or allow skipping stops."))
+            log.append(message)
+        if total > capacity + 1e-9:
+            message = self.env._(
+                "Total load %(load)s is more than all vehicles together carry (%(cap)s).",
+                load=round(total, 3), cap=round(capacity, 3))
+            if not self.route_allow_drop:
+                raise UserError(message + ' ' + self.env._(
+                    "Add vehicles, raise capacities or allow skipping stops."))
+            log.append(message)
+
+    def _or_solve_routing(self, run):
+        records = self._or_get_records()
+        vehicles = self.route_vehicle_ids.filtered('active')
+        self._or_check_size(len(records) * len(vehicles))
+        depot = self.route_depot_id
+        if not self._or_has_location(depot.partner_latitude, depot.partner_longitude):
+            raise UserError(self.env._("The depot %s has no geolocation.", depot.display_name))
+        departure = self._or_route_departure()
+        stops, missing, log = self._or_route_build_stops(records, departure)
         if missing:
             raise UserError(self.env._(
                 "No geolocation for: %s. Geolocate the contacts (latitude/longitude) first.",
                 ', '.join(missing[:10])))
+        names = {rec.id: rec.display_name for rec in records}
+        self._or_route_check_stops(stops, vehicles, names, log)
         vehicle_data = [{'key': v.id, 'capacity': v.capacity,
                          'max_distance_m': int(v.max_distance_km * 1000)} for v in vehicles]
         result = routing.solve_vrp(
             (depot.partner_latitude, depot.partner_longitude), stops, vehicle_data,
             road_factor=self.route_road_factor or 1.3, speed_kmh=self.route_speed_kmh or 40.0,
             allow_drop=self.route_allow_drop, drop_penalty=int(self.route_drop_penalty_km * 1000),
-            balance=self.route_balance, time_limit=self.time_limit,
+            balance=self.route_balance, time_limit=self._or_effective_time_limit(),
             use_time=bool(self.route_eta_field_id))
         snapshot = self._or_snapshot_routing(records)
         by_id = {rec.id: rec for rec in records}
@@ -180,12 +235,56 @@ class OrProblem(models.Model):
                 log.append(self.env._("%(vehicle)s: %(stops)s stop(s), %(km)s km",
                                       vehicle=vehicle_by_id[vehicle_id].name,
                                       stops=len(result['routes'][vehicle_id]), km=round(km, 1)))
-        elif result['status'] == linear.INFEASIBLE:
+        elif result['status'] in (linear.INFEASIBLE, linear.NOT_SOLVED):
             log.append(self.env._("No route plan fits the capacities, distances and time windows. "
                                   "Add vehicles, relax windows, or allow skipping stops."))
+            if not self.route_allow_drop and stops:
+                # diagnosis: let the solver skip stops at a very high price; the skipped ones
+                # are the stops that cannot be served together with the others
+                probe = routing.solve_vrp(
+                    (depot.partner_latitude, depot.partner_longitude), stops, vehicle_data,
+                    road_factor=self.route_road_factor or 1.3, speed_kmh=self.route_speed_kmh or 40.0,
+                    allow_drop=True, drop_penalty=routing.BIG, balance=False,
+                    time_limit=min(self._or_effective_time_limit(), 10), use_time=bool(self.route_eta_field_id))
+                if probe['dropped']:
+                    log.append(self.env._("These stops cannot fit: %s",
+                                          ', '.join(by_id[r].display_name for r in probe['dropped'][:20])))
+        kpis = []
+        if lines:
+            kpis = self._or_route_kpis(records, stops, vehicles, depot, result)
         result.update({'lines': lines, 'constraint_lines': [], 'log': log,
-                       'departure': departure})
+                       'departure': departure, 'kpis': kpis})
         return result
+
+    def _or_route_kpis(self, records, stops, vehicles, depot, result):
+        """Kilometres of the routes the records have now (vehicle + stop order) vs the proposal."""
+        _ = self.env._
+        served_after = sum(len(route) for route in result['routes'].values())
+        kpis = []
+        before_km, served_before, comparable = 0.0, 0, False
+        if self.route_vehicle_field_id:
+            by_target = {v.target_ref.id: v for v in vehicles if v.target_ref}
+            location = {stop['key']: (stop['lat'], stop['lng']) for stop in stops}
+            current = {}
+            for rec in records:
+                value = rec[self.route_vehicle_field_id.name]
+                vehicle = by_target.get(value.id) if value else None
+                if vehicle and rec.id in location:
+                    order = (rec[self.route_sequence_field_id.name] if self.route_sequence_field_id else 0,
+                             rec[self.route_eta_field_id.name] or fields.Datetime.now()
+                             if self.route_eta_field_id else 0, rec.id)
+                    current.setdefault(vehicle.id, []).append((order, rec.id))
+            factor = self.route_road_factor or 1.3
+            home = (depot.partner_latitude, depot.partner_longitude)
+            for stops_of_vehicle in current.values():
+                path = [home] + [location[key] for _order, key in sorted(stops_of_vehicle)] + [home]
+                before_km += sum(routing.haversine_km(*a, *b) * factor for a, b in zip(path, path[1:]))
+                served_before += len(stops_of_vehicle)
+            comparable = served_before > 0 and served_before >= served_after
+            kpis.append(self._or_kpi(_("Stops served"), served_before, served_after, better='higher'))
+        kpis.insert(0, self._or_kpi(_("Kilometres"), round(before_km, 1), round(result['objective'], 1),
+                                    unit=_("km"), has_baseline=comparable))
+        return kpis
 
     def _or_route_line(self, rec, snapshot, vehicle, sequence, eta, leg_km):
         before_vehicle = rec[self.route_vehicle_field_id.name] if self.route_vehicle_field_id else None
@@ -209,6 +308,10 @@ class OrProblem(models.Model):
                                 else rec.display_name),
             'snapshot': snapshot[rec.id],
         }
+
+    def _or_written_fields_routing(self):
+        return [self.route_vehicle_field_id.name, self.route_sequence_field_id.name,
+                self.route_eta_field_id.name]
 
     def _or_snapshot_routing(self, records):
         names = [f.name for f in (self.route_vehicle_field_id, self.route_sequence_field_id,
