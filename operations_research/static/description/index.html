@@ -1,214 +1,283 @@
-<section class="oe_container" style="padding:24px 0;">
-  <div class="oe_row oe_spaced" style="max-width:1100px;margin:auto;">
-    <h1 style="font-size:40px;font-weight:700;color:#1f2330;text-align:center;margin-bottom:6px;">
-      Operations Research for Odoo
-    </h1>
-    <h3 style="text-align:center;color:#714B67;font-weight:500;margin-top:0;">
-      The best plan, from the data you already have. Powered by Google OR-Tools.
-    </h3>
-    <p style="text-align:center;font-size:17px;color:#4a4f5c;max-width:820px;margin:18px auto;">
-      How much to buy, which van takes which delivery, in which order the workshop runs its jobs.
-      Most companies answer these questions by hand or by habit. This app finds the best answer
-      on your own Odoo records, shows you what would change, and writes it back only when you approve.
+<!-- ============ HERO ============ -->
+<section class="oe_container" style="padding:48px 16px 24px;font-family:Inter,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <div class="oe_row" style="max-width:1080px;margin:auto;text-align:center;">
+    <p style="margin:0 0 14px;">
+      <span style="display:inline-block;background:#f3eef2;color:#714B67;font-size:13px;font-weight:600;letter-spacing:.06em;padding:6px 14px;border-radius:999px;">ODOO 19 &amp; 20 &nbsp;&middot;&nbsp; COMMUNITY &amp; ENTERPRISE &nbsp;&middot;&nbsp; ENGLISH / العربية</span>
     </p>
-    <div style="text-align:center;margin:26px 0 8px;">
-      <a href="https://www.youtube.com/watch?v=4bLPr5Jh78U" target="_blank">
-        <img src="video_thumbnail.png" alt="Watch the video on YouTube" style="max-width:100%;border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.18);"/>
-      </a>
-      <p style="margin-top:10px;font-size:16px;">
-        <a href="https://www.youtube.com/watch?v=4bLPr5Jh78U" target="_blank"><b>&#9654; Watch the 13-minute video on YouTube</b></a>:
-        3 real examples (purchasing, delivery routes, manufacturing) and how the math works, in simple words.
-      </p>
-    </div>
-    <div style="text-align:center;margin:26px 0 8px;">
-      <img src="banner.png" alt="Operations Research for Odoo" style="max-width:100%;border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.18);"/>
-    </div>
+    <h1 style="font-size:44px;line-height:1.15;font-weight:800;color:#1f2330;margin:0 0 14px;">
+      Stop guessing. Get the <span style="color:#714B67;">best plan</span><br/>from the Odoo data you already have.
+    </h1>
+    <p style="font-size:19px;line-height:1.6;color:#5f6368;max-width:760px;margin:0 auto 26px;">
+      How much to buy, who takes each job, when each job starts, which van drives which route.
+      Answer six plain questions, and Odoo finds the best answer, shows you the gain, and changes nothing until you approve.
+    </p>
+    <img src="banner.png" alt="Operations Research for Odoo: +27% sales, -44% km, -38% workshop time" style="max-width:100%;border-radius:14px;box-shadow:0 18px 48px rgba(31,35,48,.22);"/>
   </div>
 </section>
 
-<section class="oe_container" style="padding:24px 0;background:#f7f5f8;">
-  <div class="oe_row" style="max-width:1100px;margin:auto;">
-    <h2 style="text-align:center;font-weight:700;color:#1f2330;">Every plan has three parts</h2>
-    <p style="text-align:center;color:#4a4f5c;font-size:16px;">You describe them once, with field pickers. Odoo does the math.</p>
+<!-- ============ THE NEED ============ -->
+<section class="oe_container" style="padding:44px 16px;background:#faf8fa;font-family:Inter,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <div class="oe_row" style="max-width:1080px;margin:auto;">
+    <p style="text-align:center;font-size:13px;font-weight:700;letter-spacing:.1em;color:#c0504d;margin:0 0 6px;">THE PROBLEM</p>
+    <h2 style="text-align:center;font-size:32px;font-weight:800;color:#1f2330;margin:0 0 8px;">Four decisions, every day, made by guessing</h2>
+    <p style="text-align:center;font-size:17px;color:#5f6368;max-width:720px;margin:0 auto 26px;">
+      There are millions of combinations, and no spreadsheet checks them all. The loss is invisible: no invoice shows it,
+      and it repeats every single day.
+    </p>
     <table style="width:100%;border-collapse:separate;border-spacing:14px;">
       <tr>
-        <td style="width:33%;vertical-align:top;background:#fff;border-radius:10px;border-top:6px solid #714B67;padding:20px;">
-          <b style="color:#714B67;font-size:18px;">DECIDE</b>
-          <p style="margin:8px 0 0;color:#333;">What you choose: a quantity, a person, a start date, a vehicle&hellip; any field of any model.</p>
+        <td style="width:25%;vertical-align:top;background:#fff;border:1px solid #ece8ee;border-top:4px solid #714B67;border-radius:12px;padding:20px;">
+          <div style="font-size:18px;font-weight:700;color:#1f2330;">How much to buy?</div>
+          <div style="font-size:15px;color:#5f6368;margin-top:6px;">Frozen cash in stock, or empty shelves.</div>
         </td>
-        <td style="width:33%;vertical-align:top;background:#fff;border-radius:10px;border-top:6px solid #21a067;padding:20px;">
-          <b style="color:#21a067;font-size:18px;">GOAL</b>
-          <p style="margin:8px 0 0;color:#333;">What you want most: more revenue, lower cost, fewer kilometres, finish earlier.</p>
+        <td style="width:25%;vertical-align:top;background:#fff;border:1px solid #ece8ee;border-top:4px solid #2e7fb4;border-radius:12px;padding:20px;">
+          <div style="font-size:18px;font-weight:700;color:#1f2330;">Who does what?</div>
+          <div style="font-size:15px;color:#5f6368;margin-top:6px;">One team drowning, another waiting.</div>
         </td>
-        <td style="width:33%;vertical-align:top;background:#fff;border-radius:10px;border-top:6px solid #e08a2c;padding:20px;">
-          <b style="color:#e08a2c;font-size:18px;">LIMITS</b>
-          <p style="margin:8px 0 0;color:#333;">What you can't go beyond: budget, space, capacity, one job at a time, time windows.</p>
+        <td style="width:25%;vertical-align:top;background:#fff;border:1px solid #ece8ee;border-top:4px solid #e08a2c;border-radius:12px;padding:20px;">
+          <div style="font-size:18px;font-weight:700;color:#1f2330;">When does each job start?</div>
+          <div style="font-size:15px;color:#5f6368;margin-top:6px;">Idle machines, then late orders.</div>
+        </td>
+        <td style="width:25%;vertical-align:top;background:#fff;border:1px solid #ece8ee;border-top:4px solid #21a067;border-radius:12px;padding:20px;">
+          <div style="font-size:18px;font-weight:700;color:#1f2330;">Which route?</div>
+          <div style="font-size:15px;color:#5f6368;margin-top:6px;">Wasted fuel, missed time windows.</div>
         </td>
       </tr>
     </table>
+    <p style="text-align:center;font-size:17px;color:#1f2330;margin:18px 0 0;">
+      An optimization solver finds the best plan in seconds, but it used to need a specialist.
+      <b style="color:#714B67;">This app removes that barrier.</b>
+    </p>
   </div>
 </section>
 
-<section class="oe_container" style="padding:24px 0;background:#f7f5f8;">
-  <div class="oe_row" style="max-width:1100px;margin:auto;">
-    <h2 style="text-align:center;font-weight:700;color:#1f2330;">New: build any problem in six questions</h2>
-    <p style="text-align:center;color:#4a4f5c;font-size:16px;">
-      <b>Build a Problem</b> asks one plain question per screen and pre-fills every answer from your own fields.
-      No technical form to learn.
+<!-- ============ HOW IT WORKS ============ -->
+<section class="oe_container" style="padding:48px 16px;font-family:Inter,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <div class="oe_row" style="max-width:1080px;margin:auto;">
+    <p style="text-align:center;font-size:13px;font-weight:700;letter-spacing:.1em;color:#714B67;margin:0 0 6px;">HOW IT WORKS</p>
+    <h2 style="text-align:center;font-size:32px;font-weight:800;color:#1f2330;margin:0 0 8px;">Say it in one sentence. Answer six questions.</h2>
+    <p style="text-align:center;font-size:17px;color:#5f6368;max-width:760px;margin:0 auto 26px;">
+      <i>&ldquo;Odoo should write the quantity on each purchase line, to get the most sales value, while staying inside the budget.&rdquo;</i><br/>
+      <b>Build a Problem</b> turns that sentence into a ready problem. Every answer is pre-filled from your own field names.
     </p>
-    <table style="width:100%;border-collapse:separate;border-spacing:12px;">
+    <table style="width:100%;border-collapse:separate;border-spacing:10px;">
+      <tr>
+        <td style="width:16.6%;text-align:center;vertical-align:top;padding:14px 6px;background:#faf8fa;border-radius:12px;">
+          <div style="display:inline-block;width:34px;height:34px;line-height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;">1</div>
+          <div style="font-weight:700;color:#1f2330;margin-top:8px;">Question</div><div style="font-size:13px;color:#5f6368;">How much, who, when or which route</div>
+        </td>
+        <td style="width:16.6%;text-align:center;vertical-align:top;padding:14px 6px;background:#faf8fa;border-radius:12px;">
+          <div style="display:inline-block;width:34px;height:34px;line-height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;">2</div>
+          <div style="font-weight:700;color:#1f2330;margin-top:8px;">Records</div><div style="font-size:13px;color:#5f6368;">Which records get the answer</div>
+        </td>
+        <td style="width:16.6%;text-align:center;vertical-align:top;padding:14px 6px;background:#faf8fa;border-radius:12px;">
+          <div style="display:inline-block;width:34px;height:34px;line-height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;">3</div>
+          <div style="font-weight:700;color:#1f2330;margin-top:8px;">Decide</div><div style="font-size:13px;color:#5f6368;">The field Odoo fills in</div>
+        </td>
+        <td style="width:16.6%;text-align:center;vertical-align:top;padding:14px 6px;background:#faf8fa;border-radius:12px;">
+          <div style="display:inline-block;width:34px;height:34px;line-height:34px;border-radius:50%;background:#146c43;color:#fff;font-weight:700;">4</div>
+          <div style="font-weight:700;color:#1f2330;margin-top:8px;">Goal</div><div style="font-size:13px;color:#5f6368;">What &ldquo;best&rdquo; means</div>
+        </td>
+        <td style="width:16.6%;text-align:center;vertical-align:top;padding:14px 6px;background:#faf8fa;border-radius:12px;">
+          <div style="display:inline-block;width:34px;height:34px;line-height:34px;border-radius:50%;background:#8a4b08;color:#fff;font-weight:700;">5</div>
+          <div style="font-weight:700;color:#1f2330;margin-top:8px;">Limits</div><div style="font-size:13px;color:#5f6368;">What must stay true</div>
+        </td>
+        <td style="width:16.6%;text-align:center;vertical-align:top;padding:14px 6px;background:#faf8fa;border-radius:12px;">
+          <div style="display:inline-block;width:34px;height:34px;line-height:34px;border-radius:50%;background:#2e7fb4;color:#fff;font-weight:700;">6</div>
+          <div style="font-weight:700;color:#1f2330;margin-top:8px;">Review</div><div style="font-size:13px;color:#5f6368;">Your plan in plain words</div>
+        </td>
+      </tr>
+    </table>
+    <table style="width:100%;border-collapse:separate;border-spacing:14px;margin-top:10px;">
       <tr>
         <td style="width:50%;vertical-align:top;">
-          <p style="color:#333;"><b>1. What should Odoo decide?</b> A quantity, a person or team, a start date, or a route.</p>
-          <img src="screenshots/builder_question.jpg" alt="Build a Problem: the question" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/>
+          <img src="screenshots/builder_question.jpg" alt="Build a Problem: the first question" style="max-width:100%;border:1px solid #e6e3ea;border-radius:12px;box-shadow:0 8px 24px rgba(31,35,48,.10);"/>
+          <p style="font-size:14px;color:#5f6368;text-align:center;margin:8px 0 0;">One plain question per screen</p>
         </td>
         <td style="width:50%;vertical-align:top;">
-          <p style="color:#333;"><b>6. Your plan in plain words</b>: decide, goal and limits, before anything is created.</p>
-          <img src="screenshots/builder_review.jpg" alt="Build a Problem: the review" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/>
-        </td>
-      </tr>
-    </table>
-    <h3 style="color:#714B67;margin-top:24px;">Or start from 19 ready-made templates</h3>
-    <p style="color:#333;">Delivery routes, workshop plan, leads to sales teams, purchase budget, maintenance, project tasks and more,
-      built on standard Odoo fields. A missing app or field is listed, never a crash.</p>
-    <img src="screenshots/templates.jpg" alt="Templates" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/>
-    <table style="width:100%;border-collapse:separate;border-spacing:12px;margin-top:12px;">
-      <tr>
-        <td style="width:50%;vertical-align:top;">
-          <h3 style="color:#146c43;">Check Setup before you solve</h3>
-          <p style="color:#333;">What must be fixed, what to check and what is ready, in plain words.</p>
-          <img src="screenshots/check_setup.jpg" alt="Check Setup" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/>
-        </td>
-        <td style="width:50%;vertical-align:top;">
-          <h3 style="color:#8a4b08;">See the gain, apply some lines, undo</h3>
-          <p style="color:#333;">The proposal is compared with your current plan. Apply all or only the lines you choose,
-            and undo an apply at any time.</p>
-          <img src="screenshots/benefit.jpg" alt="Benefit compared with the current plan" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/>
+          <img src="screenshots/builder_review.jpg" alt="Build a Problem: the review" style="max-width:100%;border:1px solid #e6e3ea;border-radius:12px;box-shadow:0 8px 24px rgba(31,35,48,.10);"/>
+          <p style="font-size:14px;color:#5f6368;text-align:center;margin:8px 0 0;">Your plan in plain words, before anything is created</p>
         </td>
       </tr>
     </table>
   </div>
 </section>
 
-<section class="oe_container" style="padding:24px 0;">
-  <div class="oe_row" style="max-width:1100px;margin:auto;">
-    <h2 style="text-align:center;font-weight:700;color:#1f2330;">Three real examples, three departments</h2>
-    <p style="text-align:center;color:#4a4f5c;">Recorded on standard Odoo apps with a sample trading company. No custom code.</p>
-
-    <h3 style="color:#714B67;margin-top:28px;">1. Sales &amp; Purchase: how much should we buy?</h3>
-    <p style="color:#333;font-size:16px;">
-      Customers ordered 12 products. You have SAR 150,000 and 25&nbsp;m&sup3; of free space.
-      <b>Decide</b> the quantity on each RFQ line, <b>goal</b>: cover the most sales revenue,
-      <b>limits</b>: budget, warehouse space, never more than the sales need.
-    </p>
-    <p style="font-size:20px;"><b style="color:#21a067;">+27% sales covered</b> from the same budget
-      (SAR 254,325 vs 199,800 when buying down the list).</p>
-    <img src="screenshots/purchase_limits.jpg" alt="Purchase plan limits" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/>
-    <img src="screenshots/purchase_results.jpg" alt="Purchase plan results" style="max-width:100%;border:1px solid #ddd;border-radius:8px;margin-top:14px;"/>
-
-    <h3 style="color:#21a067;margin-top:36px;">2. Inventory &amp; Logistics: plan tomorrow's deliveries</h3>
-    <p style="color:#333;font-size:16px;">
-      18 delivery orders, 3 vans of 1,200&nbsp;kg. <b>Decide</b> which van takes each delivery and the order of stops,
-      <b>goal</b>: fewest kilometres, <b>limits</b>: van capacity, start and end at the warehouse.
-      Distances come from your contacts' map coordinates.
-    </p>
-    <p style="font-size:20px;"><b style="color:#21a067;">-44% driving</b> (225 km vs 405 km planned by hand), about 54,000 SAR a year in fuel and wear.</p>
-    <img src="screenshots/delivery_map.jpg" alt="Delivery routes on a map" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/>
-
-    <h3 style="color:#e08a2c;margin-top:36px;">3. Manufacturing: plan the workshop</h3>
-    <p style="color:#333;font-size:16px;">
-      6 manufacturing orders, 24 work orders on 4 work centers. <b>Decide</b> the start and end of every work order,
-      <b>goal</b>: finish everything as early as possible, <b>limits</b>: one job at a time per work center,
-      each step waits for the one before it.
-    </p>
-    <p style="font-size:20px;"><b style="color:#21a067;">-38% time</b>: everything done in 11.1 hours instead of 17.8 (first come, first served).</p>
-    <img src="screenshots/scheduling_setup.jpg" alt="Scheduling setup" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/>
-    <img src="screenshots/workshop_gantt.jpg" alt="Workshop Gantt" style="max-width:100%;border:1px solid #ddd;border-radius:8px;margin-top:14px;"/>
-
-    <p style="margin-top:28px;color:#333;font-size:16px;">
-      <b>The same three parts work everywhere:</b> which sales orders to deliver first when stock is short,
-      which vendor to buy each product from, which vendor bills to pay this week with the cash you have,
-      who teaches which class, which project to fund&hellip; on standard or custom models.
-    </p>
-  </div>
-</section>
-
-<section class="oe_container" style="padding:24px 0;background:#f7f5f8;">
-  <div class="oe_row" style="max-width:1100px;margin:auto;">
-    <h2 style="text-align:center;font-weight:700;color:#1f2330;">Learn it inside Odoo</h2>
-    <p style="text-align:center;color:#333;font-size:16px;">
-      The same narrated video is included in the module and plays from <b>Operations Research &gt; Tutorials</b>,
-      next to 7 interactive guided tours that open the real screens and point at each button.
-      Also on <a href="https://www.youtube.com/watch?v=4bLPr5Jh78U" target="_blank">YouTube</a>.
-    </p>
-    <div style="text-align:center;">
-      <img src="screenshots/tutorials.jpg" alt="Tutorials and guided tours" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/>
-    </div>
-  </div>
-</section>
-
-<section class="oe_container" style="padding:24px 0;">
-  <div class="oe_row" style="max-width:1100px;margin:auto;">
-    <h2 style="text-align:center;font-weight:700;color:#1f2330;">Features</h2>
-    <table style="width:100%;border-collapse:separate;border-spacing:12px;font-size:15px;color:#333;">
+<!-- ============ START FAST, STAY SAFE ============ -->
+<section class="oe_container" style="padding:48px 16px;background:#faf8fa;font-family:Inter,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <div class="oe_row" style="max-width:1080px;margin:auto;">
+    <p style="text-align:center;font-size:13px;font-weight:700;letter-spacing:.1em;color:#714B67;margin:0 0 6px;">START FAST, STAY IN CONTROL</p>
+    <h2 style="text-align:center;font-size:32px;font-weight:800;color:#1f2330;margin:0 0 26px;">From template to approved plan, safely</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:14px;">
       <tr>
-        <td style="vertical-align:top;width:50%;">
-          <ul>
-            <li><b>Works on any model</b>: Sales, Purchase, Inventory, Manufacturing, Accounting, HR or your own addons.</li>
-            <li><b>Build a Problem</b>: six plain questions, every field pre-filled from your data.</li>
-            <li><b>19 templates</b> and <b>Check Setup</b>: start fast, and know what is missing before solving.</li>
-            <li><b>No-code builder</b>: field pickers, domains and values that follow links (e.g. <i>Product &gt; Sales Price</i>).</li>
-            <li><b>Four problem types</b>: linear / integer programs, assignment, scheduling (CP-SAT), vehicle routing.</li>
-            <li><b>Review, then apply</b>: see current vs proposed values and the gain; apply some lines; undo an apply; conflicts are detected if records changed meanwhile.</li>
-            <li><b>Working hours</b>: schedules respect your working calendar and public holidays.</li>
-            <li><b>Why not?</b> When no plan fits, the app names the limits that clash.</li>
-            <li><b>Sensitivity</b>: which limit is the bottleneck and how much one more unit is worth.</li>
-          </ul>
+        <td style="width:33%;vertical-align:top;background:#fff;border:1px solid #ece8ee;border-radius:12px;padding:18px;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#714B67;">STEP 1</div>
+          <div style="font-size:19px;font-weight:700;color:#1f2330;margin:4px 0 6px;">19 ready-made templates</div>
+          <div style="font-size:15px;color:#5f6368;margin-bottom:12px;">Deliveries, workshop, leads, purchase budget, maintenance, project tasks&hellip; on standard Odoo fields.</div>
+          <img src="screenshots/templates.jpg" alt="Templates" style="max-width:100%;border:1px solid #e6e3ea;border-radius:10px;"/>
         </td>
-        <td style="vertical-align:top;width:50%;">
-          <ul>
-            <li><b>Scenarios</b>: copy a problem, change a limit, compare results side by side.</li>
-            <li><b>Background queue</b> for big problems, <b>scheduled runs</b> with optional auto-apply.</li>
-            <li><b>Gantt</b> for schedules and a <b>map</b> for routes (no external map service needed).</li>
-            <li><b>Dashboard</b>: runs, success rate, items waiting for approval.</li>
-            <li><b>Security</b>: User / Designer / Manager roles, multi-company rules; runs use the user's own access rights.</li>
-            <li><b>English and Arabic (RTL)</b>, fully translated.</li>
-            <li><b>Developer plugins</b>: add your own problem type in a small addon (<code>selection_add</code> + <code>_or_solve_&lt;type&gt;</code> / <code>_or_apply_&lt;type&gt;</code>); it gets the queue, review, apply and security for free.</li>
-          </ul>
+        <td style="width:33%;vertical-align:top;background:#fff;border:1px solid #ece8ee;border-radius:12px;padding:18px;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#146c43;">STEP 2</div>
+          <div style="font-size:19px;font-weight:700;color:#1f2330;margin:4px 0 6px;">Check Setup</div>
+          <div style="font-size:15px;color:#5f6368;margin-bottom:12px;">What must be fixed, what to check and what is ready, in plain words, before you solve.</div>
+          <img src="screenshots/check_setup.jpg" alt="Check Setup" style="max-width:100%;border:1px solid #e6e3ea;border-radius:10px;"/>
+        </td>
+        <td style="width:33%;vertical-align:top;background:#fff;border:1px solid #ece8ee;border-radius:12px;padding:18px;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#8a4b08;">STEP 3</div>
+          <div style="font-size:19px;font-weight:700;color:#1f2330;margin:4px 0 6px;">See the gain, then apply</div>
+          <div style="font-size:15px;color:#5f6368;margin-bottom:12px;">Current plan vs proposal. Apply all or some lines, and undo at any time.</div>
+          <img src="screenshots/benefit.jpg" alt="Gain compared with the current plan" style="max-width:100%;border:1px solid #e6e3ea;border-radius:10px;"/>
         </td>
       </tr>
     </table>
-    <table style="width:100%;border-collapse:separate;border-spacing:12px;">
+  </div>
+</section>
+
+<!-- ============ PROOF ============ -->
+<section class="oe_container" style="padding:48px 16px;font-family:Inter,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <div class="oe_row" style="max-width:1080px;margin:auto;">
+    <p style="text-align:center;font-size:13px;font-weight:700;letter-spacing:.1em;color:#714B67;margin:0 0 6px;">REAL RESULTS</p>
+    <h2 style="text-align:center;font-size:32px;font-weight:800;color:#1f2330;margin:0 0 8px;">Three departments, standard Odoo apps, no custom code</h2>
+    <p style="text-align:center;font-size:17px;color:#5f6368;margin:0 0 30px;">A sample trading company, compared with the plan made by hand.</p>
+
+    <table style="width:100%;border-collapse:separate;border-spacing:0 0;margin-bottom:30px;">
       <tr>
-        <td style="width:50%;"><img src="screenshots/scenarios.jpg" alt="Scenario comparison" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/></td>
-        <td style="width:50%;"><img src="screenshots/sensitivity.jpg" alt="Sensitivity analysis" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/></td>
+        <td style="width:40%;vertical-align:top;padding-right:24px;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#714B67;">SALES &amp; PURCHASE</div>
+          <div style="font-size:22px;font-weight:700;color:#1f2330;margin:4px 0 8px;">How much should we buy?</div>
+          <div style="font-size:15px;color:#5f6368;line-height:1.6;">12 ordered products, SAR 150,000 and 25&nbsp;m&sup3; of space. Odoo sets the quantity on each RFQ line to cover the most sales.</div>
+          <div style="margin-top:14px;font-size:30px;font-weight:800;color:#146c43;">+27% <span style="font-size:15px;font-weight:500;color:#5f6368;">sales covered (SAR 254,325 vs 199,800)</span></div>
+        </td>
+        <td style="width:60%;vertical-align:top;"><img src="screenshots/purchase_results.jpg" alt="Purchase plan results" style="max-width:100%;border:1px solid #e6e3ea;border-radius:12px;box-shadow:0 8px 24px rgba(31,35,48,.10);"/></td>
       </tr>
+    </table>
+
+    <table style="width:100%;border-collapse:separate;border-spacing:0 0;margin-bottom:30px;">
       <tr>
-        <td style="width:50%;"><img src="screenshots/dashboard.jpg" alt="Dashboard" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/></td>
-        <td style="width:50%;"><img src="screenshots/arabic_rtl.jpg" alt="Arabic interface" style="max-width:100%;border:1px solid #ddd;border-radius:8px;"/></td>
+        <td style="width:60%;vertical-align:top;"><img src="screenshots/delivery_map.jpg" alt="Delivery routes on a map" style="max-width:100%;border:1px solid #e6e3ea;border-radius:12px;box-shadow:0 8px 24px rgba(31,35,48,.10);"/></td>
+        <td style="width:40%;vertical-align:top;padding-left:24px;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#21a067;">INVENTORY &amp; LOGISTICS</div>
+          <div style="font-size:22px;font-weight:700;color:#1f2330;margin:4px 0 8px;">Plan tomorrow's deliveries</div>
+          <div style="font-size:15px;color:#5f6368;line-height:1.6;">18 deliveries, 3 vans of 1,200&nbsp;kg. Odoo picks the van and the order of stops, from your contacts' map coordinates.</div>
+          <div style="margin-top:14px;font-size:30px;font-weight:800;color:#146c43;">&minus;44% <span style="font-size:15px;font-weight:500;color:#5f6368;">driving (225 km vs 405 km)</span></div>
+        </td>
+      </tr>
+    </table>
+
+    <table style="width:100%;border-collapse:separate;border-spacing:0 0;">
+      <tr>
+        <td style="width:40%;vertical-align:top;padding-right:24px;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#e08a2c;">MANUFACTURING</div>
+          <div style="font-size:22px;font-weight:700;color:#1f2330;margin:4px 0 8px;">Plan the workshop</div>
+          <div style="font-size:15px;color:#5f6368;line-height:1.6;">24 work orders on 4 work centers, inside working hours. One job at a time per machine, each step waits for the one before.</div>
+          <div style="margin-top:14px;font-size:30px;font-weight:800;color:#146c43;">&minus;38% <span style="font-size:15px;font-weight:500;color:#5f6368;">time (11.1 h vs 17.8 h)</span></div>
+        </td>
+        <td style="width:60%;vertical-align:top;"><img src="screenshots/workshop_gantt.jpg" alt="Workshop plan on a Gantt chart" style="max-width:100%;border:1px solid #e6e3ea;border-radius:12px;box-shadow:0 8px 24px rgba(31,35,48,.10);"/></td>
+      </tr>
+    </table>
+
+    <p style="text-align:center;font-size:16px;color:#1f2330;margin:30px auto 0;max-width:820px;">
+      <b>The same method works everywhere:</b> which orders to deliver first when stock is short, which vendor to buy from,
+      which bills to pay this week, who teaches which class, which project to fund, on standard or custom models.
+    </p>
+  </div>
+</section>
+
+<!-- ============ VIDEO ============ -->
+<section class="oe_container" style="padding:48px 16px;background:#1f2330;font-family:Inter,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <div class="oe_row" style="max-width:1080px;margin:auto;">
+    <table style="width:100%;border-collapse:collapse;">
+      <tr>
+        <td style="width:45%;vertical-align:middle;padding-right:28px;">
+          <p style="font-size:13px;font-weight:700;letter-spacing:.1em;color:#f5b041;margin:0 0 6px;">WATCH &amp; LEARN</p>
+          <h2 style="font-size:30px;font-weight:800;color:#fff;margin:0 0 10px;">See it run in 13 minutes</h2>
+          <p style="font-size:16px;color:#c9c5d2;line-height:1.6;margin:0 0 18px;">
+            Three real examples and the math in simple words. The same video and 7 guided tours are built in,
+            under <b style="color:#fff;">Operations Research &gt; Tutorials</b>.
+          </p>
+          <a href="https://www.youtube.com/watch?v=4bLPr5Jh78U" target="_blank" style="display:inline-block;background:#714B67;color:#fff;font-weight:700;padding:12px 22px;border-radius:10px;text-decoration:none;">&#9654;&nbsp; Watch on YouTube</a>
+        </td>
+        <td style="width:55%;vertical-align:middle;">
+          <a href="https://www.youtube.com/watch?v=4bLPr5Jh78U" target="_blank"><img src="video_thumbnail.png" alt="Watch the video on YouTube" style="max-width:100%;border-radius:12px;box-shadow:0 18px 48px rgba(0,0,0,.45);"/></a>
+        </td>
       </tr>
     </table>
   </div>
 </section>
 
-<section class="oe_container" style="padding:24px 0;background:#f7f5f8;">
-  <div class="oe_row" style="max-width:1100px;margin:auto;color:#333;font-size:15px;">
-    <h2 style="text-align:center;font-weight:700;color:#1f2330;">Installation</h2>
-    <ol>
-      <li>Install the solver library on the Odoo server: <code>pip install "ortools&gt;=9.10,&lt;10"</code></li>
-      <li>Copy <code>operations_research</code> to your addons path, update the Apps list and install <b>Operations Research</b>.</li>
-      <li>Give users a role in <i>Settings &gt; Users</i>: <b>User</b> (solve and review), <b>Designer</b> (build problems), <b>Manager</b> (apply and configure).</li>
-      <li>Open <b>Operations Research &gt; Tutorials</b> and start the <i>Welcome</i> guided tour.</li>
-    </ol>
-    <h3 style="font-weight:700;color:#1f2330;">Good to know</h3>
-    <ul>
-      <li>Depends only on <code>base</code>, <code>mail</code> and <code>web</code>: Community and Enterprise, on-premise or Odoo.sh (custom modules with Python requirements are not available on Odoo Online).</li>
-      <li>Road distances are estimated from map coordinates (straight line &times; a road factor you set); no paid map API.</li>
-      <li>Very large problems run in the background with a time limit; the best plan found so far is kept.</li>
-    </ul>
-    <p style="text-align:center;margin-top:20px;">
-      Questions, setup or a custom optimization for your company:
-      <a href="https://edu-abdelrahman-ashraf.odoo.com" target="_blank">edu-abdelrahman-ashraf.odoo.com</a>
+<!-- ============ FEATURES ============ -->
+<section class="oe_container" style="padding:48px 16px;font-family:Inter,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <div class="oe_row" style="max-width:1080px;margin:auto;">
+    <p style="text-align:center;font-size:13px;font-weight:700;letter-spacing:.1em;color:#714B67;margin:0 0 6px;">EVERYTHING INCLUDED</p>
+    <h2 style="text-align:center;font-size:32px;font-weight:800;color:#1f2330;margin:0 0 26px;">Built for real operations</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:14px;font-size:15px;color:#5f6368;line-height:1.5;">
+      <tr>
+        <td style="width:33%;vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">Any model</b><br/>Sales, Purchase, Inventory, Manufacturing, Accounting, HR or your own addons.</td>
+        <td style="width:33%;vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">Four problem types</b><br/>Linear &amp; integer programs, assignment, scheduling (CP-SAT), vehicle routing.</td>
+        <td style="width:33%;vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">No code</b><br/>Field pickers, domains and values that follow links, e.g. <i>Product &gt; Sales Price</i>.</td>
+      </tr>
+      <tr>
+        <td style="vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">Review before apply</b><br/>Current vs proposed values, partial apply, undo, and conflict detection.</td>
+        <td style="vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">Working hours</b><br/>Schedules respect your working calendar and public holidays.</td>
+        <td style="vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">&ldquo;Why not?&rdquo;</b><br/>When no plan fits, the app names the limits that clash.</td>
+      </tr>
+      <tr>
+        <td style="vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">Sensitivity &amp; scenarios</b><br/>Find the bottleneck, then compare what-if copies side by side.</td>
+        <td style="vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">Gantt &amp; map</b><br/>Schedules on a Gantt, routes on a map, no paid map service.</td>
+        <td style="vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">Background &amp; scheduled runs</b><br/>Queue for big problems, recurring runs with optional auto-apply.</td>
+      </tr>
+      <tr>
+        <td style="vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">Secure by design</b><br/>User / Designer / Manager roles, multi-company rules, user's own access rights.</td>
+        <td style="vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">English &amp; Arabic</b><br/>Fully translated, right-to-left ready.</td>
+        <td style="vertical-align:top;padding:16px;border:1px solid #ece8ee;border-radius:12px;"><b style="color:#1f2330;font-size:16px;">Extensible</b><br/>Add your own problem type in a small addon; it inherits queue, review, apply and security.</td>
+      </tr>
+    </table>
+    <table style="width:100%;border-collapse:separate;border-spacing:14px;margin-top:6px;">
+      <tr>
+        <td style="width:50%;"><img src="screenshots/dashboard.jpg" alt="Dashboard" style="max-width:100%;border:1px solid #e6e3ea;border-radius:12px;"/></td>
+        <td style="width:50%;"><img src="screenshots/sensitivity.jpg" alt="Sensitivity analysis" style="max-width:100%;border:1px solid #e6e3ea;border-radius:12px;"/></td>
+      </tr>
+      <tr>
+        <td style="width:50%;"><img src="screenshots/scenarios.jpg" alt="Scenario comparison" style="max-width:100%;border:1px solid #e6e3ea;border-radius:12px;"/></td>
+        <td style="width:50%;"><img src="screenshots/arabic_rtl.jpg" alt="Arabic right-to-left interface" style="max-width:100%;border:1px solid #e6e3ea;border-radius:12px;"/></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ INSTALL ============ -->
+<section class="oe_container" style="padding:48px 16px;background:#faf8fa;font-family:Inter,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <div class="oe_row" style="max-width:1080px;margin:auto;">
+    <h2 style="text-align:center;font-size:32px;font-weight:800;color:#1f2330;margin:0 0 26px;">Up and running in 4 steps</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:14px;font-size:15px;color:#5f6368;">
+      <tr>
+        <td style="width:25%;vertical-align:top;background:#fff;border:1px solid #ece8ee;border-radius:12px;padding:18px;">
+          <div style="font-size:24px;font-weight:800;color:#714B67;">1</div><b style="color:#1f2330;">Install OR-Tools</b><br/><code style="font-size:13px;">pip install "ortools&gt;=9.10,&lt;10"</code>
+        </td>
+        <td style="width:25%;vertical-align:top;background:#fff;border:1px solid #ece8ee;border-radius:12px;padding:18px;">
+          <div style="font-size:24px;font-weight:800;color:#714B67;">2</div><b style="color:#1f2330;">Install the app</b><br/>Add it to your addons path and install <b>Operations Research</b>.
+        </td>
+        <td style="width:25%;vertical-align:top;background:#fff;border:1px solid #ece8ee;border-radius:12px;padding:18px;">
+          <div style="font-size:24px;font-weight:800;color:#714B67;">3</div><b style="color:#1f2330;">Give roles</b><br/>User (solve), Designer (build), Manager (apply) in <i>Settings &gt; Users</i>.
+        </td>
+        <td style="width:25%;vertical-align:top;background:#fff;border:1px solid #ece8ee;border-radius:12px;padding:18px;">
+          <div style="font-size:24px;font-weight:800;color:#714B67;">4</div><b style="color:#1f2330;">Build a Problem</b><br/>Or open <i>Tutorials</i> and start the Welcome tour.
+        </td>
+      </tr>
+    </table>
+    <p style="font-size:14px;color:#5f6368;text-align:center;max-width:860px;margin:12px auto 0;line-height:1.6;">
+      Depends only on <code>base</code>, <code>mail</code>, <code>web</code> and <code>resource</code>. Community and Enterprise, on-premise or Odoo.sh
+      (Odoo Online does not allow custom Python libraries). Road distances are estimated from map coordinates; no paid API.
+      Large problems run in the background with a time limit and keep the best plan found.
     </p>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="oe_container" style="padding:44px 16px;font-family:Inter,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <div class="oe_row" style="max-width:820px;margin:auto;text-align:center;background:#714B67;border-radius:16px;padding:34px 24px;">
+    <h2 style="font-size:28px;font-weight:800;color:#fff;margin:0 0 8px;">Need help or a custom optimization?</h2>
+    <p style="font-size:16px;color:#eadfe7;margin:0 0 20px;">Setup, training, or a model built for your company, in English or Arabic.</p>
+    <a href="https://edu-abdelrahman-ashraf.odoo.com" target="_blank" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;">Contact Abdelrahman Ashraf</a>
   </div>
 </section>
